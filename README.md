@@ -21,7 +21,7 @@ npm run dev
 # Starts on http://localhost:3000
 ```
 
-## ðŸ“¦ Build for Production
+## Build for Production
 ```bash
 npm run build
 npm run start
