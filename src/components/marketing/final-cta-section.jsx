@@ -186,23 +186,23 @@ export function RichFooter() {
             </div>
             <ul className="space-y-2 text-[11px]">
               <li>
-                <Link href={getAppUrl("/signup")} className="hover:text-white transition-colors">
+                <Link href="/about" className="hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  Contact Sales
-                </a>
-              </li>
-              <li>
-                <Link href={getAdminUrl("/dashboard")} className="hover:text-white transition-colors">
-                  Super Admin Portal
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact Sales &amp; Demo
                 </Link>
               </li>
               <li>
-                <Link href={getPartnersUrl("/referral")} className="hover:text-white transition-colors">
-                  Affiliate Program
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  WhatsApp Support
+                </a>
+              </li>
+              <li>
+                <Link href="/features" className="hover:text-white transition-colors">
+                  Feature Tour
                 </Link>
               </li>
             </ul>
@@ -215,22 +215,22 @@ export function RichFooter() {
             </div>
             <ul className="space-y-2 text-[11px]">
               <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">
+                <Link href="/help-center" className="hover:text-white transition-colors">
                   Help Center &amp; Docs
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">
+                <Link href="/privacy-policy" className="hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">
+                <Link href="/terms-of-service" className="hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">
+                <Link href="/refund-policy" className="hover:text-white transition-colors">
                   Refund &amp; Cancellation
                 </Link>
               </li>
@@ -241,19 +241,19 @@ export function RichFooter() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 text-center sm:text-left">
           <div>
-            Â© 2026 SmoothSales.ai Technologies Pvt Ltd. All rights reserved.
+            © 2026 SmoothSales.ai Technologies Pvt Ltd. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
-            <Link href="/pricing" className="hover:text-slate-300 transition-colors">
+            <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
               Privacy Policy
             </Link>
-            <span>â€¢</span>
-            <Link href="/pricing" className="hover:text-slate-300 transition-colors">
+            <span>•</span>
+            <Link href="/terms-of-service" className="hover:text-slate-300 transition-colors">
               Terms of Service
             </Link>
-            <span>â€¢</span>
-            <Link href="/pricing" className="hover:text-slate-300 transition-colors">
-              Security
+            <span>•</span>
+            <Link href="/refund-policy" className="hover:text-slate-300 transition-colors">
+              Refund Policy
             </Link>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Sun, Moon, Menu, X, Sparkles, Kanban, Users, Shield, Zap } from "lucide-react";
+import { ArrowRight, Sun, Moon, Menu, X, Sparkles, Kanban, Users, Shield, Zap, Info, Layers, BookOpen, Tag, PlaySquare, PhoneCall } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { getAppUrl, getAdminUrl, getPartnersUrl } from "@/lib/constants";
@@ -56,42 +56,65 @@ export function MarketingNavbar() {
         </Link>
 
         {/* Center Nav Links (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-6 text-[13px] font-semibold text-slate-600 dark:text-[#A0A0B8]">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-slate-600 dark:text-[#A0A0B8]">
+          <Link
+            href="/about"
+            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+          >
+            About
+          </Link>
+
+          <Link
+            href="/features"
+            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+          >
+            Features
+          </Link>
+
+          <Link
+            href="/help-center"
+            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+          >
+            Knowledge Base
+          </Link>
+
           <Link
             href="/pricing"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
           >
-            Pricing &amp; Plans
+            Pricing
           </Link>
 
           <Link
-            href="/#problem-fix"
-            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
-          >
-            How It Works
-          </Link>
-
-          <Link
-            href={getAppUrl("/dashboard")}
+            href="/demo"
             className="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1.5 py-1"
           >
-            <span>Live CRM Demo</span>
+            <span>Demo</span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
           </Link>
 
           <Link
-            href={getPartnersUrl("/white-label")}
+            href="/contact"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
           >
-            Partners Portal
+            Contact
           </Link>
 
-          <Link
-            href={getAdminUrl("/dashboard")}
-            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
-          >
+          {/* Commented out previous cross-service links as requested:
+          <Link href="/#problem-fix" className="hover:text-slate-900 dark:hover:text-white transition-colors py-1">
+            How It Works
+          </Link>
+          <Link href={getAppUrl("/dashboard")} className="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1.5 py-1">
+            <span>Live CRM Demo</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
+          </Link>
+          <Link href={getPartnersUrl("/white-label")} className="hover:text-slate-900 dark:hover:text-white transition-colors py-1">
+            Partners Portal
+          </Link>
+          <Link href={getAdminUrl("/dashboard")} className="hover:text-slate-900 dark:hover:text-white transition-colors py-1">
             Super Admin
           </Link>
+          */}
         </nav>
 
         {/* Action CTAs & Theme Toggle */}
@@ -159,52 +182,83 @@ export function MarketingNavbar() {
             </div>
 
             <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            >
+              <span>About</span>
+              <Info className="h-3.5 w-3.5 text-cyan-500" />
+            </Link>
+
+            <Link
+              href="/features"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            >
+              <span>Features</span>
+              <Layers className="h-3.5 w-3.5 text-purple-500" />
+            </Link>
+
+            <Link
+              href="/help-center"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            >
+              <span>Knowledge Base</span>
+              <BookOpen className="h-3.5 w-3.5 text-blue-500" />
+            </Link>
+
+            <Link
               href="/pricing"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
             >
-              <span>Pricing &amp; Plans</span>
-              <span className="text-xs text-primary dark:text-cyan-400 font-mono font-bold">From â‚¹10,399</span>
+              <span>Pricing</span>
+              <Tag className="h-3.5 w-3.5 text-amber-500" />
             </Link>
 
             <Link
-              href="/#problem-fix"
+              href="/demo"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
             >
+              <div className="flex items-center gap-2">
+                <span>Demo</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              </div>
+              <PlaySquare className="h-3.5 w-3.5 text-emerald-500" />
+            </Link>
+
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            >
+              <span>Contact</span>
+              <PhoneCall className="h-3.5 w-3.5 text-rose-500" />
+            </Link>
+
+            {/* Commented out previous cross-service links as requested:
+            <Link href="/#problem-fix" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
               <span>How It Works</span>
               <Zap className="h-3.5 w-3.5 text-amber-500" />
             </Link>
-
-            <Link
-              href={getAppUrl("/dashboard")}
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
-            >
+            <Link href={getAppUrl("/dashboard")} onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
               <div className="flex items-center gap-2">
                 <span>Live CRM Demo</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               </div>
               <Kanban className="h-3.5 w-3.5 text-primary" />
             </Link>
-
-            <Link
-              href={getPartnersUrl("/white-label")}
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
-            >
+            <Link href={getPartnersUrl("/white-label")} onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
               <span>Partners Portal</span>
               <Users className="h-3.5 w-3.5 text-blue-500" />
             </Link>
-
-            <Link
-              href={getAdminUrl("/dashboard")}
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
-            >
+            <Link href={getAdminUrl("/dashboard")} onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
               <span>Super Admin Portal</span>
               <Shield className="h-3.5 w-3.5 text-purple-500" />
             </Link>
+            */}
           </div>
 
           {/* Mobile Actions */}
