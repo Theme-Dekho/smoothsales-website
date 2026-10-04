@@ -13,8 +13,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getAppUrl } from "@/lib/constants";
+import { useLeadModal } from "./lead-modal-context";
 
 export function Hero() {
+  const { openLeadModal } = useLeadModal();
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-3 lg:py-2 overflow-hidden">
       {/* Ambient light glow spheres */}
@@ -104,15 +106,15 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/pricing" className="w-full sm:w-auto">
-              <Button
-                variant="outline"
-                size="default"
-                className="w-full sm:w-auto h-12 px-6 text-xs sm:text-sm font-semibold rounded-xl border border-slate-300/80 dark:border-white/15 bg-white/80 dark:bg-white/[0.05] text-slate-800 dark:text-white hover:bg-slate-100/90 dark:hover:bg-white/10 active:scale-[0.98] transition-all font-heading shadow-2xs"
-              >
-                Book a Demo
-              </Button>
-            </Link>
+            <Button
+              onClick={() => openLeadModal("hero_cta")}
+              variant="outline"
+              size="default"
+              className="w-full sm:w-auto h-12 px-6 text-xs sm:text-sm font-semibold rounded-xl border border-slate-300/80 dark:border-white/15 bg-white/80 dark:bg-white/[0.05] text-slate-800 dark:text-white hover:bg-slate-100/90 dark:hover:bg-white/10 active:scale-[0.98] transition-all font-heading shadow-2xs cursor-pointer gap-2"
+            >
+              <Calendar className="h-4 w-4 text-primary" />
+              <span>Book a Demo</span>
+            </Button>
           </motion.div>
 
           {/* Trust checkmarks row with clean badge styling */}

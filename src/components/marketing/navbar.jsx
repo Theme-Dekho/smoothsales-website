@@ -6,8 +6,10 @@ import { ArrowRight, Sun, Moon, Menu, X, Sparkles, Kanban, Users, Shield, Zap, I
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { getAppUrl, getAdminUrl, getPartnersUrl } from "@/lib/constants";
+import { useLeadModal } from "./lead-modal-context";
 
 export function MarketingNavbar() {
+  const { openLeadModal } = useLeadModal();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
@@ -145,6 +147,16 @@ export function MarketingNavbar() {
             </Button>
           </Link>
 
+          {/* Book Demo (Desktop) */}
+          <Button
+            onClick={() => openLeadModal("navbar_desktop")}
+            variant="outline"
+            size="sm"
+            className="hidden md:inline-flex h-8 sm:h-9 px-3.5 text-xs font-semibold rounded-full border-primary/30 text-primary hover:bg-primary/10 transition-all cursor-pointer"
+          >
+            <span>Book Demo</span>
+          </Button>
+
           {/* Start Free Trial */}
           <Link href={getAppUrl("/signup")}>
             <Button
@@ -263,6 +275,18 @@ export function MarketingNavbar() {
 
           {/* Mobile Actions */}
           <div className="space-y-2 pt-1">
+            <Button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openLeadModal("navbar_mobile");
+              }}
+              variant="outline"
+              className="w-full h-10 text-xs font-bold rounded-xl border-primary/40 text-primary hover:bg-primary/10 gap-2 cursor-pointer"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Book Live 1-on-1 Demo</span>
+            </Button>
+
             <Link
               href={getAppUrl("/login")}
               onClick={() => setMobileMenuOpen(false)}

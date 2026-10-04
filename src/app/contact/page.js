@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import { RichFooter } from "@/components/marketing/final-cta-section";
 import { getAppUrl } from "@/lib/constants";
 import { toast } from "sonner";
+import { trackLeadSubmission } from "@/lib/tracking";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -44,6 +45,11 @@ export default function ContactPage() {
     }
 
     setIsSubmitting(true);
+    trackLeadSubmission({
+      source: "contact_page_form",
+      vertical: formData.company || "contact_inquiry",
+      teamSize: formData.volume,
+    });
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);

@@ -2,12 +2,15 @@
 
 import React from "react";
 import Link from "next/link";
-import { MessageCircle, ArrowRight, Sparkles } from "lucide-react";
+import { MessageCircle, ArrowRight, Sparkles, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getAppUrl, getAdminUrl, getPartnersUrl } from "@/lib/constants";
+import { useLeadModal } from "./lead-modal-context";
+import { trackClickWhatsApp } from "@/lib/tracking";
 
 export function FinalCta() {
-  const whatsappNumber = "919876543210";
+  const { openLeadModal } = useLeadModal();
+  const whatsappNumber = "919820145892";
   const whatsappMessage = encodeURIComponent(
     "Hi SmoothSales team, I'd like to see a demo of SmoothSales.ai for my sales team."
   );
@@ -57,11 +60,12 @@ export function FinalCta() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackClickWhatsApp("final_cta")}
             className="w-full sm:w-auto"
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto h-12 sm:h-11 px-6 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-[#25D366] to-[#1EBE5D] hover:from-[#20ba59] hover:to-[#199d4d] text-white shadow-md shadow-[#25D366]/20 gap-2 font-heading active:scale-[0.98] transition-all"
+              className="w-full sm:w-auto h-12 sm:h-11 px-6 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-[#25D366] to-[#1EBE5D] hover:from-[#20ba59] hover:to-[#199d4d] text-white shadow-md shadow-[#25D366]/20 gap-2 font-heading active:scale-[0.98] transition-all cursor-pointer"
             >
               <MessageCircle className="h-4 w-4 fill-white stroke-none" />
               WhatsApp Us
@@ -69,15 +73,15 @@ export function FinalCta() {
           </a>
 
           {/* CTA 3: Outline Book a Demo */}
-          <Link href="/pricing" className="w-full sm:w-auto">
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full sm:w-auto h-12 sm:h-11 px-6 text-xs sm:text-sm font-semibold rounded-xl border border-white/20 bg-white/[0.06] text-white hover:bg-white/10 active:scale-[0.98] transition-all font-heading shadow-2xs"
-            >
-              Book a Demo
-            </Button>
-          </Link>
+          <Button
+            onClick={() => openLeadModal("final_cta")}
+            variant="outline"
+            size="lg"
+            className="w-full sm:w-auto h-12 sm:h-11 px-6 text-xs sm:text-sm font-semibold rounded-xl border border-white/20 bg-white/[0.06] text-white hover:bg-white/10 active:scale-[0.98] transition-all font-heading shadow-2xs cursor-pointer gap-2"
+          >
+            <Calendar className="h-4 w-4 text-cyan-400" />
+            <span>Book a Demo</span>
+          </Button>
         </div>
 
         <p className="text-[11px] text-white/40 pt-1">

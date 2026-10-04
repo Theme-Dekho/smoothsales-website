@@ -26,6 +26,7 @@ import { Input } from "@/components/ui/input";
 import { RichFooter } from "@/components/marketing/final-cta-section";
 import { getAppUrl } from "@/lib/constants";
 import { toast } from "sonner";
+import { trackLeadSubmission } from "@/lib/tracking";
 
 export default function DemoPage() {
   const [activeTab, setActiveTab] = useState("simulator");
@@ -70,6 +71,11 @@ export default function DemoPage() {
       return;
     }
     setIsSubmitting(true);
+    trackLeadSubmission({
+      source: "demo_page_form",
+      vertical: formData.vertical,
+      teamSize: formData.teamSize,
+    });
     setTimeout(() => {
       setIsSubmitting(false);
       setDemoBooked(true);
