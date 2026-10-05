@@ -195,6 +195,14 @@ export function RichFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/partners" className="hover:text-white transition-colors flex items-center gap-1.5 text-cyan-400">
+                  <span>Become a Partner</span>
+                  <span className="text-[9px] px-1 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono font-bold">
+                    35% Payout
+                  </span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
                   Contact Sales &amp; Demo
                 </Link>
