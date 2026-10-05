@@ -144,7 +144,8 @@ export function MarketingNavbar() {
           </button>
 
           {/* Sign In (Desktop) */}
-          <Link href={getAppUrl("/login")} className="hidden sm:inline-block">
+          {/* <Link href={getAppUrl("/login")} className="hidden sm:inline-block"> */}
+          <Link href="/sign-in" className="hidden sm:inline-block">
             <Button
               variant="ghost"
               size="sm"
@@ -177,7 +178,8 @@ export function MarketingNavbar() {
           </Button>
 
           {/* Start Free Trial */}
-          <Link href={getAppUrl("/signup")}>
+          {/* <Link href={getAppUrl("/signup")}> */}
+          <Link href="/sign-up">
             <Button
               size="sm"
               className="h-8 sm:h-9.5 px-3 sm:px-5 text-xs sm:text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-md shadow-primary/25 hover:scale-105 transition-all gap-1.5 sm:gap-2 font-heading"
@@ -335,7 +337,7 @@ export function MarketingNavbar() {
             </Button>
 
             <Link
-              href={getAppUrl("/login")}
+              href="/sign-in"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full block"
             >
@@ -348,7 +350,7 @@ export function MarketingNavbar() {
             </Link>
 
             <Link
-              href={getAppUrl("/signup")}
+              href="/sign-up"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full block"
             >
