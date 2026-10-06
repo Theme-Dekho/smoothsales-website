@@ -55,7 +55,7 @@ export function Hero() {
             <h1 className="text-[28px] sm:text-4xl lg:text-[42px] xl:text-[48px] font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.14] sm:leading-[1.08]">
               Run every lead, every channel,
               <span className="block mt-0.5 sm:mt-1">
-                every partner â€”{" "}
+                every partner {" "}
                 <span className="relative inline-block bg-gradient-to-r from-sky-500 via-primary to-cyan-500 dark:from-sky-400 dark:via-cyan-300 dark:to-indigo-300 bg-clip-text text-transparent">
                   in one place.
                   <svg
@@ -86,7 +86,7 @@ export function Hero() {
             transition={{ duration: 0.45, delay: 0.15, ease: "easeOut" }}
             className="text-xs sm:text-base text-slate-600 dark:text-[#A0A0B0] max-w-xl mx-auto lg:mx-0 leading-relaxed px-1 sm:px-0"
           >
-            Calls, WhatsApp, and follow-ups in one place â€” with sub-60s automated
+            Calls, WhatsApp, and follow-ups in one place with sub-60s automated
             lead routing and transparent partner commission ledgers, built for how Indian sales teams actually close.
           </motion.p>
 
@@ -286,7 +286,7 @@ export function Hero() {
                       </div>
                       <div>
                         <div className="text-[9.5px] font-bold text-white leading-tight">
-                          Broker Split Â· Apex Realty
+                          Broker Split. Apex Realty
                         </div>
                         <div className="text-[7.5px] text-white/50">
                           â‚¹18,500 TDS verified

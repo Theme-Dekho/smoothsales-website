@@ -12,8 +12,7 @@ export function MarketingNavbar() {
   const { openLeadModal } = useLeadModal();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { setTheme, resolvedTheme } = useTheme();
-
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 25) {
@@ -25,19 +24,30 @@ export function MarketingNavbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  // const { setTheme, resolvedTheme } = useTheme();
+  // const isDark = resolvedTheme === "dark";
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const isDark = resolvedTheme === "dark";
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <div
-      className={`fixed inset-x-0 z-50 transition-all duration-300 flex justify-center ${
+      // className={`fixed inset-x-0 z-50 transition-all duration-300 flex justify-center ${
+       className={`fixed inset-x-0 z-50 transition-all duration-300 flex justify-center overflow-x-clip ${
         isScrolled
           ? "top-2 sm:top-4 px-3 sm:px-6 pointer-events-none"
           : "top-0 px-0 pointer-events-auto"
       }`}
     >
       <header
-        className={`w-full transition-all duration-300 flex items-center justify-between pointer-events-auto ${
+        // className={`w-full transition-all duration-300 flex items-center justify-between pointer-events-auto ${
+          className={`w-full max-w-full overflow-hidden transition-all duration-300 flex items-center justify-between pointer-events-auto ${
           isScrolled
             ? "max-w-6xl rounded-2xl sm:rounded-full bg-white/95 dark:bg-[#0B0C16]/95 backdrop-blur-2xl border border-slate-200/80 dark:border-white/15 shadow-xl dark:shadow-2xl shadow-slate-200/40 dark:shadow-black/80 py-2.5 sm:py-3 px-4 sm:px-7"
             : "max-w-7xl rounded-none bg-white/80 dark:bg-[#0A0A0F]/80 backdrop-blur-md border-b border-slate-200/40 dark:border-white/5 py-3 sm:py-4 px-4 sm:px-8"
@@ -58,7 +68,9 @@ export function MarketingNavbar() {
         </Link>
 
         {/* Center Nav Links (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-slate-600 dark:text-[#A0A0B8]">
+        <nav 
+        // className="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-slate-600 dark:text-[#A0A0B8]">
+        className="hidden lg:flex items-center gap-4 xl:gap-5 text-[13px] font-semibold text-slate-600 dark:text=[#A0A0B8]">  
           <Link
             href="/about"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
@@ -127,7 +139,9 @@ export function MarketingNavbar() {
         </nav>
 
         {/* Action CTAs & Theme Toggle */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div 
+        // className="flex items-center gap-2 sm:gap-3 shrink-0">
+        className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Theme Toggle Button */}
           <button
             type="button"
@@ -179,13 +193,24 @@ export function MarketingNavbar() {
 
           {/* Start Free Trial */}
           {/* <Link href={getAppUrl("/signup")}> */}
-          <Link href="/sign-up">
+          {/* <Link href="/sign-up">
             <Button
               size="sm"
               className="h-8 sm:h-9.5 px-3 sm:px-5 text-xs sm:text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-md shadow-primary/25 hover:scale-105 transition-all gap-1.5 sm:gap-2 font-heading"
             >
               <span>Trial</span>
               <span className="hidden sm:inline">Free</span>
+              <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            </Button>
+          </Link> */}
+          {/* Start Free Trial */}
+          {/* <Link href={getAppUrl("/signup")}> */}
+          <Link href="/sign-up">
+            <Button
+              size="sm"
+              className="h-8 sm:h-9 px-3 sm:px-4 text-xs sm:text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-md shadow-primary/25 transition-all gap-1.5 sm:gap-2 font-heading"
+            >
+              <span>Start Free Trial</span>
               <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
             </Button>
           </Link>

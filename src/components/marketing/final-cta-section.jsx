@@ -85,7 +85,7 @@ export function FinalCta() {
         </div>
 
         <p className="text-[11px] text-white/40 pt-1">
-          No credit card required Â· Instant sandbox access Â· 14-day full feature trial
+          No credit card required. Instant sandbox access. 14-day full feature trial
         </p>
       </div>
     </section>
@@ -119,9 +119,11 @@ export function RichFooter() {
               The high-velocity sales &amp; partner CRM built for India&apos;s fastest-growing companies.
             </p>
             <div className="text-[11px] text-slate-500 space-y-1">
-              <div>DLF Cyber City, Tower B</div>
-              <div>Gurugram, Haryana 122002</div>
+              {/* Metro Pillar No. 786, 2nd Floor, Above Aggarwal Sweets, Near Dwarka Mor Red Light, New Delhi 110059 */}
+              <div>Metro Pillar No. 786, 2nd Floor, Above Aggarwal Sweets,Near Dwarka Mor Red Light</div>
+              <div>New Delhi 110059</div>
               <div>support@smoothsales.ai</div>
+
             </div>
           </div>
 

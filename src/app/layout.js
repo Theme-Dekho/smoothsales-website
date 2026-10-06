@@ -174,7 +174,8 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-screen w-full overflow-x-hidden bg-background font-sans antialiased text-foreground">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        {/* <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}> */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LeadModalProvider>
             <GoogleAdsTracker />
             <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground flex flex-col antialiased relative">
