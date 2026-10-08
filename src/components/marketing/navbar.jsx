@@ -38,23 +38,26 @@ export function MarketingNavbar() {
 
   return (
     <div
-      // className={`fixed inset-x-0 z-50 transition-all duration-300 flex justify-center ${
-       className={`fixed inset-x-0 z-50 transition-all duration-300 flex justify-center overflow-x-clip ${
+      className={`fixed inset-x-0 z-50 transition-all duration-500 ease-out flex justify-center ${
         isScrolled
           ? "top-2 sm:top-4 px-3 sm:px-6 pointer-events-none"
           : "top-0 px-0 pointer-events-auto"
       }`}
     >
       <header
-        // className={`w-full transition-all duration-300 flex items-center justify-between pointer-events-auto ${
-          className={`w-full max-w-full overflow-hidden transition-all duration-300 flex items-center justify-between pointer-events-auto ${
+        className={`w-full transition-all duration-500 ease-out flex items-center justify-between pointer-events-auto ${
+          // new added
           isScrolled
             ? "max-w-6xl rounded-2xl sm:rounded-full bg-white/95 dark:bg-[#0B0C16]/95 backdrop-blur-2xl border border-slate-200/80 dark:border-white/15 shadow-xl dark:shadow-2xl shadow-slate-200/40 dark:shadow-black/80 py-2.5 sm:py-3 px-4 sm:px-7"
-            : "max-w-7xl rounded-none bg-white/80 dark:bg-[#0A0A0F]/80 backdrop-blur-md border-b border-slate-200/40 dark:border-white/5 py-3 sm:py-4 px-4 sm:px-8"
+            : "w-full rounded-none bg-white/80 dark:bg-[#0A0A0F]/80 backdrop-blur-md border-b border-slate-200/40 dark:border-white/5 py-3 sm:py-4 px-4 sm:px-8"
         }`}
       >
         {/* Brand Mark with Generated Official Logo */}
-        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <Link 
+        // href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0 lg:ml-[9%]">
+          href="/" className={`flex items-center gap-2.5 sm:gap-3 group shrink-0 transition-all duration-500 ease-out ${
+            isScrolled ? "ml-0" : "lg:ml-[9%]"
+          }`} >
           <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl overflow-hidden border border-cyan-400/40 shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform shrink-0">
             <img
               src="/images/smoothsales-logo.jpg"
@@ -63,20 +66,20 @@ export function MarketingNavbar() {
             />
           </div>
           <span className="font-heading font-extrabold text-sm sm:text-base md:text-lg tracking-tight text-slate-900 dark:text-white">
-            SmoothSales<span className="text-primary dark:text-cyan-400 font-normal">.ai</span>
+            SmoothSales<span className="text-primary dark:text-cyan-400 font-normal"></span>
           </span>
         </Link>
 
         {/* Center Nav Links (Desktop) */}
         <nav 
         // className="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-slate-600 dark:text-[#A0A0B8]">
-        className="hidden lg:flex items-center gap-4 xl:gap-5 text-[13px] font-semibold text-slate-600 dark:text=[#A0A0B8]">  
-          <Link
+        className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-5 xl:gap-6 whitespace-nowrap text-[13px] font-semibold text-slate-600 dark:text-[#A0A0B8]">
+          {/* <Link
             href="/about"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
           >
             About
-          </Link>
+          </Link> */}
 
           <Link
             href="/features"
@@ -86,11 +89,18 @@ export function MarketingNavbar() {
           </Link>
 
           <Link
+            href="/integrations"
+            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+          >
+            Integration
+          </Link>
+
+          {/* <Link
             href="/help-center"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
           >
             Knowledge Base
-          </Link>
+          </Link> */}
 
           <Link
             href="/pricing"
@@ -114,12 +124,12 @@ export function MarketingNavbar() {
             Contact
           </Link>
 
-          <Link
+          {/* <Link
             href="/partners"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1 flex items-center gap-1 text-cyan-600 dark:text-cyan-400 font-semibold"
           >
             <span>Partners</span>
-          </Link>
+          </Link> */}
 
           {/* Commented out previous cross-service links as requested:
           <Link href="/#problem-fix" className="hover:text-slate-900 dark:hover:text-white transition-colors py-1">
@@ -170,7 +180,7 @@ export function MarketingNavbar() {
           </Link>
 
           {/* Become a Partner (Desktop) */}
-          <Link href="/partners" className="hidden lg:inline-flex">
+          {/* <Link href="/partners" className="hidden lg:inline-flex">
             <Button
               variant="outline"
               size="sm"
@@ -179,17 +189,17 @@ export function MarketingNavbar() {
               <Handshake className="h-3.5 w-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>Become a Partner</span>
             </Button>
-          </Link>
+          </Link> */}
 
           {/* Book Demo (Desktop) */}
-          <Button
+          {/* <Button
             onClick={() => openLeadModal("navbar_desktop")}
             variant="outline"
             size="sm"
             className="hidden md:inline-flex h-8 sm:h-9 px-3.5 text-xs font-semibold rounded-full border-primary/30 text-primary hover:bg-primary/10 transition-all cursor-pointer"
           >
             <span>Book Demo</span>
-          </Button>
+          </Button> */}
 
           {/* Start Free Trial */}
           {/* <Link href={getAppUrl("/signup")}> */}

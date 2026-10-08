@@ -54,7 +54,6 @@ export default function AuthPageLayout({
               >
                 SmoothSales
                 <span className="text-cyan-400 font-normal">
-                  .ai
                 </span>
               </span>
             </Link>

@@ -53,11 +53,14 @@ export function Hero() {
             className="space-y-1"
           >
             <h1 className="text-[28px] sm:text-4xl lg:text-[42px] xl:text-[48px] font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.14] sm:leading-[1.08]">
-              Run every lead, every channel,
+              {/* Run every lead, every channel, */}
+              A CRM That
               <span className="block mt-0.5 sm:mt-1">
-                every partner {" "}
+                {/* every partner {" "} */}
+                Captures Every Lead. Automates Every Follow-Up.
                 <span className="relative inline-block bg-gradient-to-r from-sky-500 via-primary to-cyan-500 dark:from-sky-400 dark:via-cyan-300 dark:to-indigo-300 bg-clip-text text-transparent">
-                  in one place.
+                  {/* in one place. */}
+                  Closes More Deals.
                   <svg
                     className="absolute -bottom-1 sm:-bottom-1.5 left-0 w-full h-2 sm:h-2.5 text-cyan-500/80 dark:text-cyan-400/80 overflow-visible"
                     viewBox="0 0 260 12"
@@ -86,8 +89,9 @@ export function Hero() {
             transition={{ duration: 0.45, delay: 0.15, ease: "easeOut" }}
             className="text-xs sm:text-base text-slate-600 dark:text-[#A0A0B0] max-w-xl mx-auto lg:mx-0 leading-relaxed px-1 sm:px-0"
           >
-            Calls, WhatsApp, and follow-ups in one place with sub-60s automated
-            lead routing and transparent partner commission ledgers, built for how Indian sales teams actually close.
+            {/* Calls, WhatsApp, and follow-ups in one place with sub-60s automated
+            lead routing and transparent partner commission ledgers, built for how Indian sales teams actually close. */}
+            Capture leads from every platform, automate AI calling, WhatsApp & email, intelligently filter and prioritize leads, and follow up at the right time — all from one powerful CRM with complete sales team visibility.
           </motion.p>
 
           {/* Dual CTA buttons */}

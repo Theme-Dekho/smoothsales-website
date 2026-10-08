@@ -98,8 +98,33 @@ export function RichFooter() {
   )}`;
 
   return (
-    <footer className="bg-[#0A0A0F] text-slate-400 border-t border-white/10 py-12 sm:py-16 px-4 sm:px-6 text-xs">
-      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12">
+    // <footer className="bg-[#0A0A0F] text-slate-400 border-t border-white/10 py-12 sm:py-16 px-4 sm:px-6 text-xs">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-[#070817] via-[#080B20] to-[#101A45] text-slate-400 border-t border-white/10 py-12 sm:py-16 px-4 sm:px-6 text-xs">
+            {/* Subtle background grid */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.08]"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)
+            `,
+            backgroundSize: "32px 32px",
+          }}
+        />
+
+        {/* Large brand watermark */}
+        <div
+          className="absolute left-1/2 bottom-[100px] -translate-x-1/2 pointer-events-none select-none whitespace-nowrap"
+          aria-hidden="true"
+        >
+          {/* <span className="font-heading font-extrabold text-[110px] sm:text-[180px] lg:text-[250px] leading-none tracking-[-0.06em] text-white/[0.045]"> */}
+          <span className="font-heading font-extrabold text-[70px] sm:text-[100px] lg:text-[125px] leading-none tracking-[-0.05em] text-white/[0.045]">
+            SmoothSales
+          </span>
+        </div>
+      {/* <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12"> */}
+      <div className="relative z-10 max-w-7xl mx-auto space-y-10 sm:space-y-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 sm:gap-6 lg:gap-8">
           {/* Col 1: Brand & Contact info */}
           <div className="sm:col-span-2 md:col-span-1 space-y-4">
@@ -112,7 +137,7 @@ export function RichFooter() {
                 />
               </div>
               <span className="font-heading font-extrabold text-sm text-white tracking-tight">
-                SmoothSales<span className="text-cyan-400 font-normal">.ai</span>
+                SmoothSales<span className="text-cyan-400 font-normal"></span>
               </span>
             </div>
             <p className="text-[11px] text-slate-400 leading-relaxed max-w-sm">
@@ -122,7 +147,7 @@ export function RichFooter() {
               {/* Metro Pillar No. 786, 2nd Floor, Above Aggarwal Sweets, Near Dwarka Mor Red Light, New Delhi 110059 */}
               <div>Metro Pillar No. 786, 2nd Floor, Above Aggarwal Sweets,Near Dwarka Mor Red Light</div>
               <div>New Delhi 110059</div>
-              <div>support@smoothsales.ai</div>
+              <div>support@smoothsales.in</div>
 
             </div>
           </div>
@@ -130,29 +155,39 @@ export function RichFooter() {
           {/* Col 2: Product */}
           <div className="space-y-3">
             <div className="font-heading font-bold text-xs uppercase tracking-wider text-white">
-              Product
+              Resources
             </div>
             <ul className="space-y-2 text-[11px]">
               <li>
                 <Link href="/pricing" className="hover:text-white transition-colors">
-                  Pricing &amp; Plans
+                  Pricing
                 </Link>
               </li>
-              <li>
+               <li>
+                <Link href="/knowledge-base" className="hover:text-white transition-colors">
+                  Knowledge Base
+                </Link>
+              </li>
+               <li>
+                <Link href="/features" className="hover:text-white transition-colors">
+                  Features
+                </Link>
+              </li>
+              {/* <li>
                 <Link href={getAppUrl("/dashboard")} className="hover:text-white transition-colors">
                   Live Demo App
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link href="/#problem-fix" className="hover:text-white transition-colors">
                   Smart Lead Routing
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link href={getPartnersUrl("/white-label")} className="hover:text-white transition-colors">
                   Partner Commission Engine
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -178,7 +213,7 @@ export function RichFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#problem-fix" className="hover:text-white transition-colors">
+                <Link href="/problem-fix" className="hover:text-white transition-colors">
                   WhatsApp Automation
                 </Link>
               </li>
@@ -197,28 +232,41 @@ export function RichFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
                 <Link href="/partners" className="hover:text-white transition-colors flex items-center gap-1.5 text-cyan-400">
-                  <span>Become a Partner</span>
+                  <span>Business Partners</span>
                   <span className="text-[9px] px-1 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono font-bold">
                     35% Payout
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact Sales &amp; Demo
+                <Link
+                  href="/reseller"
+                  className="hover:text-white transition-colors"
+                >
+                  White Label Partners
                 </Link>
               </li>
               <li>
+                <Link href="/affiliate" className="hover:text-white transition-colors">
+                  Affiliate Partners
+                </Link>
+              </li>
+              {/* <li>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   WhatsApp Support
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link href="/features" className="hover:text-white transition-colors">
                   Feature Tour
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -255,7 +303,7 @@ export function RichFooter() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 text-center sm:text-left">
           <div>
-            © 2026 SmoothSales.ai Technologies Pvt Ltd. All rights reserved.
+            © 2026 SmoothSales Technologies Pvt Ltd. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
             <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
