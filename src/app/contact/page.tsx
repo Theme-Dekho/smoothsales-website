@@ -24,6 +24,7 @@ import { RichFooter } from "@/components/marketing/final-cta-section";
 import { getAppUrl } from "@/lib/constants";
 import { toast } from "sonner";
 import { trackLeadSubmission } from "@/lib/tracking";
+import { api } from "@/lib/api";
 
 interface ContactFormData {
   name: string;
@@ -46,7 +47,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) {
       toast.error("Please enter your name and phone number");
@@ -59,13 +60,25 @@ export default function ContactPage() {
       vertical: formData.company || "contact_inquiry",
       teamSize: formData.volume,
     });
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      await api.submitContact({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email || undefined,
+        company: formData.company || undefined,
+        volume: formData.volume,
+        message: formData.message || undefined,
+      });
       setSubmitted(true);
       toast.success("Inquiry Submitted Successfully!", {
         description: "A solutions engineer will reach out on WhatsApp in < 15 minutes.",
       });
-    }, 1000);
+    } catch (err: any) {
+      toast.error(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const whatsappUrl =

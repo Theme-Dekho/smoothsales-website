@@ -55,8 +55,8 @@ export const PARTNERSHIP_TRACKS: PartnershipTrack[] = [
     title: "Referral & Affiliate Partner",
     badge: "Zero Support Needed",
     badgeColor: "border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-    payout: "20%",
-    payoutSub: "Recurring monthly for 12 months",
+    payout: "20% - 30%",
+    payoutSub: "Lifetime monthly recurring share",
     icon: Share2,
     accentColor: "from-emerald-500 to-teal-500",
     idealFor:

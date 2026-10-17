@@ -214,32 +214,41 @@ export function RichFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/sales-agent" className="hover:text-white transition-colors flex items-center gap-1.5 text-indigo-400">
-                  <span>Sales Agent Program</span>
+                <Link
+                  href="/become-a-partner"
+                  className="hover:text-white transition-colors flex items-center gap-1.5 text-cyan-400"
+                >
+                  <span>White Label Partner</span>
+                  <span className="text-[9px] px-1 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono font-bold">
+                    Own Brand
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/business-partner"
+                  className="hover:text-white transition-colors flex items-center gap-1.5 text-indigo-400"
+                >
+                  <span>Business Partner</span>
                   <span className="text-[9px] px-1 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono font-bold">
                     ₹150/user
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/partners" className="hover:text-white transition-colors flex items-center gap-1.5 text-cyan-400">
-                  <span>Business Partners</span>
-                  <span className="text-[9px] px-1 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono font-bold">
-                    35% Payout
+                <Link
+                  href="/affiliate"
+                  className="hover:text-white transition-colors flex items-center gap-1.5 text-emerald-400"
+                >
+                  <span>Affiliate Partners</span>
+                  <span className="text-[9px] px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold">
+                    20-30%
                   </span>
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/reseller"
-                  className="hover:text-white transition-colors"
-                >
-                  White Label Partners
-                </Link>
-              </li>
-              <li>
-                <Link href="/affiliate" className="hover:text-white transition-colors">
-                  Affiliate Partners
+                <Link href="/partners" className="hover:text-white transition-colors text-slate-400">
+                  All Partner Programs
                 </Link>
               </li>
             </ul>

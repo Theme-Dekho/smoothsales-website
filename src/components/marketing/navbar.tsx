@@ -76,10 +76,13 @@ export function MarketingNavbar() {
           </Link>
 
           <Link
-            href="/integrations"
-            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+            href="/become-a-partner"
+            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1 flex items-center gap-1.5"
           >
-            Integration
+            <span>Partner</span>
+            <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 font-bold border border-cyan-500/25 font-mono">
+              White Label
+            </span>
           </Link>
 
           <Link
@@ -227,17 +230,45 @@ export function MarketingNavbar() {
             </Link>
 
             <Link
-              href="/partners"
+              href="/sales-agent"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
             >
               <div className="flex items-center gap-2">
-                <span>Become a Partner</span>
+                <span>Sales Agent</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 font-bold border border-indigo-500/30 font-mono">
+                  ₹150/user
+                </span>
+              </div>
+              <Handshake className="h-3.5 w-3.5 text-indigo-500" />
+            </Link>
+
+            <Link
+              href="/become-a-partner"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span>White Label Partner</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 font-bold border border-cyan-500/30 font-mono">
-                  35% Payout
+                  Own Brand
                 </span>
               </div>
               <Handshake className="h-3.5 w-3.5 text-cyan-500" />
+            </Link>
+
+            <Link
+              href="/affiliate"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span>Affiliate Partner</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-500/30 font-mono">
+                  20-30%
+                </span>
+              </div>
+              <Handshake className="h-3.5 w-3.5 text-emerald-500" />
             </Link>
           </div>
 

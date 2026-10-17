@@ -27,6 +27,7 @@ import { RichFooter } from "@/components/marketing/final-cta-section";
 import { getAppUrl } from "@/lib/constants";
 import { toast } from "sonner";
 import { trackLeadSubmission } from "@/lib/tracking";
+import { api } from "@/lib/api";
 
 interface DemoFormData {
   fullName: string;
@@ -72,7 +73,7 @@ export default function DemoPage() {
     }, 1200);
   };
 
-  const handleDemoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleDemoSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.fullName || !formData.phone) {
       toast.error("Please fill in your name and phone number");
@@ -84,13 +85,23 @@ export default function DemoPage() {
       vertical: formData.vertical,
       teamSize: formData.teamSize,
     });
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await api.submitDemoRequest({
+        full_name: formData.fullName,
+        phone: formData.phone,
+        email: formData.email || undefined,
+        vertical: formData.vertical,
+        team_size: formData.teamSize,
+      });
       setDemoBooked(true);
       toast.success("Demo Request Received!", {
         description: "Our solutions architect will contact you on WhatsApp within 15 minutes.",
       });
-    }, 1000);
+    } catch (err: any) {
+      toast.error(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

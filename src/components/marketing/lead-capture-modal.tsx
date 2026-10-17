@@ -20,7 +20,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { useLeadModal } from "./lead-modal-context";
-import { trackLeadSubmission, trackClickWhatsApp } from "@/lib/tracking";
+import { trackLeadSubmission, trackClickWhatsApp, getStoredAttribution } from "@/lib/tracking";
+import { api } from "@/lib/api";
 
 const VERTICALS = [
   "Real Estate Developers & Mandates",
@@ -88,7 +89,7 @@ export function LeadCaptureModal() {
     }
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formData.fullName.trim()) {
@@ -104,25 +105,39 @@ export function LeadCaptureModal() {
 
     setIsSubmitting(true);
 
-    const generatedRef = "SS-" + Math.floor(100000 + Math.random() * 900000);
-    setLeadRef(generatedRef);
+    const attribution = getStoredAttribution();
 
-    // Track Google Ads & Analytics conversion
-    trackLeadSubmission({
-      source: modalSource || "google_ads_popup",
-      vertical: formData.vertical,
-      teamSize: formData.teamSize,
-      leadRef: generatedRef,
-    });
+    try {
+      const res = await api.submitLead({
+        full_name: formData.fullName,
+        phone: formData.phone,
+        email: formData.email || undefined,
+        vertical: formData.vertical,
+        team_size: formData.teamSize,
+        notes: formData.notes || undefined,
+        source: modalSource || 'google_ads_popup',
+        ...attribution,
+      });
 
-    // Simulate lead ingestion / webhook dispatch
-    setTimeout(() => {
-      setIsSubmitting(false);
+      const generatedRef = res.lead_ref;
+      setLeadRef(generatedRef);
+
+      trackLeadSubmission({
+        source: modalSource || 'google_ads_popup',
+        vertical: formData.vertical,
+        teamSize: formData.teamSize,
+        leadRef: generatedRef,
+      });
+
       setIsSuccess(true);
-      toast.success("Demo Request Received!", {
+      toast.success('Demo Request Received!', {
         description: `Ref ID: ${generatedRef}. A specialist is reviewing your requirements.`,
       });
-    }, 850);
+    } catch (err: any) {
+      toast.error(err?.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const whatsappDirectUrl = `https://wa.me/919820145892?text=${encodeURIComponent(

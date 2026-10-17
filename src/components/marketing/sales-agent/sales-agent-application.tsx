@@ -5,6 +5,7 @@ import { CheckCircle2, ShieldCheck, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { api } from "@/lib/api";
 
 interface AgentFormData {
   name: string;
@@ -25,7 +26,7 @@ export function SalesAgentApplication() {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.phone || !formData.city) {
       toast.error("Please enter your name, mobile number, and city.");
@@ -33,11 +34,20 @@ export function SalesAgentApplication() {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await api.submitSalesAgentApplication({
+        full_name: formData.name,
+        phone: formData.phone,
+        city: formData.city,
+        experience: formData.experience,
+      });
       setIsSubmitted(true);
       toast.success("Application received! Our partner team will call you within 24 hours.");
-    }, 900);
+    } catch (err: any) {
+      toast.error(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

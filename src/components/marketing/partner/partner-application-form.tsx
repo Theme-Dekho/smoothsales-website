@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { trackLeadSubmission } from "@/lib/tracking";
+import { api } from "@/lib/api";
 
 const VERTICALS = [
   "Real Estate & Brokers",
@@ -81,7 +82,7 @@ export function PartnerApplicationForm({ prefilledTrack, prefilledData }: Partne
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formData.fullName.trim() || !formData.email.trim() || !formData.phone.trim()) {
@@ -96,21 +97,34 @@ export function PartnerApplicationForm({ prefilledTrack, prefilledData }: Partne
 
     setIsSubmitting(true);
 
-    // Track lead submission in dataLayer / Google Ads
     trackLeadSubmission({
       source: "partner_application_form",
       vertical: formData.partnerTrack,
       teamSize: formData.expectedClients,
     });
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await api.submitPartnerApplication({
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        company_name: formData.companyName || undefined,
+        website_url: formData.websiteUrl || undefined,
+        partner_track: formData.partnerTrack,
+        expected_clients: formData.expectedClients,
+        selected_verticals: formData.selectedVerticals,
+        notes: formData.notes || undefined,
+      });
       setIsSubmitted(true);
       toast.success("Partner Application Submitted!", {
         description:
           "Your application has been received. Our Head of Partnerships will review and reach out on WhatsApp within 12 hours.",
       });
-    }, 1100);
+    } catch (err: any) {
+      toast.error(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const whatsappFastTrackUrl =

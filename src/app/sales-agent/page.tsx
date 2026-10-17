@@ -2,6 +2,7 @@
 
 import React from "react";
 import { SalesAgentHero } from "@/components/marketing/sales-agent/sales-agent-hero";
+import { PayoutModelSection } from "@/components/marketing/sales-agent/payout-model-section";
 import { WhySellWithUs } from "@/components/marketing/sales-agent/why-sell-with-us";
 import { WhoThisIsFor } from "@/components/marketing/sales-agent/who-this-is-for";
 import { PayoutStructure } from "@/components/marketing/sales-agent/payout-structure";
@@ -10,7 +11,8 @@ import { PartnerJourney } from "@/components/marketing/sales-agent/partner-journ
 import { PartnerDashboardTeam } from "@/components/marketing/sales-agent/partner-dashboard-team";
 import { SupportStructure } from "@/components/marketing/sales-agent/support-structure";
 import { PartnerReviews } from "@/components/marketing/sales-agent/partner-reviews";
-import { SalesAgentApplication } from "@/components/marketing/sales-agent/sales-agent-application";
+import { SalesAgentFaq } from "@/components/marketing/sales-agent/sales-agent-faq";
+import { SalesAgentFinalCta } from "@/components/marketing/sales-agent/sales-agent-final-cta";
 import { RichFooter } from "@/components/marketing/final-cta-section";
 
 export default function SalesAgentPage() {
@@ -23,40 +25,46 @@ export default function SalesAgentPage() {
 
   return (
     <div className="flex flex-col min-h-screen w-full overflow-x-hidden bg-slate-50 dark:bg-[#070817] text-slate-900 dark:text-white transition-colors duration-300">
-      {/* 1. Hero Section */}
+      {/* 1. Hero with 5-Step Wizard & What You Get Checklist */}
       <SalesAgentHero
-        onApplyClick={() => scrollToSection("apply-section")}
-        onExploreClick={() => scrollToSection("payout-structure")}
+        onApplyClick={() => scrollToSection("apply")}
+        onExploreClick={() => scrollToSection("structure")}
       />
 
-      {/* 2. Why Sell With Us (8 Grid Container from Image 5) */}
+      {/* 2. Payout Model (3 Cards + Live Payout Slip Mockup) */}
+      <PayoutModelSection />
+
+      {/* 3. Why Sell With Us (8 Grid Container on Dark Slate) */}
       <WhySellWithUs />
 
-      {/* 3. Who This Is For (6 Persona Cards from Images 3 & 4) */}
+      {/* 4. Who This Is For (6 Persona Cards with Colored Top Borders) */}
       <WhoThisIsFor />
 
-      {/* 4. Payout Structure (Table from Images 3 & 4) */}
+      {/* 5. Payout Structure (Flow Steps, 6-Tier Payout Table & Real Data Callout) */}
       <PayoutStructure />
 
-      {/* 5. Refund Policy & Payout Example & Getting Started (from Image 2) */}
+      {/* 6. Refund Policy & Payout Example & Getting Started with Milestone Tracker */}
       <RefundAndEarnings />
 
-      {/* 6. Partner Journey (6 Steps from Image 1 top) */}
+      {/* 7. Partner Journey (6 Steps from Application to First Payout) */}
       <PartnerJourney />
 
-      {/* 7. Partner Dashboard & Growing with a Team (from Image 1 middle) */}
+      {/* 8. Partner Dashboard (6 Modules) & Growing with a Team (3 Roles) */}
       <PartnerDashboardTeam />
 
-      {/* 8. Support Structure (3 Tiers from Image 1 lower middle) */}
+      {/* 9. Support Structure (3-Tier Support: L1 -> L2 -> L3) */}
       <SupportStructure />
 
-      {/* 9. Partner Reviews (from Image 1 bottom) */}
+      {/* 10. Partner Reviews (4.8 Rating Band + 16 City-Verified Reviews) */}
       <PartnerReviews />
 
-      {/* 10. Dedicated Partner Application Form */}
-      <SalesAgentApplication />
+      {/* 11. Frequently Asked Questions (7 Accordion Items) */}
+      <SalesAgentFaq />
 
-      {/* 11. Rich Standard Website Footer */}
+      {/* 12. Final CTA Banner */}
+      <SalesAgentFinalCta />
+
+      {/* 13. Rich Standard Website Footer */}
       <RichFooter />
     </div>
   );
