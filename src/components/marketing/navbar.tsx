@@ -92,12 +92,19 @@ export function MarketingNavbar() {
             Pricing
           </Link>
 
-          <Link
+          {/* <Link
             href="/demo"
             className="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1.5 py-1"
           >
             <span>Demo</span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
+          </Link> */}
+
+          <Link
+            href="/integrations"
+            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+          >
+            Integrations
           </Link>
 
           <Link

@@ -614,13 +614,23 @@ export default function FeaturesPage() {
             <div className="inline-flex w-full max-w-2xl items-center rounded-full border border-violet-300 bg-violet-100/70 px-4 py-2 text-sm font-semibold text-violet-700 dark:border-violet-400/40 dark:bg-violet-500/10 dark:text-violet-300">
               AI Powered · India-first CRM
             </div>
-            <h1 className="max-w-3xl font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[4.1rem]">
+            {/* <h1 className="max-w-3xl font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[4.1rem]"> */}
+            {/* <h1 className="max-w-3xl font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground"> */}
+            {/* <h1 className="max-w-none font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground"> */}
+            {/* <h1 className="w-full max-w-none whitespace-normal font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground">
               Lead CRM + Call Recording +{" "}
               <span className="bg-gradient-to-r from-violet-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
                 WhatsApp Automation + AI
               </span>
-            </h1>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            </h1> */}
+            <h1 className="w-full max-w-none whitespace-normal font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground">
+            Lead CRM + Call Recording +{" "}
+            <span className="bg-gradient-to-r from-violet-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
+              WhatsApp{" "}
+              <span className="whitespace-nowrap">Automation + AI</span>
+            </span>
+          </h1>
+            <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-base">
               From lead capture to invoice — bring lead sources, call activity, WhatsApp workflows,
               team operations and sales reporting into one mobile and web workspace.
             </p>
@@ -644,8 +654,8 @@ export default function FeaturesPage() {
           </div>
 
           <div className="hero-phone mx-auto w-full max-w-[390px] rounded-[2.7rem] border-[9px] border-slate-950 bg-slate-950 p-[5px] shadow-2xl shadow-slate-900/20">
-            <div key={activeHeroTile} className={`hero-preview-screen ${activeHeroTile === 0 || activeHeroTile === 3 || (activeHeroTile >= 4 && activeHeroTile <= 9) ? "min-h-[500px] rounded-[2rem] bg-white p-4" : "min-h-[500px] rounded-[2rem] bg-[#f2f5fb] p-3"}`}>
-              <div className="mb-3 flex items-center justify-between border-b border-slate-100 pb-3 text-[11px] font-semibold text-slate-500">
+            <div key={activeHeroTile} className={`hero-preview-screen ${activeHeroTile === 0 || activeHeroTile === 3 || (activeHeroTile >= 4 && activeHeroTile <= 9) ? "min-h-[500px] rounded-[2rem] bg-white dark:bg-card p-4" : "min-h-[500px] rounded-[2rem] bg-slate-100 dark:bg-muted dark:bg-muted p-3"}`}>
+              <div className="mb-3 flex items-center justify-between border-b border-slate-100 dark:border-border pb-3 text-[11px] font-semibold text-slate-500 dark:text-muted-foreground">
                 <span className="flex items-center gap-1.5"><i className="h-2.5 w-2.5 rounded-full bg-red-400" /><i className="h-2.5 w-2.5 rounded-full bg-amber-400" /><i className="h-2.5 w-2.5 rounded-full bg-green-500" /> crm · {[
                   "auto lead capture", "auto-dial", "whatsapp bot", "bulk whatsapp",
                   "live team", "call recording", "ai audit", "funnel",
@@ -663,7 +673,7 @@ export default function FeaturesPage() {
                         ["G", "Google Ads", "bg-emerald-500"],
                         ["IM", "IndiaMART", "bg-orange-500"],
                         ["JD", "JustDial", "bg-red-400"],
-                      ].map(([mark, name, color]) => <div key={name} className="flex items-center gap-2 rounded-xl bg-slate-50 p-2 text-[10px] font-semibold text-slate-800"><span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${color} text-white`}>{mark}</span>{name}</div>)}
+                      ].map(([mark, name, color]) => <div key={name} className="flex items-center gap-2 rounded-xl bg-slate-50 dark:bg-muted p-2 text-[10px] font-semibold text-slate-800 dark:text-foreground"><span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${color} text-white`}>{mark}</span>{name}</div>)}
                     </div>
                     <div className="space-y-2">
                       {[
@@ -671,43 +681,43 @@ export default function FeaturesPage() {
                         ["RV", "Rohit", "Google · 9s", "bg-blue-500"],
                         ["PJ", "Pranav", "IM · 14s", "bg-orange-500"],
                         ["SD", "Sneha", "JD · 22s", "bg-violet-400"],
-                      ].map(([initials, name, detail, color]) => <div key={name} className="flex items-center gap-2 rounded-xl border-l-2 border-emerald-500 bg-slate-50 p-2"><span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${color} text-[10px] font-bold text-white`}>{initials}</span><span className="min-w-0"><b className="block text-[11px] text-slate-900">{name}</b><small className="text-[9px] text-slate-500">{detail}</small></span></div>)}
+                      ].map(([initials, name, detail, color]) => <div key={name} className="flex items-center gap-2 rounded-xl border-l-2 border-emerald-500 bg-slate-50 dark:bg-muted p-2"><span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${color} text-[10px] font-bold text-white`}>{initials}</span><span className="min-w-0"><b className="block text-[11px] text-slate-900 dark:text-foreground">{name}</b><small className="text-[9px] text-slate-500 dark:text-muted-foreground">{detail}</small></span></div>)}
                     </div>
                   </div>
-                  <div className="flex gap-2 border-t border-slate-100 pt-3 text-[10px] font-bold">
+                  <div className="flex gap-2 border-t border-slate-100 dark:border-border pt-3 text-[10px] font-bold">
                     <span className="rounded-lg bg-emerald-100 px-3 py-2 text-emerald-700">☑ WA</span><span className="rounded-lg bg-blue-100 px-3 py-2 text-blue-700">☑ Email</span><span className="rounded-lg bg-amber-100 px-3 py-2 text-amber-800">📞 Dial</span>
                   </div>
                 </div>
               )}
 
               {activeHeroTile === 1 && (
-                <div className="rounded-2xl bg-gradient-to-b from-blue-100 to-indigo-100 p-3 text-slate-800">
+                <div className="rounded-2xl bg-gradient-to-b from-blue-100 to-indigo-100 p-3 text-slate-800 dark:text-foreground">
                   <div className="mb-5 flex justify-between text-xs font-semibold"><span>09:24</span><span>▥ 69%</span></div>
                   <p className="mb-3 text-sm font-extrabold">Auto-dial · 2 queued</p>
                   {[
                     ["📞", "Tap to call · Anjali", "Meta · 9s ago"],
                     ["📞", "Tap to call · Sandeep", "Google Ad · 12s"],
                     ["☑", "Welcome sent", "WA + Email"],
-                  ].map(([emoji, title, detail]) => <div key={title} className="mb-2 flex items-center gap-3 rounded-xl border-l-[3px] border-violet-500 bg-white p-3"><span className="text-xl">{emoji}</span><span><b className="block text-xs">{title}</b><small className="text-[10px] text-slate-500">{detail}</small></span></div>)}
+                  ].map(([emoji, title, detail]) => <div key={title} className="mb-2 flex items-center gap-3 rounded-xl border-l-[3px] border-violet-500 bg-white dark:bg-card p-3"><span className="text-xl">{emoji}</span><span><b className="block text-xs">{title}</b><small className="text-[10px] text-slate-500 dark:text-muted-foreground">{detail}</small></span></div>)}
                 </div>
               )}
 
               {activeHeroTile === 2 && (
                 <div className="overflow-hidden rounded-2xl bg-[#e5ddd5] pb-4">
-                  <div className="mx-2 mt-2 flex items-center gap-3 bg-[#08665a] px-3 py-3 text-white"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-lg">🤖</span><span><b className="block text-xs">AI Bot</b><small className="text-[10px] text-white/80">typing...</small></span></div>
-                  <div className="space-y-2 px-3 pt-5 text-[10px] leading-4 text-slate-700">
-                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white px-3 py-2">Hi Rohit 👋 1, 5 or 10-user plan?</p>
+                  <div className="mx-2 mt-2 flex items-center gap-3 bg-[#08665a] px-3 py-3 text-white"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-white dark:bg-card text-lg">🤖</span><span><b className="block text-xs">AI Bot</b><small className="text-[10px] text-white/80">typing...</small></span></div>
+                  <div className="space-y-2 px-3 pt-5 text-[10px] leading-4 text-slate-700 dark:text-muted-foreground">
+                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-2">Hi Rohit 👋 1, 5 or 10-user plan?</p>
                     <p className="ml-8 rounded-xl rounded-tr-sm bg-[#d9f8c5] px-3 py-2">5-user plan</p>
-                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white px-3 py-2">Demo today 3–6 PM?</p>
+                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-2">Demo today 3–6 PM?</p>
                     <p className="ml-8 rounded-xl rounded-tr-sm bg-[#d9f8c5] px-3 py-2">Today 4 PM</p>
-                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white px-3 py-2">Booked ✅</p>
+                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-2">Booked ✅</p>
                   </div>
                 </div>
               )}
 
               {activeHeroTile === 3 && (
                 <div className="rounded-2xl bg-gradient-to-br from-emerald-800 to-teal-600 p-4 text-white">
-                  <div className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl">📣</span><span><b className="block text-sm">May Offer · 50% Off</b><small className="text-[10px] text-white/80">Image + PDF + button</small></span></div>
+                  <div className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-card text-xl">📣</span><span><b className="block text-sm">May Offer · 50% Off</b><small className="text-[10px] text-white/80">Image + PDF + button</small></span></div>
                   <div className="mt-4 grid grid-cols-3 gap-2 text-center">{[["1,247","Delivered"],["983","Read"],["142","Replied"]].map(([value,label])=><div key={label} className="rounded-lg bg-white/15 p-2"><b className="block text-lg">{value}</b><small className="text-[9px]">{label}</small></div>)}</div>
                 </div>
               )}
@@ -719,7 +729,7 @@ export default function FeaturesPage() {
                     ["G", "Gopal · admin", "On Call · 25m", "bg-orange-500", "text-emerald-600"],
                     ["H", "Harsh · sales", "Idle · 9h 13m", "bg-blue-500", "text-blue-600"],
                     ["N", "Neetu · sales", "Offline · 15h", "bg-emerald-500", "text-red-500"],
-                  ].map(([initials,name,status,color,statusColor])=><div key={name} className="flex items-center gap-3 rounded-xl bg-slate-50 p-3"><span className={`flex h-9 w-9 items-center justify-center rounded-full ${color} text-xs font-bold text-white`}>{initials}</span><span><b className="block text-xs text-slate-900">{name}</b><small className={`text-[10px] ${statusColor}`}>● {status}</small></span></div>)}
+                  ].map(([initials,name,status,color,statusColor])=><div key={name} className="flex items-center gap-3 rounded-xl bg-slate-50 dark:bg-muted p-3"><span className={`flex h-9 w-9 items-center justify-center rounded-full ${color} text-xs font-bold text-white`}>{initials}</span><span><b className="block text-xs text-slate-900 dark:text-foreground">{name}</b><small className={`text-[10px] ${statusColor}`}>● {status}</small></span></div>)}
                 </div>
               )}
 
@@ -750,8 +760,8 @@ export default function FeaturesPage() {
 
               {activeHeroTile === 6 && (
                 <div className="space-y-3">
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{[["🎧","23","Analysed","bg-slate-50"],["😃","9","Positive","bg-emerald-50"],["😟","3","Negative","bg-orange-50"],["🧠","~95%","Accuracy","bg-indigo-50"]].map(([icon,value,label,color])=><div key={label} className={`rounded-xl ${color} p-3 text-center`}><span>{icon}</span><b className="block text-base text-slate-900">{value}</b><small className="text-[9px] text-slate-500">{label}</small></div>)}</div>
-                  {[["Devendra","2/5","bg-rose-400"],["Vikram","4/5","bg-emerald-400"]].map(([name,score,color])=><div key={name} className={`flex items-center justify-between rounded-lg border border-slate-100 border-l-4 ${color} p-3 text-xs font-bold text-slate-800`}>{name}<span className="rounded-md bg-slate-100 px-2 py-1">{score}</span></div>)}
+                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{[["🎧","23","Analysed","bg-slate-50 dark:bg-muted"],["😃","9","Positive","bg-emerald-50"],["😟","3","Negative","bg-orange-50"],["🧠","~95%","Accuracy","bg-indigo-50"]].map(([icon,value,label,color])=><div key={label} className={`rounded-xl ${color} p-3 text-center`}><span>{icon}</span><b className="block text-base text-slate-900 dark:text-foreground">{value}</b><small className="text-[9px] text-slate-500 dark:text-muted-foreground">{label}</small></div>)}</div>
+                  {[["Devendra","2/5","bg-rose-400"],["Vikram","4/5","bg-emerald-400"]].map(([name,score,color])=><div key={name} className={`flex items-center justify-between rounded-lg border border-slate-100 dark:border-border border-l-4 ${color} p-3 text-xs font-bold text-slate-800 dark:text-foreground`}>{name}<span className="rounded-md bg-slate-100 dark:bg-muted px-2 py-1">{score}</span></div>)}
                 </div>
               )}
 
@@ -763,16 +773,16 @@ export default function FeaturesPage() {
 
               {activeHeroTile === 8 && (
                 <div className="space-y-3 pt-1">
-                  <div className="flex gap-2"><span className="rounded-lg bg-primary px-3 py-2 text-xs font-bold text-primary-foreground">⏱ Check in</span><span className="rounded-lg bg-slate-100 px-3 py-2 text-xs font-bold text-slate-700">◷ Check out</span></div>
-                  <div className="grid grid-cols-[.8fr_1fr_1fr_1.3fr] gap-2 border-b border-slate-200 pb-2 text-[9px] font-bold text-slate-500"><span>DATE</span><span>IN</span><span>OUT</span><span>LOCATION</span></div>
-                  <div className="grid grid-cols-[.8fr_1fr_1fr_1.3fr] gap-2 py-2 text-[9px] text-slate-700"><span>2026-05-29</span><span>06:16 PM</span><span>—</span><span className="text-rose-500">📍 Vivek Vihar</span></div>
+                  <div className="flex gap-2"><span className="rounded-lg bg-primary px-3 py-2 text-xs font-bold text-primary-foreground">⏱ Check in</span><span className="rounded-lg bg-slate-100 dark:bg-muted px-3 py-2 text-xs font-bold text-slate-700 dark:text-muted-foreground">◷ Check out</span></div>
+                  <div className="grid grid-cols-[.8fr_1fr_1fr_1.3fr] gap-2 border-b border-slate-200 dark:border-border pb-2 text-[9px] font-bold text-slate-500 dark:text-muted-foreground"><span>DATE</span><span>IN</span><span>OUT</span><span>LOCATION</span></div>
+                  <div className="grid grid-cols-[.8fr_1fr_1fr_1.3fr] gap-2 py-2 text-[9px] text-slate-700 dark:text-muted-foreground"><span>2026-05-29</span><span>06:16 PM</span><span>—</span><span className="text-rose-500">📍 Vivek Vihar</span></div>
                   <div className="rounded-xl bg-emerald-100 p-3 text-center text-xs font-bold text-emerald-700">7 days · GPS-stamped</div>
                 </div>
               )}
 
               {activeHeroTile === 9 && (
-                <div className="space-y-4 pt-2 text-slate-800">
-                  <div className="flex items-start justify-between"><span><b className="text-sm text-primary">SmoothSales</b><small className="block text-[9px] text-slate-500">GSTIN 07AABCS1234C1Z5</small></span><span className="text-right"><b className="text-sm">TAX INVOICE</b><small className="block text-[9px] text-slate-500">INV/2026/0142</small></span></div>
+                <div className="space-y-4 pt-2 text-slate-800 dark:text-foreground">
+                  <div className="flex items-start justify-between"><span><b className="text-sm text-primary">SmoothSales</b><small className="block text-[9px] text-slate-500 dark:text-muted-foreground">GSTIN 07AABCS1234C1Z5</small></span><span className="text-right"><b className="text-sm">TAX INVOICE</b><small className="block text-[9px] text-slate-500 dark:text-muted-foreground">INV/2026/0142</small></span></div>
                   <div className="border-y-2 border-primary py-4 text-[10px]"><div className="flex justify-between gap-2"><span>CRM Pro · 5u</span><span>1×60K</span><span>₹60,000</span></div></div>
                   <div className="flex justify-between text-base font-extrabold"><span>Total</span><span>₹90,860</span></div>
                   <p className="text-[9px] text-muted-foreground">Illustrative invoice preview only</p>
@@ -782,8 +792,8 @@ export default function FeaturesPage() {
               {activeHeroTile === 10 && (
                 <div className="rounded-2xl bg-indigo-800 p-4 text-white">
                   <div className="mb-16 flex justify-between text-xs font-semibold"><span>09:14 ☎</span><span>▥ 71%</span></div>
-                  <div className="rounded-2xl bg-white p-4 text-slate-800">
-                    <p className="text-xs text-slate-500">📞 Incoming call</p><div className="mt-3 flex items-center gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">AR</span><span><b className="block text-sm">Achal Rajput</b><small className="text-[10px] text-slate-500">+91 99904 80965</small></span></div>
+                  <div className="rounded-2xl bg-white dark:bg-card p-4 text-slate-800 dark:text-foreground">
+                    <p className="text-xs text-slate-500 dark:text-muted-foreground">📞 Incoming call</p><div className="mt-3 flex items-center gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">AR</span><span><b className="block text-sm">Achal Rajput</b><small className="text-[10px] text-slate-500 dark:text-muted-foreground">+91 99904 80965</small></span></div>
                     <div className="mt-3 flex gap-2 text-[9px] font-bold"><span className="rounded-md bg-orange-500 px-2 py-1 text-white">📍 Negotiation</span><span className="rounded-md bg-emerald-100 px-2 py-1 text-emerald-700">🔥 Hot</span></div>
                     <div className="mt-2 rounded-lg bg-amber-50 p-2 text-[10px] text-amber-800">Last: 3-user plan · 16h ago</div>
                   </div>
@@ -791,9 +801,9 @@ export default function FeaturesPage() {
               )}
 
               {activeHeroTile === 11 && (
-                <div className="overflow-hidden rounded-2xl bg-[#f2f5fb]">
+                <div className="overflow-hidden rounded-2xl bg-slate-100 dark:bg-muted dark:bg-muted">
                   <div className="bg-gradient-to-r from-violet-500 to-pink-500 p-4 text-white"><div className="flex items-center justify-between"><b className="text-sm">✨ Ask CRM</b><span>×</span></div><small className="text-[10px]">Powered by AI · Demo</small></div>
-                  <div className="min-h-[250px] p-3"><div className="rounded-xl bg-white p-3 text-[11px] leading-5 text-slate-700">Hi Gopal! Ask anything:<br />• How many leads today?<br />• Who needs a follow-up?<br />• Which source converts best?</div><div className="mt-3 flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-[10px] text-slate-400"><span>Ask about your CRM...</span><span className="ml-auto text-primary">➤</span></div></div>
+                  <div className="min-h-[250px] p-3"><div className="rounded-xl bg-white dark:bg-card p-3 text-[11px] leading-5 text-slate-700 dark:text-muted-foreground">Hi Gopal! Ask anything:<br />• How many leads today?<br />• Who needs a follow-up?<br />• Which source converts best?</div><div className="mt-3 flex items-center gap-2 rounded-full border border-slate-200 dark:border-border bg-white dark:bg-card px-3 py-2 text-[10px] text-slate-400"><span>Ask about your CRM...</span><span className="ml-auto text-primary">➤</span></div></div>
                 </div>
               )}
             </div>
@@ -803,15 +813,22 @@ export default function FeaturesPage() {
 
       {/* Feature-1: Every lead from every channel */}
       {/* Feature-1: Unified Lead Capture */}
-        <section className="relative overflow-hidden bg-[#f5f3ff] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <section className="relative overflow-hidden bg-violet-50 dark:bg-background px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-7xl">
             {/* Heading */}
             <div className="mx-auto mb-12 max-w-3xl text-center">
-              <span className="mb-4 inline-flex rounded-full border border-violet-200 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-violet-700">
+              <span className="mb-4 inline-flex rounded-full border border-violet-200 bg-white dark:bg-card px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-violet-700">
                 Unified Lead Capture
               </span>
 
-              <h2 className="font-heading text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              {/* <h2 className="font-heading text-[36px] font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl lg:text-5xl">
+                Every lead, from{" "}
+                <span className="bg-gradient-to-r from-violet-600 to-cyan-500 bg-clip-text text-transparent">
+                  every channel
+                </span>
+                , in one inbox
+              </h2> */}
+              <h2 className="font-heading text-[36px] font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground">
                 Every lead, from{" "}
                 <span className="bg-gradient-to-r from-violet-600 to-cyan-500 bg-clip-text text-transparent">
                   every channel
@@ -819,14 +836,14 @@ export default function FeaturesPage() {
                 , in one inbox
               </h2>
 
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 dark:text-muted-foreground sm:text-base">
                 Capture enquiries from advertising platforms, business directories,
                 property portals and your website in one centralized CRM workspace.
               </p>
             </div>
 
             {/* Unified dashboard */}
-            <div className="relative overflow-hidden rounded-[28px] border border-white bg-white p-4 shadow-[0_24px_80px_rgba(76,29,149,0.12)] sm:p-7 lg:p-9">
+            <div className="relative overflow-hidden rounded-[28px] border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-[0_24px_80px_rgba(76,29,149,0.12)] sm:p-7 lg:p-9">
               {/* <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12"> */}
               {/* <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr]"> */}
               {/* <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12"> */}
@@ -996,10 +1013,10 @@ export default function FeaturesPage() {
                 <div className="relative z-10">
                   <div className="mb-5 flex items-center justify-between">
                     <div>
-                      <h3 className="text-base font-bold text-slate-900">
+                      <h3 className="text-base font-bold text-slate-900 dark:text-foreground">
                         Lead sources
                       </h3>
-                      <p className="mt-1 text-xs text-slate-500">
+                      <p className="mt-1 text-xs text-slate-500 dark:text-muted-foreground">
                         Multiple channels, one destination
                       </p>
                     </div>
@@ -1018,7 +1035,7 @@ export default function FeaturesPage() {
                     ].map((source) => (
                       <div
                         key={source.name}
-                        className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3 shadow-[0_3px_12px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-md"
+                        className="flex items-center gap-3 rounded-2xl border border-slate-100 dark:border-border bg-white dark:bg-card p-3 shadow-[0_3px_12px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-md"
                       >
                         <span
                           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${source.color} text-xs font-extrabold text-white`}
@@ -1027,16 +1044,16 @@ export default function FeaturesPage() {
                         </span>
 
                         <div className="min-w-0 flex-1">
-                          <p className="text-sm font-bold text-slate-800">
+                          <p className="text-sm font-bold text-slate-800 dark:text-foreground">
                             {source.name}
                           </p>
-                          <p className="mt-0.5 text-xs text-slate-500">
+                          <p className="mt-0.5 text-xs text-slate-500 dark:text-muted-foreground">
                             {source.detail}
                           </p>
                         </div>
 
                         <div className="text-right">
-                          <p className="text-sm font-extrabold tabular-nums text-slate-800">
+                          <p className="text-sm font-extrabold tabular-nums text-slate-800 dark:text-foreground">
                             {source.count}
                           </p>
                           <p className="mt-0.5 flex items-center justify-end gap-1 text-[10px] font-medium text-emerald-600">
@@ -1053,10 +1070,10 @@ export default function FeaturesPage() {
                 <div className="relative z-10 min-w-0">
                   <div className="mb-5 flex items-center justify-between gap-3">
                     <div>
-                      <h3 className="text-base font-bold text-slate-900">
+                      <h3 className="text-base font-bold text-slate-900 dark:text-foreground">
                         Smart CRM
                       </h3>
-                      <p className="mt-1 text-xs text-slate-500">
+                      <p className="mt-1 text-xs text-slate-500 dark:text-muted-foreground">
                         Incoming leads · All channels
                       </p>
                     </div>
@@ -1067,13 +1084,13 @@ export default function FeaturesPage() {
                     </span>
                   </div>
 
-                  <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                    <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4">
+                  <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card shadow-sm">
+                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-border px-4 py-4">
                       <div>
-                        <p className="text-sm font-bold text-slate-900">
+                        <p className="text-sm font-bold text-slate-900 dark:text-foreground">
                           Recent enquiries
                         </p>
-                        <p className="mt-1 text-xs text-slate-500">
+                        <p className="mt-1 text-xs text-slate-500 dark:text-muted-foreground">
                           Incoming lead activity
                         </p>
                       </div>
@@ -1100,10 +1117,10 @@ export default function FeaturesPage() {
                           </span>
 
                           <div className="min-w-0 flex-1">
-                            <p className="truncate text-sm font-bold text-slate-800">
+                            <p className="truncate text-sm font-bold text-slate-800 dark:text-foreground">
                               {lead.name}
                             </p>
-                            <p className="mt-1 truncate text-xs text-slate-500">
+                            <p className="mt-1 truncate text-xs text-slate-500 dark:text-muted-foreground">
                               {lead.source} · {lead.time}
                             </p>
                           </div>
@@ -1115,7 +1132,7 @@ export default function FeaturesPage() {
                       ))}
                     </div>
 
-                    <div className="flex flex-wrap gap-2 border-t border-slate-100 bg-slate-50/70 p-3">
+                    <div className="flex flex-wrap gap-2 border-t border-slate-100 dark:border-border bg-slate-50/70 p-3">
                       <span className="rounded-lg bg-emerald-100 px-3 py-2 text-[11px] font-bold text-emerald-700">
                         WhatsApp
                       </span>
@@ -1137,7 +1154,7 @@ export default function FeaturesPage() {
 
       
       {/* Feature-2: Lead Source Integrations */}
-      <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-14 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 text-center">
             <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-violet-400">
@@ -1167,22 +1184,22 @@ export default function FeaturesPage() {
             ].map((item) => (
               <div
                 key={item.name}
-                className="flex min-h-[148px] flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-3 py-4 shadow-[0_5px_16px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex min-h-[148px] flex-col items-center justify-center rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card px-3 py-4 shadow-[0_5px_16px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div
                   className={`mb-3 flex h-[52px] w-[52px] items-center justify-center rounded-xl text-lg font-extrabold text-white ${
-                    item.color.startsWith("text-") ? "bg-white" : item.color
+                    item.color.startsWith("text-") ? "bg-white dark:bg-card" : item.color
                   } ${item.color.startsWith("text-") ? item.color : ""}`}
                 >
                   {item.mark}
                 </div>
 
-                <p className="text-center text-sm font-bold text-slate-800">
+                <p className="text-center text-sm font-bold text-slate-800 dark:text-foreground">
                   {item.name}
                 </p>
 
                 {"detail" in item && item.detail && (
-                  <p className="mt-2 text-xs text-slate-500">{item.detail}</p>
+                  <p className="mt-2 text-xs text-slate-500 dark:text-muted-foreground">{item.detail}</p>
                 )}
               </div>
             ))}
@@ -1193,13 +1210,19 @@ export default function FeaturesPage() {
 
       
         {/* Feature-3: Smart Routing */}
-        <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-14 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="mb-8 text-center">
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.25em] text-violet-400">
+              <p className="mb-2 text-[12px] font-bold uppercase tracking-[0.25em] text-violet-400">
                 Smart Routing
               </p>
-              <h2 className="mx-auto max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+              {/* <h2 className="mx-auto max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-3xl">
+                Auto-assign by{" "}
+                <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
+                  source, geography or round-robin
+                </span>
+              </h2> */}
+              <h2 className="mx-auto max-w-2xl text-[36px] font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground">
                 Auto-assign by{" "}
                 <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                   source, geography or round-robin
@@ -1207,10 +1230,10 @@ export default function FeaturesPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 rounded-2xl border border-white bg-white p-3 shadow-[0_16px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1fr_1fr_1.15fr] lg:gap-3 lg:p-4">
+            <div className="grid grid-cols-1 gap-4 rounded-2xl border border-white bg-white dark:bg-card p-3 shadow-[0_16px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1fr_1fr_1.15fr] lg:gap-3 lg:p-4">
               {/* Source column */}
               <div className="min-w-0">
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-wider text-violet-400">
+                <p className="mb-3 text-[12px] font-bold uppercase tracking-wider text-violet-400">
                   ♟ Source
                 </p>
 
@@ -1219,18 +1242,18 @@ export default function FeaturesPage() {
                     { name: "Meta Ads", count: "32 today", mark: "f", color: "bg-blue-500" },
                     { name: "Google Ads", count: "18 today", mark: "G", color: "bg-gradient-to-br from-blue-500 to-emerald-500" },
                     { name: "IndiaMART", count: "11 today", mark: "IM", color: "bg-orange-500" },
-                    { name: "JustDial", count: "7 today", mark: "JD", color: "bg-white text-orange-600 border-l-2 border-l-orange-500" },
+                    { name: "JustDial", count: "7 today", mark: "JD", color: "bg-white dark:bg-card text-orange-600 border-l-2 border-l-orange-500" },
                   ].map((source) => (
                     <div
                       key={source.name}
-                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 bg-white px-2.5 shadow-sm"
+                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card px-2.5 shadow-sm"
                     >
                       <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-[10px] font-extrabold ${source.color} ${source.color.includes("text-") ? "" : "text-white"}`}>
                         {source.mark}
                       </span>
                       <div className="min-w-0">
-                        <p className="truncate text-[10px] font-bold text-slate-800">{source.name}</p>
-                        <p className="mt-0.5 text-[9px] text-slate-500">{source.count}</p>
+                        <p className="truncate text-[12px] font-bold text-slate-800 dark:text-foreground">{source.name}</p>
+                        <p className="mt-0.5 text-[10px] text-slate-500 dark:text-muted-foreground">{source.count}</p>
                       </div>
                     </div>
                   ))}
@@ -1239,7 +1262,7 @@ export default function FeaturesPage() {
 
               {/* Routing rules column */}
               <div className="min-w-0">
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-wider text-violet-400">
+                <p className="mb-3 text-[12px] font-bold uppercase tracking-wider text-violet-400">
                   ◉ Routing rule
                 </p>
 
@@ -1254,13 +1277,13 @@ export default function FeaturesPage() {
                       key={item.rule}
                       className="relative flex h-[52px] items-center overflow-hidden rounded-lg border border-dashed border-violet-200 bg-gradient-to-r from-violet-50/70 to-sky-50/70 px-2.5"
                     >
-                      <p className="whitespace-nowrap text-[9px] font-medium text-slate-600">
+                      <p className="whitespace-nowrap text-[12px] font-medium text-slate-600 dark:text-muted-foreground">
                         <span className="font-bold text-violet-600">{item.rule}</span>
                         {" → "}{item.owner}
                       </p>
 
                       <div
-                        className="pointer-events-none absolute left-0 top-1/2 z-10 -translate-y-1/2 whitespace-nowrap rounded-full bg-violet-500 px-2 py-1 text-[8px] font-bold text-white shadow-[0_3px_10px_rgba(139,92,246,0.35)]"
+                        className="pointer-events-none absolute left-0 top-1/2 z-10 -translate-y-1/2 whitespace-nowrap rounded-full bg-violet-500 px-2 py-1 text-[10px] font-bold text-white shadow-[0_3px_10px_rgba(139,92,246,0.35)]"
                         style={{
                           animation: `routing-label-${index} 4s linear ${index * -0.9}s infinite`,
                         }}
@@ -1274,7 +1297,7 @@ export default function FeaturesPage() {
 
               {/* Caller column */}
               <div className="min-w-0">
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-wider text-violet-400">
+                <p className="mb-3 text-[12px] font-bold uppercase tracking-wider text-violet-400">
                   ♟ Caller
                 </p>
 
@@ -1287,14 +1310,14 @@ export default function FeaturesPage() {
                   ].map((caller) => (
                     <div
                       key={caller.name}
-                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 bg-white px-2.5 shadow-sm"
+                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card px-2.5 shadow-sm"
                     >
                       <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md ${caller.color} text-[9px] font-extrabold text-white`}>
                         {caller.initials}
                       </span>
                       <div className="min-w-0">
-                        <p className="truncate text-[10px] font-bold text-slate-800">{caller.name}</p>
-                        <p className="mt-0.5 text-[9px] text-slate-500">{caller.detail}</p>
+                        <p className="truncate text-[12px] font-bold text-slate-800 dark:text-foreground">{caller.name}</p>
+                        <p className="mt-0.5 text-[10px] text-slate-500 dark:text-muted-foreground">{caller.detail}</p>
                       </div>
                     </div>
                   ))}
@@ -1308,13 +1331,13 @@ export default function FeaturesPage() {
                     
                   
           {/* Feature: WhatsApp AI Bot */}
-          <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+          <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
               <div className="mb-10 text-center">
                 <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                   WhatsApp AI Bot
                 </p>
-                <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                   An AI Bot that{" "}
                   <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                     qualifies leads while you sleep
@@ -1329,10 +1352,10 @@ export default function FeaturesPage() {
                     ▶ Auto Play
                   </div>
 
-                  <div className="w-[300px] overflow-hidden rounded-[42px] border-[8px] border-slate-950 bg-white shadow-[0_25px_70px_rgba(15,23,42,0.16)]">
+                  <div className="w-[300px] overflow-hidden rounded-[42px] border-[8px] border-slate-950 bg-white dark:bg-card shadow-[0_25px_70px_rgba(15,23,42,0.16)]">
                     <div className="min-h-[480px] bg-[#e7dfd6] p-3">
                       <div className="flex items-center gap-2 bg-[#075e54] px-3 py-3 text-white">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-lg">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white dark:bg-card text-lg">
                           🤖
                         </div>
                         <div>
@@ -1341,20 +1364,20 @@ export default function FeaturesPage() {
                         </div>
                       </div>
 
-                      <div className="space-y-2 py-8 text-[11px] text-slate-700">
-                        <div className="max-w-[88%] rounded-xl rounded-tl-sm bg-white px-3 py-3">
+                      <div className="space-y-2 py-8 text-[11px] text-slate-700 dark:text-muted-foreground">
+                        <div className="max-w-[88%] rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-3">
                           Hi Rohit 👋 1, 5 or 10-user plan?
                         </div>
                         <div className="ml-auto max-w-[82%] rounded-xl rounded-tr-sm bg-[#dcf8c6] px-3 py-3">
                           5-user plan please
                         </div>
-                        <div className="max-w-[88%] rounded-xl rounded-tl-sm bg-white px-3 py-3">
+                        <div className="max-w-[88%] rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-3">
                           Demo today 3–6 PM?
                         </div>
                         <div className="ml-auto max-w-[82%] rounded-xl rounded-tr-sm bg-[#dcf8c6] px-3 py-3">
                           Today 4 PM
                         </div>
-                        <div className="max-w-[88%] rounded-xl rounded-tl-sm bg-white px-3 py-3">
+                        <div className="max-w-[88%] rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-3">
                           Booked ✅
                         </div>
                       </div>
@@ -1364,7 +1387,7 @@ export default function FeaturesPage() {
 
                 {/* Features */}
                 <div className="max-w-xl">
-                  <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+                  <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-3xl">
                     Qualifies. Books.{" "}
                     <span className="bg-gradient-to-r from-violet-500 to-cyan-400 bg-clip-text text-transparent">
                       Hands off.
@@ -1378,7 +1401,7 @@ export default function FeaturesPage() {
                       "English + Hindi + Hinglish",
                       "Pings human caller when intent is high",
                     ].map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm text-slate-700 sm:text-base">
+                      <li key={feature} className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base">
                         <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-teal-400 text-lg font-bold text-white">
                           ✓
                         </span>
@@ -1395,14 +1418,14 @@ export default function FeaturesPage() {
 
                     
           {/* Feature: Cold Calling Engine */}
-          <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-14 sm:px-6 lg:px-8">
+          <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
               <div className="mb-9 text-center">
                 <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                   Cold Calling Engine
                 </p>
 
-                <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                   Auto-dial. Track.{" "}
                   <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                     Audit every call.
@@ -1451,7 +1474,7 @@ export default function FeaturesPage() {
                 ].map((feature) => (
                   <div
                     key={feature.title}
-                    className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_8px_24px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    className="rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-6 shadow-[0_8px_24px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
                     <div
                       className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-xl`}
@@ -1459,11 +1482,11 @@ export default function FeaturesPage() {
                       {feature.icon}
                     </div>
 
-                    <h3 className="mb-2 text-base font-bold text-slate-900">
+                    <h3 className="mb-2 text-base font-bold text-slate-900 dark:text-foreground">
                       {feature.title}
                     </h3>
 
-                    <p className="text-sm leading-6 text-slate-600">
+                    <p className="text-sm leading-6 text-slate-600 dark:text-muted-foreground">
                       {feature.description}
                     </p>
                   </div>
@@ -1476,14 +1499,14 @@ export default function FeaturesPage() {
 
            
             {/* Feature: Auto-Dial Engine */}
-            <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-12 text-center">
                   <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                     Auto-Dial Engine
                   </p>
 
-                  <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                  <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                     Auto-dial every new lead —{" "}
                     <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                       in 60 seconds
@@ -1500,12 +1523,12 @@ export default function FeaturesPage() {
 
                     <div className="w-[292px] overflow-hidden rounded-[40px] border-[7px] border-slate-950 bg-slate-950 p-[0px] shadow-[0_25px_70px_rgba(15,23,42,0.18)]">
                       <div className="min-h-[510px] rounded-[30px] bg-gradient-to-b from-blue-100 to-indigo-100 p-3">
-                        <div className="mb-3 flex items-center justify-between pt-2 text-xs font-semibold text-slate-600">
+                        <div className="mb-3 flex items-center justify-between pt-2 text-xs font-semibold text-slate-600 dark:text-muted-foreground">
                           <span>09:24</span>
                           <span>▥ 69%</span>
                         </div>
 
-                        <p className="mb-3 text-sm font-extrabold text-slate-900">
+                        <p className="mb-3 text-sm font-extrabold text-slate-900 dark:text-foreground">
                           Auto-dial · 2 queued
                         </p>
 
@@ -1532,7 +1555,7 @@ export default function FeaturesPage() {
                           ].map((item) => (
                             <div
                               key={item.title}
-                              className={`flex items-center gap-2 rounded-xl border-l-[3px] bg-white p-3 shadow-sm ${
+                              className={`flex items-center gap-2 rounded-xl border-l-[3px] bg-white dark:bg-card p-3 shadow-sm ${
                                 item.type === "call"
                                   ? "border-violet-500"
                                   : "border-emerald-400"
@@ -1549,10 +1572,10 @@ export default function FeaturesPage() {
                               </span>
 
                               <div className="min-w-0">
-                                <p className="truncate text-[11px] font-extrabold text-slate-800">
+                                <p className="truncate text-[11px] font-extrabold text-slate-800 dark:text-foreground">
                                   {item.title}
                                 </p>
-                                <p className="mt-1 text-[10px] text-slate-500">
+                                <p className="mt-1 text-[10px] text-slate-500 dark:text-muted-foreground">
                                   {item.detail}
                                 </p>
                               </div>
@@ -1565,7 +1588,7 @@ export default function FeaturesPage() {
 
                   {/* Feature list */}
                   <div className="max-w-xl">
-                    <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+                    <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-3xl">
                       One tap.{" "}
                       <span className="bg-gradient-to-r from-violet-500 to-cyan-400 bg-clip-text text-transparent">
                         Lead context loaded.
@@ -1581,7 +1604,7 @@ export default function FeaturesPage() {
                       ].map((feature) => (
                         <li
                           key={feature}
-                          className="flex items-start gap-3 text-sm text-slate-700 sm:text-base"
+                          className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base"
                         >
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-base font-bold text-white">
                             ✓
@@ -1599,14 +1622,14 @@ export default function FeaturesPage() {
 
             
             {/* Feature: SLA & Compliance */}
-            <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-12 text-center">
                   <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                     SLA &amp; Compliance
                   </p>
 
-                  <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                  <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                     TAT Violation Alerts{" "}
                     <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                       at 10 minutes
@@ -1617,7 +1640,7 @@ export default function FeaturesPage() {
                 <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
                   {/* Rule violations */}
                   <div>
-                    <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900">
+                    <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-foreground">
                       Rule violations &amp;{" "}
                       <span className="bg-gradient-to-r from-violet-500 to-cyan-400 bg-clip-text text-transparent">
                         admin escalation
@@ -1631,7 +1654,7 @@ export default function FeaturesPage() {
                         "Stage-stuck alerts (Negotiation 3+ days)",
                         "Daily violation digest emailed to leadership",
                       ].map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm text-slate-700 sm:text-base">
+                        <li key={item} className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base">
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-base font-bold text-white">
                             ✓
                           </span>
@@ -1649,7 +1672,7 @@ export default function FeaturesPage() {
 
                     <div className="w-[292px] overflow-hidden rounded-[40px] border-[7px] border-slate-950 bg-slate-950 p-[0px] shadow-[0_25px_70px_rgba(15,23,42,0.18)]">
                       <div className="min-h-[510px] rounded-[30px] bg-gradient-to-b from-rose-100 via-orange-100 to-amber-100 p-3">
-                        <div className="mb-3 flex items-center justify-between pt-2 text-xs font-semibold text-slate-600">
+                        <div className="mb-3 flex items-center justify-between pt-2 text-xs font-semibold text-slate-600 dark:text-muted-foreground">
                           <span>09:32</span>
                           <span>▥ 68%</span>
                         </div>
@@ -1687,7 +1710,7 @@ export default function FeaturesPage() {
                           ].map((alert) => (
                             <div
                               key={alert.title}
-                              className={`flex items-center gap-2 rounded-xl border-l-[3px] bg-white p-3 shadow-sm ${alert.border}`}
+                              className={`flex items-center gap-2 rounded-xl border-l-[3px] bg-white dark:bg-card p-3 shadow-sm ${alert.border}`}
                             >
                               <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm ${alert.iconBg}`}>
                                 {alert.icon}
@@ -1697,7 +1720,7 @@ export default function FeaturesPage() {
                                 <p className={`truncate text-[11px] font-extrabold ${alert.titleColor}`}>
                                   {alert.title}
                                 </p>
-                                <p className="mt-1 text-[10px] text-slate-500">
+                                <p className="mt-1 text-[10px] text-slate-500 dark:text-muted-foreground">
                                   {alert.detail}
                                 </p>
                               </div>
@@ -1715,14 +1738,14 @@ export default function FeaturesPage() {
 
                         
             {/* Feature: Live Caller Tracking & Team Monitoring */}
-            <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-8 text-center">
                   <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                     Real-Time Visibility
                   </p>
 
-                  <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                  <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                     Live Caller Tracking &amp;{" "}
                     <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                       Team Monitoring
@@ -1731,14 +1754,14 @@ export default function FeaturesPage() {
                 </div>
 
                 {/* Browser dashboard */}
-                <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_36px_rgba(15,23,42,0.06)]">
+                <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card shadow-[0_12px_36px_rgba(15,23,42,0.06)]">
                   {/* Browser header */}
-                  <div className="border-b border-slate-100 px-4 py-3">
+                  <div className="border-b border-slate-100 dark:border-border px-4 py-3">
                     <div className="mb-1 inline-flex rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm">
                       ▶ Auto Play
                     </div>
 
-                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-muted-foreground">
                       <span className="h-4 w-4 rounded-full bg-red-400" />
                       <span className="h-4 w-4 rounded-full bg-amber-400" />
                       <span className="h-4 w-4 rounded-full bg-green-500" />
@@ -1748,12 +1771,12 @@ export default function FeaturesPage() {
 
                   {/* Live status panel */}
                   <div className="p-4">
-                    <div className="rounded-xl border border-slate-200 p-4">
+                    <div className="rounded-xl border border-slate-200 dark:border-border p-4">
                       <div className="mb-3 flex items-center gap-2">
                         <span className="relative flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100">
                           <span className="h-2 w-2 rounded-full bg-emerald-500" />
                         </span>
-                        <h3 className="text-sm font-extrabold text-slate-900">
+                        <h3 className="text-sm font-extrabold text-slate-900 dark:text-foreground">
                           Live Team Status
                         </h3>
                       </div>
@@ -1809,7 +1832,7 @@ export default function FeaturesPage() {
                         ].map((member) => (
                           <div
                             key={member.name}
-                            className="flex min-w-0 items-center gap-3 rounded-xl bg-slate-50 px-3 py-3"
+                            className="flex min-w-0 items-center gap-3 rounded-xl bg-slate-50 dark:bg-muted px-3 py-3"
                           >
                             <span
                               className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-white ${member.color}`}
@@ -1818,7 +1841,7 @@ export default function FeaturesPage() {
                             </span>
 
                             <div className="min-w-0">
-                              <p className="truncate text-xs font-extrabold text-slate-800">
+                              <p className="truncate text-xs font-extrabold text-slate-800 dark:text-foreground">
                                 {member.name}
                               </p>
                               <p className={`mt-1 flex items-center gap-1 text-[10px] font-semibold ${member.statusColor}`}>
@@ -1839,14 +1862,14 @@ export default function FeaturesPage() {
 
                         
             {/* Feature: Call Recording & AI Audit */}
-            <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-10 text-center">
                   <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                     Call Recording
                   </p>
 
-                  <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                  <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                     Every call{" "}
                     <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                       recorded &amp; audited by AI
@@ -1856,7 +1879,7 @@ export default function FeaturesPage() {
                 </div>
 
                 {/* Audio player card */}
-                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div className="rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-sm">
                   <div className="relative flex min-h-[132px] items-center rounded-2xl bg-[#10172b] px-5 py-5 text-white sm:px-8">
                     {/* Play button */}
                     <button
@@ -1917,14 +1940,14 @@ export default function FeaturesPage() {
 
                         
             {/* Feature: AI Quality Control */}
-            <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-8 text-center">
                   <p className="mb-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-violet-400">
                     AI Quality Control
                   </p>
 
-                  <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                  <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                     AI listens,{" "}
                     <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                       rates &amp; suggests next-best-action
@@ -1932,7 +1955,7 @@ export default function FeaturesPage() {
                   </h2>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-5">
+                <div className="rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-5">
                   {/* Listening player */}
                   <div className="rounded-xl bg-gradient-to-r from-[#11182b] to-[#202b40] p-4 text-white sm:p-5">
                     <div className="flex items-center justify-between gap-3">
@@ -1965,7 +1988,7 @@ export default function FeaturesPage() {
                   {/* KPI cards */}
                   <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
                     {[
-                      { icon: "🎧", value: "23", label: "ANALYSED", color: "bg-slate-50", text: "text-slate-800" },
+                      { icon: "🎧", value: "23", label: "ANALYSED", color: "bg-slate-50 dark:bg-muted", text: "text-slate-800 dark:text-foreground" },
                       { icon: "😃", value: "9 (39%)", label: "POSITIVE", color: "bg-emerald-50", text: "text-emerald-600" },
                       { icon: "😟", value: "3 (13%)", label: "NEGATIVE", color: "bg-orange-50", text: "text-orange-600" },
                       { icon: "🧠", value: "~95%", label: "ACCURACY", color: "bg-indigo-50", text: "text-indigo-600" },
@@ -1976,7 +1999,7 @@ export default function FeaturesPage() {
                       >
                         <span className="mb-1 text-base">{stat.icon}</span>
                         <p className={`text-lg font-extrabold ${stat.text}`}>{stat.value}</p>
-                        <p className="mt-1 text-[9px] font-medium text-slate-500">{stat.label}</p>
+                        <p className="mt-1 text-[9px] font-medium text-slate-500 dark:text-muted-foreground">{stat.label}</p>
                       </div>
                     ))}
                   </div>
@@ -2003,16 +2026,16 @@ export default function FeaturesPage() {
                     ].map((review) => (
                       <div
                         key={review.name}
-                        className={`rounded-xl border border-slate-100 border-l-[3px] ${review.border} p-3`}
+                        className={`rounded-xl border border-slate-100 dark:border-border border-l-[3px] ${review.border} p-3`}
                       >
                         <div className="flex items-center justify-between gap-3">
-                          <p className="text-xs font-extrabold text-slate-800">{review.name}</p>
+                          <p className="text-xs font-extrabold text-slate-800 dark:text-foreground">{review.name}</p>
                           <span className={`rounded-md px-2 py-1 text-[10px] font-bold ${review.badge}`}>
                             {review.rating}
                           </span>
                         </div>
 
-                        <p className="mt-2 text-xs text-slate-600">{review.description}</p>
+                        <p className="mt-2 text-xs text-slate-600 dark:text-muted-foreground">{review.description}</p>
 
                         <div className="mt-2 rounded-md bg-blue-50 px-3 py-2 text-[10px] font-semibold text-blue-700">
                           🎯 {review.action}
@@ -2028,14 +2051,14 @@ export default function FeaturesPage() {
 
                         
             {/* Feature: Caller Dashboard */}
-            <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-10 text-center">
                   <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                     Caller Dashboard
                   </p>
 
-                  <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                  <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                     Every call.{" "}
                     <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                       Counted. Categorised. Compared.
@@ -2043,7 +2066,7 @@ export default function FeaturesPage() {
                   </h2>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-6">
+                <div className="rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-6">
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
                     {[
                       {
@@ -2106,7 +2129,7 @@ export default function FeaturesPage() {
                       <div
                         key={stat.label}
                         className={`relative min-h-[130px] rounded-2xl p-4 ${
-                          stat.tone === "warning" ? "bg-orange-50" : "bg-slate-50"
+                          stat.tone === "warning" ? "bg-orange-50" : "bg-slate-50 dark:bg-muted"
                         }`}
                       >
                         {stat.label !== "TALK" &&
@@ -2118,7 +2141,7 @@ export default function FeaturesPage() {
                             </span>
                           )}
 
-                        <p className="mb-3 flex items-center gap-1 text-[10px] font-extrabold text-slate-500">
+                        <p className="mb-3 flex items-center gap-1 text-[10px] font-extrabold text-slate-500 dark:text-muted-foreground">
                           <span>{stat.icon}</span>
                           {stat.label}
                         </p>
@@ -2127,7 +2150,7 @@ export default function FeaturesPage() {
                           className={`whitespace-nowrap text-xl font-extrabold tracking-tight sm:text-2xl ${
                             stat.tone === "warning"
                               ? "text-orange-500"
-                              : "text-slate-900"
+                              : "text-slate-900 dark:text-foreground"
                           }`}
                         >
                           {stat.value}
@@ -2146,7 +2169,7 @@ export default function FeaturesPage() {
              
                             
               {/* Feature: HR & Team */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   {/* Section heading */}
                   <div className="mb-10 text-center">
@@ -2154,7 +2177,7 @@ export default function FeaturesPage() {
                       HR &amp; Team
                     </p>
 
-                    <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                       Attendance, leaves, tasks, salary —{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         all in one place
@@ -2165,14 +2188,14 @@ export default function FeaturesPage() {
                   {/* Attendance dashboard + feature list */}
                   <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
                     {/* Attendance dashboard */}
-                    <div className="min-w-0 rounded-2xl border border-slate-200/70 bg-white p-4 shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:p-5">
+                    <div className="min-w-0 rounded-2xl border border-slate-200 dark:border-border/70 bg-white dark:bg-card p-4 shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:p-5">
                       {/* Dashboard tabs */}
-                      <div className="flex flex-wrap items-center gap-5 border-b border-slate-100 pb-2 text-xs font-semibold">
+                      <div className="flex flex-wrap items-center gap-5 border-b border-slate-100 dark:border-border pb-2 text-xs font-semibold">
                         <span className="border-b-2 border-violet-600 pb-3 text-violet-600">
                           My attendance
                         </span>
-                        <span className="pb-3 text-slate-500">Team report</span>
-                        <span className="pb-3 text-slate-500">📍 Location trail</span>
+                        <span className="pb-3 text-slate-500 dark:text-muted-foreground">Team report</span>
+                        <span className="pb-3 text-slate-500 dark:text-muted-foreground">📍 Location trail</span>
                       </div>
 
                       {/* Check-in controls */}
@@ -2185,7 +2208,7 @@ export default function FeaturesPage() {
                         </button>
                         <button
                           type="button"
-                          className="rounded-xl bg-slate-100 px-4 py-3 text-xs font-bold text-slate-800"
+                          className="rounded-xl bg-slate-100 dark:bg-muted px-4 py-3 text-xs font-bold text-slate-800 dark:text-foreground"
                         >
                           🕒 Check out
                         </button>
@@ -2201,12 +2224,12 @@ export default function FeaturesPage() {
                         ].map((stat) => (
                           <div
                             key={stat.label}
-                            className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-slate-50 p-2"
+                            className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-slate-50 dark:bg-muted p-2"
                           >
-                            <p className="text-xl font-extrabold text-slate-900">
+                            <p className="text-xl font-extrabold text-slate-900 dark:text-foreground">
                               {stat.value}
                             </p>
-                            <p className="mt-2 text-[9px] font-extrabold text-slate-500">
+                            <p className="mt-2 text-[9px] font-extrabold text-slate-500 dark:text-muted-foreground">
                               {stat.label}
                             </p>
                           </div>
@@ -2217,20 +2240,20 @@ export default function FeaturesPage() {
                       <div className="mt-5 overflow-x-auto">
                         <table className="w-full min-w-[420px] text-left text-xs">
                           <thead>
-                            <tr className="border-b border-slate-100 text-[10px] font-extrabold text-slate-500">
+                            <tr className="border-b border-slate-100 dark:border-border text-[10px] font-extrabold text-slate-500 dark:text-muted-foreground">
                               <th className="pb-3 pr-3">DATE</th>
                               <th className="pb-3 pr-3">IN</th>
                               <th className="pb-3 pr-3">OUT</th>
                               <th className="pb-3">LOCATION</th>
                             </tr>
                           </thead>
-                          <tbody className="text-slate-700">
+                          <tbody className="text-slate-700 dark:text-muted-foreground">
                             {[
                               ["2026-05-29", "06:16 PM", "—", "Vivek Vihar"],
                               ["2026-05-18", "12:30 PM", "—", "Vivek Vihar"],
                               ["2026-05-14", "04:04 PM", "06:01 PM", "Vivek Vihar"],
                             ].map((entry) => (
-                              <tr key={entry[0]} className="border-b border-slate-100">
+                              <tr key={entry[0]} className="border-b border-slate-100 dark:border-border">
                                 <td className="py-3 pr-3">{entry[0]}</td>
                                 <td className="py-3 pr-3">{entry[1]}</td>
                                 <td className="py-3 pr-3">{entry[2]}</td>
@@ -2250,7 +2273,7 @@ export default function FeaturesPage() {
 
                     {/* GPS attendance feature list */}
                     <div className="py-3 lg:pl-1">
-                      <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+                      <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-3xl">
                         GPS Attendance +{" "}
                         <span className="bg-gradient-to-r from-violet-500 to-cyan-400 bg-clip-text text-transparent">
                           Team Matrix
@@ -2266,7 +2289,7 @@ export default function FeaturesPage() {
                         ].map((feature) => (
                           <li
                             key={feature}
-                            className="flex items-start gap-3 text-sm text-slate-700 sm:text-base"
+                            className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base"
                           >
                             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                               ✓
@@ -2308,7 +2331,7 @@ export default function FeaturesPage() {
                     ].map((feature) => (
                       <div
                         key={feature.title}
-                        className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_8px_24px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                        className="rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-6 shadow-[0_8px_24px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                       >
                         <div
                           className={`mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-xl`}
@@ -2316,11 +2339,11 @@ export default function FeaturesPage() {
                           {feature.icon}
                         </div>
 
-                        <h3 className="mb-3 text-xl font-bold text-slate-900">
+                        <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-foreground">
                           {feature.title}
                         </h3>
 
-                        <p className="text-base leading-6 text-slate-600">
+                        <p className="text-base leading-6 text-slate-600 dark:text-muted-foreground">
                           {feature.description}
                         </p>
                       </div>
@@ -2333,14 +2356,14 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: AI Copilot — Ask CRM */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   <div className="mb-12 text-center">
                     <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
                       AI Copilot — Ask CRM
                     </p>
 
-                    <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                       Don't read dashboards.{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         Just ask.
@@ -2378,7 +2401,7 @@ export default function FeaturesPage() {
 
                           {/* Messages */}
                           <div className="space-y-2 px-3 py-3 text-[11px] leading-[1.6]">
-                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white px-3 py-3 text-slate-700 shadow-sm">
+                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white dark:bg-card px-3 py-3 text-slate-700 dark:text-muted-foreground shadow-sm">
                               Hi Gopal! Ask me anything:
                               <br />• How many new leads today?
                               <br />• Top performer?
@@ -2388,11 +2411,11 @@ export default function FeaturesPage() {
                               Top performer this week?
                             </div>
 
-                            <div className="inline-flex rounded-full bg-white px-3 py-2 text-violet-400 shadow-sm">
+                            <div className="inline-flex rounded-full bg-white dark:bg-card px-3 py-2 text-violet-400 shadow-sm">
                               • • •
                             </div>
 
-                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white px-3 py-3 text-slate-700 shadow-sm">
+                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white dark:bg-card px-3 py-3 text-slate-700 dark:text-muted-foreground shadow-sm">
                               📊 <strong>Harsh</strong> leads with{" "}
                               <strong>184 calls · 4h 12m.</strong> Demos:{" "}
                               <strong>23.</strong>
@@ -2404,7 +2427,7 @@ export default function FeaturesPage() {
                                 (prompt) => (
                                   <span
                                     key={prompt}
-                                    className="rounded-full border border-slate-200 bg-white px-2.5 py-2 text-[10px] font-semibold text-violet-600"
+                                    className="rounded-full border border-slate-200 dark:border-border bg-white dark:bg-card px-2.5 py-2 text-[10px] font-semibold text-violet-600"
                                   >
                                     {prompt}
                                   </span>
@@ -2413,7 +2436,7 @@ export default function FeaturesPage() {
                             </div>
 
                             {/* Input visual */}
-                            <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white p-2.5">
+                            <div className="flex items-center gap-2 rounded-xl border border-slate-200 dark:border-border bg-white dark:bg-card p-2.5">
                               <span className="flex-1 text-[10px] text-slate-400">
                                 Type your question...
                               </span>
@@ -2428,7 +2451,7 @@ export default function FeaturesPage() {
 
                     {/* Feature list */}
                     <div className="max-w-xl">
-                      <h3 className="mb-5 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+                      <h3 className="mb-5 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-foreground sm:text-3xl">
                         Plain-English answers,{" "}
                         <span className="bg-gradient-to-r from-violet-500 to-cyan-400 bg-clip-text text-transparent">
                           CRM-deep insight
@@ -2445,7 +2468,7 @@ export default function FeaturesPage() {
                         ].map((feature) => (
                           <li
                             key={feature}
-                            className="flex items-start gap-3 text-sm text-slate-700 sm:text-base"
+                            className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base"
                           >
                             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                               ✓
@@ -2462,7 +2485,7 @@ export default function FeaturesPage() {
 
         
               {/* Feature: Pipeline Builder */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   {/* Heading */}
                   <div className="mb-12 text-center">
@@ -2470,20 +2493,20 @@ export default function FeaturesPage() {
                       Pipeline Builder
                     </p>
 
-                    <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                       Smart Pipeline Funnel to{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         Forecast Your Business Growth
                       </span>
                     </h2>
 
-                    <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
+                    <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-500 dark:text-muted-foreground sm:text-base">
                       A visual funnel that shows where deals leak and helps forecast future revenue.
                     </p>
                   </div>
 
                   {/* Pipeline dashboard preview */}
-                  <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.10)]">
+                  <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card shadow-[0_20px_60px_rgba(15,23,42,0.10)]">
                     <div className="grid min-h-[560px] lg:grid-cols-[185px_minmax(0,1fr)]">
                       {/* Sidebar */}
                       <aside className="hidden bg-[#10469f] p-4 text-white lg:block">
@@ -2516,13 +2539,13 @@ export default function FeaturesPage() {
                       {/* Main dashboard */}
                       <div className="min-w-0 bg-[#f8faff] p-3 sm:p-5">
                         {/* Top navigation */}
-                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-border pb-4">
                           <div className="flex items-center gap-3">
                             <span className="text-slate-400">☰</span>
-                            <h3 className="text-sm font-extrabold text-slate-900">
+                            <h3 className="text-sm font-extrabold text-slate-900 dark:text-foreground">
                               Pipeline
                             </h3>
-                            <span className="text-xs text-slate-500">＋ New</span>
+                            <span className="text-xs text-slate-500 dark:text-muted-foreground">＋ New</span>
                             <span className="hidden text-xs text-amber-600 sm:inline">
                               ⚠ Overdue
                             </span>
@@ -2548,7 +2571,7 @@ export default function FeaturesPage() {
                               className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold ${
                                 period === "All time"
                                   ? "border-violet-600 bg-violet-600 text-white"
-                                  : "border-slate-200 bg-white text-slate-600"
+                                  : "border-slate-200 dark:border-border bg-white dark:bg-card text-slate-600 dark:text-muted-foreground"
                               }`}
                             >
                               {period}
@@ -2557,7 +2580,7 @@ export default function FeaturesPage() {
                         </div>
 
                         {/* Filters */}
-                        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 rounded-lg border border-slate-100 bg-white p-3 text-[10px] text-slate-500">
+                        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card p-3 text-[10px] text-slate-500 dark:text-muted-foreground">
                           <span>⚲ Filters</span>
                           <span>Status: Any status⌄</span>
                           <span>Source: Any source⌄</span>
@@ -2593,11 +2616,11 @@ export default function FeaturesPage() {
                               key={stat.label}
                               className="rounded-xl border border-blue-100 bg-blue-50/70 p-3"
                             >
-                              <p className="text-[10px] text-slate-500">{stat.label}</p>
-                              <p className="mt-1 text-xl font-extrabold text-slate-900">
+                              <p className="text-[10px] text-slate-500 dark:text-muted-foreground">{stat.label}</p>
+                              <p className="mt-1 text-xl font-extrabold text-slate-900 dark:text-foreground">
                                 {stat.value}
                               </p>
-                              <p className="mt-1 text-[9px] text-slate-500">
+                              <p className="mt-1 text-[9px] text-slate-500 dark:text-muted-foreground">
                                 {stat.detail}
                               </p>
                             </div>
@@ -2642,7 +2665,7 @@ export default function FeaturesPage() {
                               <div
                                 key={stage.label}
                                 style={{ width: stage.width }}
-                                className={`${stage.color} flex min-h-[52px] flex-col items-center justify-center border-b border-white/50 px-2 py-2 text-center text-slate-900`}
+                                className={`${stage.color} flex min-h-[52px] flex-col items-center justify-center border-b border-white/50 px-2 py-2 text-center text-slate-900 dark:text-foreground`}
                               >
                                 <p className="text-xs font-extrabold">{stage.label}</p>
                                 <p className="mt-0.5 text-[9px]">{stage.count}</p>
@@ -2662,10 +2685,10 @@ export default function FeaturesPage() {
                                 <div className="h-px w-8 border-t border-dashed border-blue-400 sm:w-12" />
                                 <span className="h-2 w-2 shrink-0 rounded-full bg-blue-500" />
                                 <div>
-                                  <p className="text-xs font-extrabold text-slate-800">
+                                  <p className="text-xs font-extrabold text-slate-800 dark:text-foreground">
                                     {stage.label}
                                   </p>
-                                  <p className="mt-0.5 text-[9px] text-slate-500">
+                                  <p className="mt-0.5 text-[9px] text-slate-500 dark:text-muted-foreground">
                                     {stage.detail}
                                   </p>
                                 </div>
@@ -2702,7 +2725,7 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: Smart Caller-ID */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1.5fr] lg:gap-20">
                   {/* Incoming-call phone preview */}
                   <div className="relative mx-auto w-full max-w-[400px]">
@@ -2728,20 +2751,20 @@ export default function FeaturesPage() {
                       </div>
 
                       {/* Incoming-call popup */}
-                      <div className="absolute left-3 right-3 top-[43%] -translate-y-1/2 rounded-2xl bg-white p-4 shadow-2xl sm:left-3 sm:right-3">
+                      <div className="absolute left-3 right-3 top-[43%] -translate-y-1/2 rounded-2xl bg-white dark:bg-card p-4 shadow-2xl sm:left-3 sm:right-3">
                         <div className="mb-4 flex items-center justify-between">
-                          <p className="text-[11px] font-medium text-slate-600">
+                          <p className="text-[11px] font-medium text-slate-600 dark:text-muted-foreground">
                             ☎ Incoming call
                           </p>
-                          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-xl text-slate-600">
+                          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 dark:bg-muted text-xl text-slate-600 dark:text-muted-foreground">
                             ×
                           </span>
                         </div>
 
-                        <p className="text-base font-extrabold text-slate-900">
+                        <p className="text-base font-extrabold text-slate-900 dark:text-foreground">
                           +918285039708
                         </p>
-                        <p className="mt-1 text-[10px] text-slate-500">
+                        <p className="mt-1 text-[10px] text-slate-500 dark:text-muted-foreground">
                           ☎ +918285039708
                         </p>
 
@@ -2749,7 +2772,7 @@ export default function FeaturesPage() {
                           🏷️ New
                         </span>
 
-                        <div className="mt-3 break-words text-[10px] leading-5 text-slate-600">
+                        <div className="mt-3 break-words text-[10px] leading-5 text-slate-600 dark:text-muted-foreground">
                           📝 {"{"}"remark": "☎ Inbound Call · auto-created on call ring","created_at":"2026-05-31T03:18:41.119Z"{"}"}
                         </div>
 
@@ -2774,14 +2797,14 @@ export default function FeaturesPage() {
                       </span>
                     </div>
 
-                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[44px]">
+                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl lg:text-[36px]">
                       Instantly View Customer History{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         During Incoming Calls
                       </span>
                     </h2>
 
-                    <p className="mt-4 text-base leading-7 text-slate-500 sm:text-lg">
+                    <p className="mt-4 text-base leading-7 text-slate-500 dark:text-muted-foreground sm:text-base">
                       The moment your phone rings, Smart CRM shows the caller&apos;s full
                       lead history, stage and last remark — no searching needed.
                     </p>
@@ -2800,7 +2823,7 @@ export default function FeaturesPage() {
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                             ✓
                           </span>
-                          <p className="pt-0.5 text-sm font-semibold leading-6 text-slate-700 sm:text-base">
+                          <p className="pt-0.5 text-sm font-semibold leading-6 text-slate-700 dark:text-muted-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -2814,7 +2837,7 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: Lead Management */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
                   {/* Left: Feature description */}
                   <div>
@@ -2822,14 +2845,14 @@ export default function FeaturesPage() {
                       Lead Management
                     </p>
 
-                    <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                       One Smart Lead Page for{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         Complete Lead Management
                       </span>
                     </h2>
 
-                    <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
+                    <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500 dark:text-muted-foreground">
                       Manage every lead from a single screen. View customer details,
                       communication history, follow-up status, source information, notes
                       and assigned executive without switching between multiple pages.
@@ -2849,7 +2872,7 @@ export default function FeaturesPage() {
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-sm font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -2859,7 +2882,7 @@ export default function FeaturesPage() {
 
                   {/* Right: Mobile-style lead management preview */}
                   <div className="relative mx-auto w-full max-w-[360px]">
-                    <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+                    <div className="overflow-hidden rounded-[28px] border border-slate-200 dark:border-border bg-white dark:bg-card shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
                       {/* App header */}
                       <div className="flex items-center justify-between bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 px-4 py-3 text-white">
                         <div className="flex items-center gap-2">
@@ -2874,7 +2897,7 @@ export default function FeaturesPage() {
                       </div>
 
                       {/* Lead cards */}
-                      <div className="space-y-2 bg-slate-50 p-2.5">
+                      <div className="space-y-2 bg-slate-50 dark:bg-muted p-2.5">
                         {[
                           {
                             initials: "RK",
@@ -2911,7 +2934,7 @@ export default function FeaturesPage() {
                         ].map((lead) => (
                           <div
                             key={lead.name}
-                            className="rounded-xl border border-slate-200 bg-white p-2.5 shadow-sm"
+                            className="rounded-xl border border-slate-200 dark:border-border bg-white dark:bg-card p-2.5 shadow-sm"
                           >
                             <div className="flex items-start gap-2">
                               <div
@@ -2922,7 +2945,7 @@ export default function FeaturesPage() {
 
                               <div className="min-w-0 flex-1">
                                 <div className="flex items-start justify-between gap-1">
-                                  <p className="truncate text-[11px] font-extrabold text-slate-900">
+                                  <p className="truncate text-[11px] font-extrabold text-slate-900 dark:text-foreground">
                                     {lead.name}
                                   </p>
                                   <span className="shrink-0 rounded-full bg-violet-100 px-2 py-1 text-[8px] font-extrabold text-violet-700">
@@ -2930,10 +2953,10 @@ export default function FeaturesPage() {
                                   </span>
                                 </div>
 
-                                <p className="mt-1 truncate text-[9px] text-slate-600">
+                                <p className="mt-1 truncate text-[9px] text-slate-600 dark:text-muted-foreground">
                                   🏷️ {lead.source}
                                 </p>
-                                <p className="mt-1 text-[9px] text-slate-500">
+                                <p className="mt-1 text-[9px] text-slate-500 dark:text-muted-foreground">
                                   👤 Neetu
                                 </p>
                               </div>
@@ -2965,7 +2988,7 @@ export default function FeaturesPage() {
                       </div>
 
                       {/* Bottom navigation */}
-                      <div className="grid grid-cols-5 border-t border-slate-200 bg-white px-1 py-3 text-center text-[9px] font-semibold text-slate-500">
+                      <div className="grid grid-cols-5 border-t border-slate-200 dark:border-border bg-white dark:bg-card px-1 py-3 text-center text-[9px] font-semibold text-slate-500 dark:text-muted-foreground">
                         <span>📊<br />Dashboard</span>
                         <span className="text-violet-600">👥<br />Leads</span>
                         <span>🔔<br />Follow-ups</span>
@@ -2989,18 +3012,18 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: Smart Follow-Up Reminders */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1.5fr] lg:gap-20">
                   {/* Mobile notification preview */}
                   <div className="relative mx-auto w-full max-w-[360px]">
                     <div className="relative min-h-[650px] overflow-hidden rounded-[20px] bg-gradient-to-b from-[#cdd9f4] via-[#dbe8fb] to-[#a9d0f2] p-3 shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
                       {/* Status bar */}
-                      <div className="flex items-center justify-between px-1 pt-2 text-[10px] font-semibold text-slate-700">
+                      <div className="flex items-center justify-between px-1 pt-2 text-[10px] font-semibold text-slate-700 dark:text-muted-foreground">
                         <span>09:21</span>
                         <span>⌁ Wi-Fi · 70% ▰</span>
                       </div>
 
-                      <div className="mt-3 flex items-center justify-between px-1 text-xs text-slate-800">
+                      <div className="mt-3 flex items-center justify-between px-1 text-xs text-slate-800 dark:text-foreground">
                         <span>Sun, 31 May</span>
                         <span>⚙</span>
                       </div>
@@ -3030,10 +3053,10 @@ export default function FeaturesPage() {
                       </div>
 
                       <div className="mt-5 grid grid-cols-2 gap-2">
-                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700">
+                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700 dark:text-muted-foreground">
                           Device control
                         </div>
-                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700">
+                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700 dark:text-muted-foreground">
                           Media output
                         </div>
                       </div>
@@ -3041,18 +3064,18 @@ export default function FeaturesPage() {
                       {/* Notification cards */}
                       <div className="mt-5 space-y-1.5">
                         <div className="overflow-hidden rounded-xl bg-white/95 shadow-sm">
-                          <div className="flex items-center gap-3 border-b border-slate-100 p-3">
-                            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-xs text-slate-500">
+                          <div className="flex items-center gap-3 border-b border-slate-100 dark:border-border p-3">
+                            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 dark:border-border text-xs text-slate-500 dark:text-muted-foreground">
                               ✳
                             </span>
                             <div className="min-w-0 flex-1">
-                              <p className="text-[10px] font-semibold text-slate-700">
+                              <p className="text-[10px] font-semibold text-slate-700 dark:text-muted-foreground">
                                 Lead CRM
                               </p>
-                              <p className="mt-1 truncate text-[9px] text-slate-600">
+                              <p className="mt-1 truncate text-[9px] text-slate-600 dark:text-muted-foreground">
                                 ⏰ Follow-up due Sunil Kr Singh · +919336728837
                               </p>
-                              <p className="mt-1 truncate text-[9px] text-slate-600">
+                              <p className="mt-1 truncate text-[9px] text-slate-600 dark:text-muted-foreground">
                                 ⏰ Follow-up due Jagmohan · +919315305834
                               </p>
                             </div>
@@ -3062,17 +3085,17 @@ export default function FeaturesPage() {
 
                         <div className="rounded-xl bg-white/95 p-3 shadow-sm">
                           <div className="flex items-start gap-2">
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-500 text-[10px] text-white">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-50 dark:bg-muted0 text-[10px] text-white">
                               M
                             </span>
                             <div className="min-w-0 flex-1">
-                              <p className="text-[10px] font-bold text-slate-700">
+                              <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
                                 gopalserve
                                 <span className="ml-1 font-normal text-slate-400">
                                   sales@smartcrmsolution.com · 09:07
                                 </span>
                               </p>
-                              <p className="mt-1 truncate text-[9px] text-slate-600">
+                              <p className="mt-1 truncate text-[9px] text-slate-600 dark:text-muted-foreground">
                                 [CRM Demo Audit] Morning digest — yesterday evening...
                               </p>
                             </div>
@@ -3081,14 +3104,14 @@ export default function FeaturesPage() {
 
                         <div className="rounded-xl bg-white/95 p-3 shadow-sm">
                           <div className="flex items-center gap-2">
-                            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-xs text-slate-500">
+                            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 dark:border-border text-xs text-slate-500 dark:text-muted-foreground">
                               ✳
                             </span>
                             <div>
-                              <p className="text-[10px] font-bold text-slate-700">
+                              <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
                                 SmartCRM
                               </p>
-                              <p className="mt-1 text-[9px] text-slate-600">
+                              <p className="mt-1 text-[9px] text-slate-600 dark:text-muted-foreground">
                                 Call tracking is enabled
                               </p>
                             </div>
@@ -3097,14 +3120,14 @@ export default function FeaturesPage() {
 
                         <div className="rounded-xl bg-white/95 p-3 shadow-sm">
                           <div className="flex items-center gap-2">
-                            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-500 text-xs text-white">
+                            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 dark:bg-muted0 text-xs text-white">
                               ⠿
                             </span>
                             <div>
-                              <p className="text-[10px] font-bold text-slate-700">
+                              <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
                                 System configuration update
                               </p>
-                              <p className="mt-1 text-[9px] text-slate-600">
+                              <p className="mt-1 text-[9px] text-slate-600 dark:text-muted-foreground">
                                 Tap here to install the latest updates.
                               </p>
                             </div>
@@ -3113,7 +3136,7 @@ export default function FeaturesPage() {
                       </div>
 
                       {/* Notification controls */}
-                      <div className="mt-3 flex justify-end gap-2 text-[9px] text-slate-600">
+                      <div className="mt-3 flex justify-end gap-2 text-[9px] text-slate-600 dark:text-muted-foreground">
                         <span className="rounded-full bg-slate-400/20 px-3 py-1.5">
                           Notification settings
                         </span>
@@ -3123,7 +3146,7 @@ export default function FeaturesPage() {
                       </div>
 
                       {/* Bottom phone navigation */}
-                      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-16 text-sm text-slate-500">
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-16 text-sm text-slate-500 dark:text-muted-foreground">
                         <span>Ⅲ</span>
                         <span>○</span>
                         <span>‹</span>
@@ -3137,14 +3160,14 @@ export default function FeaturesPage() {
                       Follow-Up Engine
                     </p>
 
-                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                       Smart Follow-Up Reminders —{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         Never Miss a Lead
                       </span>
                     </h2>
 
-                    <p className="mt-4 text-base leading-7 text-slate-500">
+                    <p className="mt-4 text-base leading-7 text-slate-500 dark:text-muted-foreground">
                       Automatically receive follow-up reminders on mobile and desktop.
                       Stay on top of every customer conversation with timely alerts,
                       overdue reminders, and daily follow-up notifications.
@@ -3164,7 +3187,7 @@ export default function FeaturesPage() {
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-sm font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -3178,7 +3201,7 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: Daily Calling Reports */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
                   {/* Left: Description */}
                   <div>
@@ -3186,14 +3209,14 @@ export default function FeaturesPage() {
                       5 · Daily Reports
                     </p>
 
-                    <h2 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                       Smart Daily Calling Reports with{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         Talk Time &amp; Idle Time Tracking
                       </span>
                     </h2>
 
-                    <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
+                    <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500 dark:text-muted-foreground">
                       Monitor team productivity with detailed calling reports. Track
                       incoming, outgoing, missed calls, talk time, idle time, active users,
                       and performance trends from one centralized dashboard.
@@ -3213,7 +3236,7 @@ export default function FeaturesPage() {
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -3222,16 +3245,16 @@ export default function FeaturesPage() {
                   </div>
 
                   {/* Right: Calling reports dashboard preview */}
-                  <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-3 shadow-[0_20px_60px_rgba(15,23,42,0.10)] sm:p-4">
+                  <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-3 shadow-[0_20px_60px_rgba(15,23,42,0.10)] sm:p-4">
                     {/* Dashboard navigation */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-border pb-3">
                       <div className="flex items-center gap-3">
                         <span className="text-xs text-slate-400">☰</span>
-                        <span className="text-xs font-extrabold text-slate-800">
+                        <span className="text-xs font-extrabold text-slate-800 dark:text-foreground">
                           Call activity
                         </span>
                       </div>
-                      <div className="flex flex-wrap gap-2 text-[9px] text-slate-500">
+                      <div className="flex flex-wrap gap-2 text-[9px] text-slate-500 dark:text-muted-foreground">
                         <span>✨ New</span>
                         <span>⚠ Overdue</span>
                         <span>📅 Due today</span>
@@ -3255,7 +3278,7 @@ export default function FeaturesPage() {
                           className={`rounded-full border px-2 py-1 text-[9px] font-semibold ${
                             period === "Last 7 days"
                               ? "border-violet-600 bg-violet-600 text-white"
-                              : "border-slate-200 bg-white text-slate-600"
+                              : "border-slate-200 dark:border-border bg-white dark:bg-card text-slate-600 dark:text-muted-foreground"
                           }`}
                         >
                           {period}
@@ -3263,24 +3286,24 @@ export default function FeaturesPage() {
                       ))}
                     </div>
 
-                    <div className="mt-3 flex flex-wrap items-center gap-2 rounded-lg border border-slate-100 bg-white p-2.5 text-[9px] text-slate-500">
+                    <div className="mt-3 flex flex-wrap items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card p-2.5 text-[9px] text-slate-500 dark:text-muted-foreground">
                       <span>📅 05/26/2026</span>
                       <span>to</span>
                       <span>06/01/2026</span>
                       <span className="rounded-md bg-violet-600 px-3 py-1.5 font-bold text-white">
                         Apply
                       </span>
-                      <span className="rounded-md border border-slate-200 px-2 py-1.5">
+                      <span className="rounded-md border border-slate-200 dark:border-border px-2 py-1.5">
                         CSV
                       </span>
                     </div>
 
-                    <div className="mt-3 flex flex-wrap items-center gap-2 text-[9px] text-slate-500">
+                    <div className="mt-3 flex flex-wrap items-center gap-2 text-[9px] text-slate-500 dark:text-muted-foreground">
                       <span>🤖 Bulk AI Audit</span>
-                      <span className="rounded-md border border-slate-200 bg-white px-2 py-1.5">
+                      <span className="rounded-md border border-slate-200 dark:border-border bg-white dark:bg-card px-2 py-1.5">
                         All unaudited recordings
                       </span>
-                      <span className="rounded-md border border-slate-200 bg-white px-2 py-1.5">
+                      <span className="rounded-md border border-slate-200 dark:border-border bg-white dark:bg-card px-2 py-1.5">
                         All reps
                       </span>
                       <span className="rounded-md bg-violet-600 px-3 py-1.5 font-bold text-white">
@@ -3302,26 +3325,26 @@ export default function FeaturesPage() {
                       ].map((stat) => (
                         <div
                           key={stat.label}
-                          className="min-w-0 rounded-lg border border-slate-100 bg-white p-2.5"
+                          className="min-w-0 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card p-2.5"
                         >
-                          <p className="truncate text-[8px] font-bold text-slate-500">
+                          <p className="truncate text-[8px] font-bold text-slate-500 dark:text-muted-foreground">
                             {stat.label}
                           </p>
-                          <p className="mt-1 text-base font-extrabold text-slate-900">
+                          <p className="mt-1 text-base font-extrabold text-slate-900 dark:text-foreground">
                             {stat.value}
                           </p>
-                          <p className="mt-1 text-[8px] text-slate-500">{stat.detail}</p>
+                          <p className="mt-1 text-[8px] text-slate-500 dark:text-muted-foreground">{stat.detail}</p>
                         </div>
                       ))}
                     </div>
 
                     {/* Daily call activity chart */}
-                    <div className="mt-3 rounded-lg border border-slate-100 bg-white p-3">
-                      <p className="text-[10px] font-bold text-slate-700">
+                    <div className="mt-3 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card p-3">
+                      <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
                         Daily call activity
                       </p>
 
-                      <div className="relative mt-4 flex h-36 items-end justify-around border-b border-l border-slate-200 px-3">
+                      <div className="relative mt-4 flex h-36 items-end justify-around border-b border-l border-slate-200 dark:border-border px-3">
                         {[30, 48, 38, 64, 45, 74, 55, 90, 60, 78, 50, 96].map(
                           (height, index) => (
                             <div
@@ -3348,13 +3371,13 @@ export default function FeaturesPage() {
                           {[0, 1, 2, 3].map((line) => (
                             <div
                               key={line}
-                              className="w-full border-t border-dashed border-slate-100"
+                              className="w-full border-t border-dashed border-slate-100 dark:border-border"
                             />
                           ))}
                         </div>
                       </div>
 
-                      <div className="mt-3 flex flex-wrap justify-center gap-4 text-[9px] text-slate-500">
+                      <div className="mt-3 flex flex-wrap justify-center gap-4 text-[9px] text-slate-500 dark:text-muted-foreground">
                         <span><span className="mr-1 inline-block h-2 w-2 rounded-sm bg-blue-500" />Incoming</span>
                         <span><span className="mr-1 inline-block h-2 w-2 rounded-sm bg-emerald-500" />Outgoing</span>
                         <span><span className="mr-1 inline-block h-2 w-2 rounded-sm bg-red-400" />Missed</span>
@@ -3368,26 +3391,26 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: WhatsApp Analytics */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
                   {/* Left: WhatsApp analytics dashboard */}
-                  <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
-                    <div className="border-b border-slate-100 bg-white px-4 py-3">
+                  <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+                    <div className="border-b border-slate-100 dark:border-border bg-white dark:bg-card px-4 py-3">
                       <div className="flex items-center justify-between gap-3">
-                        <span className="text-sm font-bold text-slate-800">
+                        <span className="text-sm font-bold text-slate-800 dark:text-foreground">
                           WhatsApp report
                         </span>
-                        <span className="text-xs text-slate-500">📅 Report overview</span>
+                        <span className="text-xs text-slate-500 dark:text-muted-foreground">📅 Report overview</span>
                       </div>
                     </div>
 
                     <div className="space-y-4 p-4">
                       {/* Date filters */}
-                      <div className="space-y-2 text-xs text-slate-500">
-                        <div className="rounded-md border border-slate-200 px-3 py-2">
+                      <div className="space-y-2 text-xs text-slate-500 dark:text-muted-foreground">
+                        <div className="rounded-md border border-slate-200 dark:border-border px-3 py-2">
                           05/26/2026
                         </div>
-                        <div className="rounded-md border border-slate-200 px-3 py-2">
+                        <div className="rounded-md border border-slate-200 dark:border-border px-3 py-2">
                           06/01/2026
                         </div>
                         <button
@@ -3406,12 +3429,12 @@ export default function FeaturesPage() {
                           { label: "✓ Delivered", value: "88", color: "text-emerald-600" },
                           { label: "◉ Read", value: "281", color: "text-blue-600" },
                           { label: "⚠ Failed", value: "62", color: "text-red-500" },
-                          { label: "👥 Contacts", value: "189", color: "text-slate-700" },
+                          { label: "👥 Contacts", value: "189", color: "text-slate-700 dark:text-muted-foreground" },
                           { label: "Delivered %", value: "20%", color: "text-emerald-600" },
                           { label: "Read %", value: "63%", color: "text-blue-600" },
                         ].map((metric) => (
                           <div key={metric.label}>
-                            <p className="text-xs font-semibold text-slate-500">
+                            <p className="text-xs font-semibold text-slate-500 dark:text-muted-foreground">
                               {metric.label}
                             </p>
                             <p className={`mt-1 text-lg font-extrabold ${metric.color}`}>
@@ -3422,8 +3445,8 @@ export default function FeaturesPage() {
                       </div>
 
                       {/* Delivery breakdown chart */}
-                      <div className="rounded-xl border border-slate-100 bg-white p-4">
-                        <p className="text-sm font-bold text-slate-700">
+                      <div className="rounded-xl border border-slate-100 dark:border-border bg-white dark:bg-card p-4">
+                        <p className="text-sm font-bold text-slate-700 dark:text-muted-foreground">
                           Delivery breakdown
                         </p>
 
@@ -3434,14 +3457,14 @@ export default function FeaturesPage() {
                                 "conic-gradient(#3b82f6 0% 72%, #16a34a 72% 77%, #94a3b8 77% 82%, #dc2626 82% 100%)",
                             }}
                           >
-                            <div className="absolute inset-[28%] flex items-center justify-center rounded-full bg-white">
-                              <span className="text-xs font-semibold text-slate-500">
+                            <div className="absolute inset-[28%] flex items-center justify-center rounded-full bg-white dark:bg-card">
+                              <span className="text-xs font-semibold text-slate-500 dark:text-muted-foreground">
                                 Messages
                               </span>
                             </div>
                           </div>
 
-                          <div className="space-y-3 text-xs text-slate-600">
+                          <div className="space-y-3 text-xs text-slate-600 dark:text-muted-foreground">
                             {[
                               { label: "Read", value: "281", color: "bg-blue-500" },
                               { label: "Delivered", value: "88", color: "bg-green-600" },
@@ -3451,7 +3474,7 @@ export default function FeaturesPage() {
                               <div key={item.label} className="flex items-center gap-2">
                                 <span className={`h-2.5 w-2.5 rounded-sm ${item.color}`} />
                                 <span>{item.label}</span>
-                                <span className="font-semibold text-slate-800">
+                                <span className="font-semibold text-slate-800 dark:text-foreground">
                                   {item.value}
                                 </span>
                               </div>
@@ -3468,14 +3491,14 @@ export default function FeaturesPage() {
                       WhatsApp Analytics
                     </p>
 
-                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl">
                       Smart WhatsApp Analytics to{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         Track What&apos;s Working
                       </span>
                     </h2>
 
-                    <p className="mt-4 text-base leading-7 text-slate-500">
+                    <p className="mt-4 text-base leading-7 text-slate-500 dark:text-muted-foreground">
                       Measure WhatsApp campaign performance with detailed delivery, read,
                       response and engagement analytics. Understand which messages drive
                       customer actions and optimize campaigns using real-time insights.
@@ -3495,7 +3518,7 @@ export default function FeaturesPage() {
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -3509,14 +3532,14 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: Accounts & GST */}
-              <section className="relative overflow-hidden bg-[#f5f6fb] px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   <div className="mx-auto mb-12 max-w-4xl text-center">
                     <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.18em] text-violet-400">
                       Accounts &amp; GST
                     </p>
 
-                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                    <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-4xl lg:text-4xl">
                       GST invoicing, GSTR-1 &amp; quotes —{" "}
                       <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                         inside the CRM
@@ -3526,22 +3549,22 @@ export default function FeaturesPage() {
 
                   <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
                     {/* Left: Invoice preview */}
-                    <div className="min-w-0 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-6">
+                    <div className="min-w-0 rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-5 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-6">
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <h3 className="text-base font-extrabold text-violet-600">
                             Smart CRM Solution
                           </h3>
-                          <p className="mt-1 text-xs text-slate-500">
+                          <p className="mt-1 text-xs text-slate-500 dark:text-muted-foreground">
                             GSTIN 07AABCS1234C1Z5
                           </p>
                         </div>
 
                         <div className="text-right">
-                          <p className="text-base font-extrabold text-slate-900">
+                          <p className="text-base font-extrabold text-slate-900 dark:text-foreground">
                             TAX INVOICE
                           </p>
-                          <p className="mt-1 text-xs text-slate-500">
+                          <p className="mt-1 text-xs text-slate-500 dark:text-muted-foreground">
                             INV/2026/0142
                           </p>
                         </div>
@@ -3549,7 +3572,7 @@ export default function FeaturesPage() {
 
                       <div className="mt-4 border-t-2 border-violet-500" />
 
-                      <div className="mt-3 space-y-0 text-sm text-slate-700">
+                      <div className="mt-3 space-y-0 text-sm text-slate-700 dark:text-muted-foreground">
                         {[
                           { name: "SmartCRM Pro · 5 users", qty: "1 × 60,000", amount: "₹60,000" },
                           { name: "WhatsApp AI Bot", qty: "1 × 12,000", amount: "₹12,000" },
@@ -3557,7 +3580,7 @@ export default function FeaturesPage() {
                         ].map((item) => (
                           <div
                             key={item.name}
-                            className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 border-b border-slate-100 py-3"
+                            className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 border-b border-slate-100 dark:border-border py-3"
                           >
                             <span className="min-w-0">{item.name}</span>
                             <span className="whitespace-nowrap">{item.qty}</span>
@@ -3567,7 +3590,7 @@ export default function FeaturesPage() {
                           </div>
                         ))}
 
-                        <div className="flex justify-between gap-4 py-3 text-slate-500">
+                        <div className="flex justify-between gap-4 py-3 text-slate-500 dark:text-muted-foreground">
                           <span>CGST + SGST</span>
                           <span className="whitespace-nowrap">₹13,860</span>
                         </div>
@@ -3575,14 +3598,14 @@ export default function FeaturesPage() {
 
                       <div className="border-t-2 border-violet-500 pt-3">
                         <div className="flex items-center justify-between gap-4">
-                          <span className="text-xl font-extrabold text-slate-900">
+                          <span className="text-xl font-extrabold text-slate-900 dark:text-foreground">
                             Total
                           </span>
-                          <span className="text-xl font-extrabold text-slate-900">
+                          <span className="text-xl font-extrabold text-slate-900 dark:text-foreground">
                             ₹90,860
                           </span>
                         </div>
-                        <p className="mt-3 text-right text-xs text-slate-500">
+                        <p className="mt-3 text-right text-xs text-slate-500 dark:text-muted-foreground">
                           HSN 998313 · Filed in GSTR-1
                         </p>
                       </div>
@@ -3590,7 +3613,7 @@ export default function FeaturesPage() {
 
                     {/* Right: Features */}
                     <div>
-                      <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+                      <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-foreground sm:text-xl">
                         Quotation → Invoice →{" "}
                         <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                           GSTR-1, in 3 clicks
@@ -3609,7 +3632,7 @@ export default function FeaturesPage() {
                             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                               ✓
                             </span>
-                            <p className="text-sm leading-6 text-slate-700 sm:text-base">
+                            <p className="text-sm leading-6 text-slate-700 dark:text-muted-foreground sm:text-base">
                               {feature}
                             </p>
                           </div>
@@ -3632,7 +3655,7 @@ export default function FeaturesPage() {
           />
 
           <div className="feature-reveal relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-5">
-            <h2 className="font-heading text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h2 className="font-heading text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-4xl">
               Ready to run your{" "}
               <span className="underline decoration-white/80 decoration-2 underline-offset-4">
                 whole sales operation
@@ -3640,7 +3663,7 @@ export default function FeaturesPage() {
               on one screen?
             </h2>
 
-            <p className="text-base font-medium text-white/95 sm:text-xl">
+            {/* <p className="text-base font-medium text-white/95 sm:text-xl">
               <span aria-hidden="true">📞</span>{" "}
               Call us at{" "}
               <a
@@ -3649,13 +3672,13 @@ export default function FeaturesPage() {
               >
                 +919820145892
               </a>
-            </p>
+            </p> */}
 
             <div className="mt-2 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
               <Button
                 asChild
                 size="lg"
-                className="h-[60px] w-full rounded-2xl bg-white px-8 text-base font-bold text-violet-600 shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90 hover:text-violet-700 sm:w-auto"
+                className="h-[60px] w-full rounded-2xl bg-white dark:bg-card px-8 text-base font-bold text-violet-600 shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90 hover:text-violet-700 sm:w-auto"
               >
                 <a href="tel:+919820145892">
                   <span aria-hidden="true" className="mr-2">📞</span>
