@@ -15,89 +15,84 @@ import {
   Bot,
   CheckCircle2,
 } from "lucide-react";
+import { RichFooter } from "@/components/marketing/final-cta-section";
+
+
 
 const integrations = [
-  {
-    name: "WhatsApp",
-    category: "Messaging",
-    description: "Connect customer conversations and lead follow-ups.",
-    icon: MessageCircle,
-    status: "Available",
-  },
-  {
-    name: "Google Ads",
-    category: "Lead Sources",
-    description: "Capture leads from Google Ads lead forms.",
-    icon: Globe,
-    status: "Available",
-  },
-  {
-    name: "Google Sheets",
-    category: "Google Workspace",
-    description: "Export lead data and sales reports to spreadsheets.",
-    icon: Globe,
-    status: "Available",
-  },
-  {
-    name: "Google Meet",
-    category: "Google Workspace",
-    description: "Coordinate demos and customer meetings.",
-    icon: CalendarDays,
-    status: "Available",
-  },
-  {
-    name: "Razorpay",
-    category: "Payments",
-    description: "Connect payment activity with your sales workflow.",
-    icon: CreditCard,
-    status: "Available",
-  },
-  {
-    name: "IndiaMART",
-    category: "Lead Sources",
-    description: "Bring marketplace enquiries into your lead pipeline.",
-    icon: Globe,
-    status: "Available",
-  },
-  {
-    name: "Facebook Lead Ads",
-    category: "Lead Sources",
-    description: "Capture campaign enquiries in your CRM.",
-    icon: Globe,
-    status: "Available",
-  },
-  {
-    name: "Gmail",
-    category: "Google Workspace",
-    description: "Explore email-related CRM workflows.",
-    icon: Mail,
-    status: "Coming Soon",
-  },
-  {
-    name: "Cloud Telephony",
-    category: "Calling",
-    description: "Connect calling workflows with lead activity.",
-    icon: Phone,
-    status: "Available",
-  },
-  {
-    name: "AI Automation",
-    category: "Automation",
-    description: "Extend CRM workflows with AI-powered actions.",
-    icon: Bot,
-    status: "Available",
-  },
+  // Messaging and lead capture
+  { name: "Facebook", category: "Lead Sources", description: "Automatically capture leads from Facebook Lead Ads.", status: "Live", domain: "facebook.com" },
+  { name: "Meta Conversion API", category: "Popular", description: "Send lead events back to Meta for ad attribution.", status: "Live", domain: "meta.com" },
+  { name: "WhatsApp", category: "Messaging and Chat", description: "Manage template messages, auto-replies, and chat-to-deal tracking.", status: "Live", domain: "whatsapp.com" },
+  { name: "Instagram DM", category: "Messaging and Chat", description: "Capture and respond to Instagram direct messages.", status: "Live", domain: "instagram.com" },
+  { name: "Website Chat Widget", category: "Messaging and Chat", description: "Add a website chat widget and optionally connect an AI chatbot.", status: "Live", domain: "smoothsales.ai" },
+
+  // Lead sources
+  { name: "Google Ads Lead Form", category: "Lead Sources", description: "Capture leads from Google Ads lead forms.", status: "Live", domain: "ads.google.com" },
+  { name: "IndiaMart", category: "Lead Sources", description: "Import enquiries with requirements, budgets, and contact details.", status: "Live", domain: "indiamart.com" },
+  { name: "TradeIndia", category: "Lead Sources", description: "Automatically capture leads from TradeIndia.", status: "Live", domain: "tradeindia.com" },
+  { name: "JustDial", category: "Lead Sources", description: "Capture and assign JustDial enquiries to sales representatives.", status: "Live", domain: "justdial.com" },
+  { name: "Web Contact Form", category: "Forms", description: "Capture leads submitted through your website.", status: "Live", domain: "google.com" },
+  { name: "Leads from Email", category: "Email", description: "Forward incoming email leads directly into your CRM.", status: "Live", domain: "gmail.com" },
+  { name: "Leads Through API", category: "Automation and API", description: "Create leads from custom sources through an API.", status: "Live", domain: "swagger.io" },
+
+  // Real estate and marketplaces
+  { name: "Commonfloor", category: "Real Estate", description: "Capture enquiries from Commonfloor.", status: "Live", domain: "commonfloor.com" },
+  { name: "MagicBricks", category: "Real Estate", description: "Automatically capture property enquiries from MagicBricks.", status: "Live", domain: "magicbricks.com" },
+  { name: "Housing.com", category: "Real Estate", description: "Bring Housing.com leads into your sales workflow.", status: "Live", domain: "housing.com" },
+  { name: "UrbanPro", category: "Lead Sources", description: "Capture enquiries from UrbanPro.", status: "Live", domain: "urbanpro.com" },
+  { name: "AAJJO", category: "Lead Sources", description: "Capture business enquiries from AAJJO.", status: "Live", domain: "aajjo.com" },
+
+  // Google Suite and forms
+  { name: "Google Forms", category: "Google Suite", description: "Create CRM leads from Google Form submissions.", status: "Live", domain: "forms.google.com" },
+  { name: "Google Sheets", category: "Google Suite", description: "Export pipeline data, reports, and lead lists to Sheets.", status: "Live", domain: "sheets.google.com" },
+  { name: "Google Meet", category: "Google Suite", description: "Connect Google Meet for scheduled demos and calls.", status: "Live", domain: "meet.google.com" },
+  { name: "Google Drive", category: "Google Suite", description: "Export call recordings and CRM data to Drive folders.", status: "Coming Soon", domain: "drive.google.com" },
+  { name: "Gmail", category: "Email", description: "Connect Gmail for email tracking and synchronisation.", status: "Coming Soon", domain: "gmail.com" },
+  { name: "Jotform", category: "Forms", description: "Capture data from Jotform submissions.", status: "Live", domain: "jotform.com" },
+  { name: "Wix Contact Form", category: "Forms", description: "Capture leads from Wix website contact forms.", status: "Live", domain: "wix.com" },
+  { name: "Calendly", category: "Scheduling", description: "Capture leads from Calendly bookings.", status: "Live", domain: "calendly.com" },
+
+  // Payments and finance
+  { name: "Razorpay", category: "Payments and Finance", description: "Track payments and invoices alongside CRM deals.", status: "Live", domain: "razorpay.com" },
+  { name: "Cashfree", category: "Payments and Finance", description: "Manage payment workflows through Cashfree.", status: "Live", domain: "cashfree.com" },
+  { name: "Zoho CRM", category: "Popular", description: "Integrate CRM records and create leads in Zoho CRM.", status: "Live", domain: "zoho.com" },
+  { name: "Zoho Books", category: "Payments and Finance", description: "Connect accounting and invoice workflows.", status: "Coming Soon", domain: "zoho.com" },
+  { name: "Zoho Recruit", category: "Automation and API", description: "Connect Zoho Recruit with your sales workflow.", status: "Live", domain: "zoho.com" },
+  { name: "Zenoti", category: "Automation and API", description: "Connect Zenoti for salon and spa business workflows.", status: "Live", domain: "zenoti.com" },
+  { name: "Shopify", category: "Ecommerce", description: "Sync Shopify customers and orders with your pipeline.", status: "Coming Soon", domain: "shopify.com" },
+
+  // AI and telephony
+  { name: "OpenAI", category: "AI and Intelligence", description: "Connect an OpenAI API key to power AI features.", status: "Live", domain: "openai.com" },
+  { name: "Caller Desk", category: "Cloud Telephony", description: "Connect your Caller Desk cloud telephony account.", status: "Live", domain: "callerdesk.io" },
+  { name: "Tata Tele Smart Flo", category: "Cloud Telephony", description: "Connect Tata Tele cloud telephony.", status: "Live", domain: "tatatelebusiness.com" },
+  { name: "Knowlarity", category: "Cloud Telephony", description: "Connect Knowlarity cloud telephony.", status: "Live", domain: "knowlarity.com" },
+  { name: "Exotel", category: "Cloud Telephony", description: "Connect Exotel cloud telephony.", status: "Live", domain: "exotel.com" },
+  { name: "Bon Voice", category: "Cloud Telephony", description: "Connect your Bon Voice cloud telephony account.", status: "Live", domain: "bonvoice.com" },
+  { name: "3CX", category: "Cloud Telephony", description: "Connect your 3CX business phone system.", status: "Live", domain: "3cx.com" },
+  { name: "Vonage", category: "Cloud Telephony", description: "Connect your Vonage business phone system.", status: "Live", domain: "vonage.com" },
+  { name: "Webhooks", category: "Automation and API", description: "Send CRM events and data to external systems.", status: "Live", domain: "webhooks.io" },
 ];
+
+
 
 const categories = [
   "All Integrations",
+  "Popular",
   "Lead Sources",
-  "Google Workspace",
-  "Messaging",
-  "Payments",
-  "Calling",
-  "Automation",
+  "Google Suite",
+  "Payments and Finance",
+  "Cloud Telephony",
+  "Automation and API",
+  "Messaging and Chat",
+  "Forms",
+  "Real Estate",
+  "Ecommerce",
+  "AI and Intelligence",
+  "Scheduling",
+  "Email",
 ];
+
 
 export default function IntegrationsPage() {
   const [search, setSearch] = useState("");
@@ -122,7 +117,8 @@ export default function IntegrationsPage() {
   }, [search, activeCategory]);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    // <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-slate-50 dark:bg-[#0A0A0F] text-slate-900 dark:text-white transition-colors duration-300">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <div
@@ -137,8 +133,10 @@ export default function IntegrationsPage() {
               THE INTEGRATION NETWORK
             </div>
 
-            <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Bring every lead and conversation into{" "}
+
+{/* Unify all your leads and conversations in one workspace */}
+            <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-5xl">
+              Unify all your leads and conversations into{" "}
               <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
                 one workspace
               </span>
@@ -176,7 +174,7 @@ export default function IntegrationsPage() {
                   key={item.value}
                   className="rounded-2xl border border-border bg-card/80 p-5"
                 >
-                  <p className="text-lg font-bold">{item.value}</p>
+                  <p className="text-xl font-bold">{item.value}</p>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {item.label}
                   </p>
@@ -193,7 +191,7 @@ export default function IntegrationsPage() {
         className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 sm:py-20"
       >
         <div className="mb-8">
-          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
+          <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
             Integration Directory
           </p>
 
@@ -221,7 +219,7 @@ export default function IntegrationsPage() {
         </div>
 
         {/* Category filters */}
-        <div className="mb-8 flex gap-2 overflow-x-auto pb-2">
+        {/* <div className="mb-8 flex gap-2 overflow-x-auto pb-2">
           {categories.map((category) => (
             <button
               key={category}
@@ -236,7 +234,29 @@ export default function IntegrationsPage() {
               {category}
             </button>
           ))}
+        </div> */}
+        <div className="mb-8 flex flex-wrap items-center gap-2.5">
+          {categories.map((category) => {
+            const isActive = activeCategory === category;
+
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                aria-pressed={isActive}
+                className={`inline-flex shrink-0 items-center justify-center rounded-full border px-[18px] py-3 text-[15px] font-semibold leading-5 transition-all duration-200 ${
+                  isActive
+                    ? "border-violet-600 bg-violet-600 text-white shadow-sm"
+                    : "border-border bg-background text-foreground hover:border-violet-300 hover:bg-violet-50 dark:hover:bg-violet-950/30"
+                }`}
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
+
 
         {/* Results */}
         <div className="mb-5 flex items-center justify-between gap-3">
@@ -250,17 +270,27 @@ export default function IntegrationsPage() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredIntegrations.map((integration) => {
-            const Icon = integration.icon;
+            // const Icon = integration.icon;
 
             return (
               <article
                 key={integration.name}
-                className="group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                className="cursor-pointer group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/15 text-primary">
+                  {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/15 text-primary">
                     <Icon className="h-6 w-6" />
+                  </div> */}
+                  
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-card p-2">
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${integration.domain}&sz=128`}
+                      alt={`${integration.name} logo`}
+                      className="h-9 w-9 object-fit"
+                      loading="lazy"
+                    />
                   </div>
+
 
                   <span
                     className={`rounded-full px-2.5 py-1 text-[11px] font-bold ${
@@ -356,6 +386,8 @@ export default function IntegrationsPage() {
           </div>
         </div>
       </section>
+
+    <RichFooter />
     </main>
   );
 }

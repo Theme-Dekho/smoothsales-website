@@ -192,7 +192,7 @@ export function ProblemFixSection() {
 
                 {/* Impact Stat Banner */}
                 <div className="pt-2.5 -mx-4 -mb-4 sm:-mx-5 sm:-mb-5 lg:-mx-6 lg:-mb-6 p-3 sm:p-4 bg-gradient-to-r from-primary/40 via-sky-500/20 to-transparent border-t border-white/10 flex items-center gap-3 rounded-b-2xl">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black tracking-tight text-cyan-300 font-mono shrink-0">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-cyan-300 font-mono shrink-0">
                     {currentLeak.impactStat}
                   </div>
                   <div className="space-y-0.5">

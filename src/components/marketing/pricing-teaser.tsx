@@ -36,7 +36,7 @@ export function PricingTeaser() {
         </div>
 
         {/* Billing Cadence Toggle */}
-        <div className="flex items-center justify-center gap-3 pt-1">
+        {/* <div className="flex items-center justify-center gap-3 pt-1">
           <span
             className={`text-xs font-semibold cursor-pointer transition-colors ${
               !isAnnual ? "text-slate-900 dark:text-white font-bold" : "text-slate-400 dark:text-white/50 hover:text-slate-600 dark:hover:text-white/80"
@@ -69,7 +69,52 @@ export function PricingTeaser() {
               Save 20%
             </span>
           </span>
-        </div>
+        </div> */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <div className="inline-flex items-center rounded-full border border-slate-200 bg-slate-100 p-1 dark:border-white/10 dark:bg-white/5">
+              <button
+                type="button"
+                onClick={() => setIsAnnual(false)}
+                aria-pressed={!isAnnual}
+                className={`rounded-full px-5 py-2.5 text-xs font-bold transition-all duration-200 sm:text-sm ${
+                  !isAnnual
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                }`}
+              >
+                Monthly
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setIsAnnual(true)}
+                aria-pressed={isAnnual}
+                className={`rounded-full px-5 py-2.5 text-xs font-bold transition-all duration-200 sm:text-sm ${
+                  isAnnual
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                }`}
+              >
+                Annual
+              </button>
+            </div>
+
+            {/* <span className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1.5 font-mono text-[10px] font-bold text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/20 dark:text-emerald-300">
+              Save 20%
+            </span> */}
+            
+            <span
+                className={`rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold transition-all duration-300 ${
+                  isAnnual
+                    ? "border-emerald-500/30 bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
+                    : "border-slate-300 bg-slate-100 text-slate-400 line-through opacity-60 dark:border-white/10 dark:bg-white/5 dark:text-slate-500"
+                }`}
+              >
+                Save 20%
+              </span>
+
+          </div>
+
 
         {/* Price Display */}
         <div className="pt-1">
@@ -77,8 +122,9 @@ export function PricingTeaser() {
             <span className="text-[10.5px] text-slate-500 dark:text-white/50 uppercase font-bold tracking-wider font-mono">
               Starting at
             </span>
-            <span className="text-3xl sm:text-5xl font-heading font-black tracking-tight font-mono text-slate-900 dark:bg-gradient-to-r dark:from-white dark:via-cyan-100 dark:to-sky-200 dark:bg-clip-text dark:text-transparent">
-              {isAnnual ? "₹10,399" : "₹12,999"}
+            {/* <span className="text-3xl sm:text-5xl font-heading font-black tracking-tight font-mono text-slate-900 dark:bg-gradient-to-r dark:from-white dark:via-cyan-100 dark:to-sky-200 dark:bg-clip-text dark:text-transparent"> */}
+            <span className="text-3xl sm:text-5xl font-mono font-black tracking-tight text-slate-900 dark:bg-gradient-to-r dark:from-white dark:via-cyan-100 dark:to-sky-200 dark:bg-clip-text dark:text-transparent">
+              {isAnnual ? "₹299" : "₹359"}
             </span>
             <span className="text-xs sm:text-sm text-slate-500 dark:text-white/60 font-medium">
               / month

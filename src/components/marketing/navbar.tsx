@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { ArrowRight, Sun, Moon, Menu, X, Sparkles, Info, Layers, BookOpen, Tag, PlaySquare, PhoneCall, Handshake } from "lucide-react";
+import { ArrowRight, Sun, Moon, Menu, X, Sparkles, Info, Layers, BookOpen, Tag, PlaySquare, PhoneCall, Handshake, ChevronDown} from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useLeadModal } from "./lead-modal-context";
@@ -11,6 +11,7 @@ export function MarketingNavbar() {
   const { openLeadModal } = useLeadModal();
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [partnersOpen, setPartnersOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -75,15 +76,117 @@ export function MarketingNavbar() {
             Features
           </Link>
 
-          <Link
-            href="/become-a-partner"
-            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1 flex items-center gap-1.5"
+          
+          {/* <div className="relative group">
+            <button
+              type="button"
+              aria-haspopup="true"
+              className="flex items-center gap-1.5 py-1 transition-colors duration-200 hover:text-slate-900 dark:hover:text-white"
+            >
+              <span>Partners</span>
+
+              <span className="rounded-md border border-cyan-500/25 bg-cyan-500/15 px-1.5 py-0.5 font-mono text-[9px] font-bold text-cyan-700 dark:text-cyan-300">
+                Grow With Us
+              </span>
+
+              <ChevronDown className="h-5 w-5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />
+            </button>
+
+            <div className="invisible absolute left-0 top-full z-50 w-60 translate-y-2 pt-3 opacity-0 transition-all duration-200 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+              <div className="rounded-xl border border-slate-200/90 bg-white/95 p-2 shadow-xl shadow-slate-900/10 backdrop-blur-xl dark:border-white/10 dark:bg-[#0E0E18]/95 dark:shadow-black/30">
+                <Link
+                  href="/become-a-partner"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold text-cyan-600 transition-all duration-200 hover:translate-x-1 hover:bg-cyan-500/10 hover:text-cyan-700 dark:text-cyan-400 dark:hover:bg-cyan-500/10 dark:hover:text-cyan-300"
+                >
+                  <span className="whitespace-nowrap">White Label Partner</span>
+
+                  <span className="shrink-0 rounded-md border border-cyan-500/25 bg-cyan-500/15 px-1.5 py-1 font-mono text-[9px] font-bold leading-none text-cyan-700 dark:text-cyan-300">
+                    Own Brand
+                  </span>
+                </Link>
+
+                <Link
+                  href="/business-partner"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="mt-1 flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold text-indigo-600 transition-all duration-200 hover:translate-x-1 hover:bg-indigo-500/10 hover:text-indigo-700 dark:text-indigo-300 dark:hover:bg-indigo-500/10 dark:hover:text-indigo-200"
+                >
+                  <span className="whitespace-nowrap">Business Partner</span>
+
+                  <span className="shrink-0 rounded-md border border-indigo-500/25 bg-indigo-500/15 px-1.5 py-1 font-mono text-[9px] font-bold leading-none text-indigo-700 dark:text-indigo-300">
+                    ₹150/user
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div> */}
+                    
+          <div
+            className="relative"
+            onMouseEnter={() => setPartnersOpen(true)}
+            onMouseLeave={() => setPartnersOpen(false)}
           >
-            <span>Partner</span>
-            <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 font-bold border border-cyan-500/25 font-mono">
-              White Label
-            </span>
-          </Link>
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={partnersOpen}
+              onClick={() => setPartnersOpen((open) => !open)}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") setPartnersOpen(false);
+              }}
+              className="flex items-center gap-1.5 py-1 transition-colors duration-200 hover:text-slate-900 dark:hover:text-white"
+            >
+              <span>Partners</span>
+
+              <span className="rounded-md border border-cyan-500/25 bg-cyan-500/15 px-1.5 py-0.5 font-mono text-[9px] font-bold text-cyan-700 dark:text-cyan-300">
+                Grow With Us
+              </span>
+
+              <ChevronDown
+                className={`h-5 w-5 transition-transform duration-200 ${
+                  partnersOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            <div
+              className={`absolute left-0 top-full z-50 w-60 pt-3 transition-all duration-200 ease-out ${
+                partnersOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible translate-y-2 opacity-0"
+              }`}
+            >
+              <div className="rounded-xl border border-slate-200/90 bg-white/95 p-2 shadow-xl shadow-slate-900/10 backdrop-blur-xl dark:border-white/10 dark:bg-[#0E0E18]/95 dark:shadow-black/30">
+                <Link
+                  href="/become-a-partner"
+                  onClick={() => setPartnersOpen(false)}
+                  className="flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold text-cyan-600 transition-all duration-200 hover:translate-x-1 hover:bg-cyan-500/10 hover:text-cyan-700 dark:text-cyan-400 dark:hover:bg-cyan-500/10 dark:hover:text-cyan-300"
+                >
+                  <span className="whitespace-nowrap">White Label Partner</span>
+
+                  <span className="shrink-0 rounded-md border border-cyan-500/25 bg-cyan-500/15 px-1.5 py-1 font-mono text-[9px] font-bold leading-none text-cyan-700 dark:text-cyan-300">
+                    Own Brand
+                  </span>
+                </Link>
+
+                <Link
+                  href="/business-partner"
+                  onClick={() => setPartnersOpen(false)}
+                  className="mt-1 flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold text-indigo-600 transition-all duration-200 hover:translate-x-1 hover:bg-indigo-500/10 hover:text-indigo-700 dark:text-indigo-300 dark:hover:bg-indigo-500/10 dark:hover:text-indigo-200"
+                >
+                  <span className="whitespace-nowrap">Business Partner</span>
+
+                  <span className="shrink-0 rounded-md border border-indigo-500/25 bg-indigo-500/15 px-1.5 py-1 font-mono text-[9px] font-bold leading-none text-indigo-700 dark:text-indigo-300">
+                    ₹150/user
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+
+
+
 
           <Link
             href="/pricing"

@@ -10,7 +10,7 @@ import { trackClickWhatsApp } from "@/lib/tracking";
 
 export function FinalCta() {
   const { openLeadModal } = useLeadModal();
-  const whatsappNumber = "919820145892";
+  const whatsappNumber = "919711298017";
   const whatsappMessage = encodeURIComponent(
     "Hi SmoothSales team, I'd like to see a demo of SmoothSales.ai for my sales team."
   );

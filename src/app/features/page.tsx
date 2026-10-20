@@ -477,7 +477,11 @@ export default function FeaturesPage() {
   }, []);
 
   return (
-    <main ref={pageRef} className="features-animated-page min-h-screen bg-background font-sans text-foreground">
+    // <main ref={pageRef} className="features-animated-page min-h-screen bg-background font-sans text-foreground">
+    <main
+      ref={pageRef}
+      className="features-animated-page min-h-screen bg-slate-50 dark:bg-[#0A0A0F] font-sans text-slate-900 dark:text-white transition-colors duration-300"
+    >
       <style jsx global>{`
         .features-animated-page .feature-reveal,
         .features-animated-page .feature-reveal-child {
@@ -654,7 +658,7 @@ export default function FeaturesPage() {
           </div>
 
           <div className="hero-phone mx-auto w-full max-w-[390px] rounded-[2.7rem] border-[9px] border-slate-950 bg-slate-950 p-[5px] shadow-2xl shadow-slate-900/20">
-            <div key={activeHeroTile} className={`hero-preview-screen ${activeHeroTile === 0 || activeHeroTile === 3 || (activeHeroTile >= 4 && activeHeroTile <= 9) ? "min-h-[500px] rounded-[2rem] bg-white dark:bg-card p-4" : "min-h-[500px] rounded-[2rem] bg-slate-100 dark:bg-muted dark:bg-muted p-3"}`}>
+            <div key={activeHeroTile} className={`hero-preview-screen ${activeHeroTile === 0 || activeHeroTile === 3 || (activeHeroTile >= 4 && activeHeroTile <= 9) ? "min-h-[500px] rounded-[2rem] bg-white dark:bg-card p-4" : "min-h-[500px] rounded-[2rem] bg-slate-100 dark:bg-muted p-3"}`}>
               <div className="mb-3 flex items-center justify-between border-b border-slate-100 dark:border-border pb-3 text-[11px] font-semibold text-slate-500 dark:text-muted-foreground">
                 <span className="flex items-center gap-1.5"><i className="h-2.5 w-2.5 rounded-full bg-red-400" /><i className="h-2.5 w-2.5 rounded-full bg-amber-400" /><i className="h-2.5 w-2.5 rounded-full bg-green-500" /> crm · {[
                   "auto lead capture", "auto-dial", "whatsapp bot", "bulk whatsapp",
@@ -801,7 +805,7 @@ export default function FeaturesPage() {
               )}
 
               {activeHeroTile === 11 && (
-                <div className="overflow-hidden rounded-2xl bg-slate-100 dark:bg-muted dark:bg-muted">
+                <div className="overflow-hidden rounded-2xl bg-slate-100 dark:bg-muted">
                   <div className="bg-gradient-to-r from-violet-500 to-pink-500 p-4 text-white"><div className="flex items-center justify-between"><b className="text-sm">✨ Ask CRM</b><span>×</span></div><small className="text-[10px]">Powered by AI · Demo</small></div>
                   <div className="min-h-[250px] p-3"><div className="rounded-xl bg-white dark:bg-card p-3 text-[11px] leading-5 text-slate-700 dark:text-muted-foreground">Hi Gopal! Ask anything:<br />• How many leads today?<br />• Who needs a follow-up?<br />• Which source converts best?</div><div className="mt-3 flex items-center gap-2 rounded-full border border-slate-200 dark:border-border bg-white dark:bg-card px-3 py-2 text-[10px] text-slate-400"><span>Ask about your CRM...</span><span className="ml-auto text-primary">➤</span></div></div>
                 </div>
@@ -3680,9 +3684,9 @@ export default function FeaturesPage() {
                 size="lg"
                 className="h-[60px] w-full rounded-2xl bg-white dark:bg-card px-8 text-base font-bold text-violet-600 shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90 hover:text-violet-700 sm:w-auto"
               >
-                <a href="tel:+919820145892">
+                <a href="tel:+919711298017">
                   <span aria-hidden="true" className="mr-2">📞</span>
-                  +919820145892
+                  +919711298017
                 </a>
               </Button>
 

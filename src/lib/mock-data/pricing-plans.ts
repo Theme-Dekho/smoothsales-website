@@ -13,7 +13,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: "starter",
     name: "Starter",
-    price: "₹12,999",
+    price: "₹299",
     billingNote: "/month · billed monthly",
     leadLimit: "Up to 1,000 leads/mo",
     isPopular: false,
@@ -29,7 +29,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: "growth",
     name: "Growth",
-    price: "₹17,999",
+    price: "₹399",
     billingNote: "/month · billed monthly",
     leadLimit: "Up to 5,000 leads/mo",
     isPopular: true,
@@ -45,7 +45,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: "enterprise",
     name: "Enterprise",
-    price: "₹19,999",
+    price: "₹499",
     billingNote: "/month · billed monthly",
     leadLimit: "Unlimited leads/mo",
     isPopular: false,

@@ -28,9 +28,9 @@ export function StickyLeadActionBar() {
     };
   }, []);
 
-  const phoneDisplay = "+91 98201 45892";
-  const phoneTel = "tel:+919820145892";
-  const whatsappUrl = `https://wa.me/919820145892?text=${encodeURIComponent(
+  const phoneDisplay = "+91 97112 98017";
+  const phoneTel = "tel:+919711298017";
+  const whatsappUrl = `https://wa.me/919711298017?text=${encodeURIComponent(
     "Hi SmoothSales team, I am interested in seeing a demo of the CRM for our team."
   )}`;
 

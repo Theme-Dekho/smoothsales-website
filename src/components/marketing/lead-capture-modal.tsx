@@ -140,7 +140,7 @@ export function LeadCaptureModal() {
     }
   };
 
-  const whatsappDirectUrl = `https://wa.me/919820145892?text=${encodeURIComponent(
+  const whatsappDirectUrl = `https://wa.me/919711298017?text=${encodeURIComponent(
     `Hi SmoothSales team, I just requested a demo (Ref: ${leadRef || "DIRECT"}). Can we schedule a quick 15-minute walkthrough for ${
       formData.fullName || "our team"
     }?`
@@ -283,7 +283,7 @@ export function LeadCaptureModal() {
                         <Input
                           required
                           type="tel"
-                          placeholder="98201 45892"
+                          placeholder="97112 98017"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="pl-12 h-10 text-xs sm:text-sm bg-slate-50 dark:bg-white/[0.04] border-slate-200 dark:border-white/10 rounded-xl"
