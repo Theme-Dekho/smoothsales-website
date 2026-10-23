@@ -68,15 +68,19 @@ const config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      // fontFamily: {
+      //   sans: [
+      //     'var(--font-plex)',
+      //     'sans-serif'
+      //   ],
+      //   heading: [
+      //     'var(--font-manrope)',
+      //     'sans-serif'
+      //   ]
+      // },
       fontFamily: {
-        sans: [
-          'var(--font-plex)',
-          'sans-serif'
-        ],
-        heading: [
-          'var(--font-manrope)',
-          'sans-serif'
-        ]
+        sans: ["var(--font-roboto)", "Arial", "sans-serif"],
+        heading: ["var(--font-roboto)", "Arial", "sans-serif"],
       },
       keyframes: {
         'accordion-down': {

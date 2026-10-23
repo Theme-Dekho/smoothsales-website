@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -52,19 +53,82 @@ const integrations = [
   ["API", "REST webhooks", "Custom sources"],
 ];
 
+// const heroTiles = [
+//   { icon: "📥", label: "Auto Lead Capture" },
+//   { icon: "📞", label: "Auto-Dial New Lead" },
+//   { icon: "🤖", label: "AI WhatsApp Bot" },
+//   { icon: "📣", label: "Bulk WhatsApp" },
+//   { icon: "🟢", label: "Live Team Status" },
+//   { icon: "🎧", label: "Call Recording" },
+//   { icon: "⭐", label: "AI Call Audit" },
+//   { icon: "📊", label: "Pipeline Funnel" },
+//   { icon: "⏱️", label: "Attendance & GPS" },
+//   { icon: "🧾", label: "GST Invoice" },
+//   { icon: "📲", label: "Smart Caller-ID" },
+//   { icon: "✨", label: "Ask CRM Copilot" },
+// ];
+
 const heroTiles = [
-  { icon: "📥", label: "Auto Lead Capture" },
-  { icon: "📞", label: "Auto-Dial New Lead" },
-  { icon: "🤖", label: "AI WhatsApp Bot" },
-  { icon: "📣", label: "Bulk WhatsApp" },
-  { icon: "🟢", label: "Live Team Status" },
-  { icon: "🎧", label: "Call Recording" },
-  { icon: "⭐", label: "AI Call Audit" },
-  { icon: "📊", label: "Pipeline Funnel" },
-  { icon: "⏱️", label: "Attendance & GPS" },
-  { icon: "🧾", label: "GST Invoice" },
-  { icon: "📲", label: "Smart Caller-ID" },
-  { icon: "✨", label: "Ask CRM Copilot" },
+  {
+    label: "Auto Lead Capture",
+    icon: "📥",
+    image: "/images/features/auto-lead-capture.webp",
+  },
+  {
+    label: "Auto-Dial New Lead",
+    icon: "📞",
+    image: "/images/features/auto-dial-new-lead.webp",
+  },
+  {
+    label: "AI WhatsApp Bot",
+    icon: "🤖",
+    image: "/images/features/ai-whatsapp-bot.webp",
+  },
+  {
+    label: "Bulk WhatsApp",
+    icon: "📣",
+    image: "/images/features/bulk-whatsapp.webp",
+  },
+  {
+    label: "Live Team Status",
+    icon: "🟢",
+    image: "/images/features/live-team-status.webp",
+  },
+  {
+    label: "Call Recording",
+    icon: "🎧",
+    image: "/images/features/call-recording.webp",
+  },
+  {
+    label: "AI Call Audit",
+    icon: "⭐",
+    image: "/images/features/ai-call-audit.webp",
+  },
+  {
+    label: "Pipeline Funnel",
+    icon: "📊",
+    image: "/images/features/pipeline-funnel.webp",
+  },
+  {
+    label: "Attendance & GPS",
+    icon: "⏱️",
+    image: "/images/features/attendance-gps.webp",
+  },
+  {
+    label: "GST Invoice",
+    icon: "🧾",
+    image: "/images/features/gst-invoice.webp",
+  },
+  {
+    label: "Smart Caller-ID",
+    icon: "📲",
+    image: "/images/features/smart-caller-id.webp",
+  },
+  {
+    label: "Ask CRM Copilot",
+    icon: "✨",
+    image: "/images/features/ask-crm-copilot.webp",
+  },
 ];
 
 const sections: FeatureSectionData[] = [
@@ -438,6 +502,15 @@ function FeatureSection({ feature, index }: { feature: FeatureSectionData; index
 export default function FeaturesPage() {
   const pageRef = useRef<HTMLElement | null>(null);
   const [activeHeroTile, setActiveHeroTile] = useState(2);
+  const [activeStage, setActiveStage] = useState(0);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setActiveStage((current) => (current + 1) % 6);
+      }, 2500);
+
+      return () => clearInterval(interval);
+    }, []);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -476,12 +549,11 @@ export default function FeaturesPage() {
     return () => observer.disconnect();
   }, []);
 
+
+  // 236, 53%, 6%
+
   return (
-    // <main ref={pageRef} className="features-animated-page min-h-screen bg-background font-sans text-foreground">
-    <main
-      ref={pageRef}
-      className="features-animated-page min-h-screen bg-slate-50 dark:bg-[#0A0A0F] font-sans text-slate-900 dark:text-white transition-colors duration-300"
-    >
+    <main ref={pageRef} className="features-animated-page min-h-screen bg-slate-50 dark:bg-[hsl(236,53%,6%)] font-sans text-slate-900 dark:text-white transition-colors duration-300">
       <style jsx global>{`
         .features-animated-page .feature-reveal,
         .features-animated-page .feature-reveal-child {
@@ -610,214 +682,100 @@ export default function FeaturesPage() {
           }
         }
       `}</style>
-      <section className="relative isolate overflow-hidden border-b border-border">
-        <div className="absolute inset-0 -z-10 feature-glow bg-gradient-to-b from-primary/10 via-background to-background" />
-        <div className="absolute left-1/2 top-0 -z-10 h-72 w-[min(90vw,900px)] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
-          <div className="feature-reveal space-y-5">
-            <div className="inline-flex w-full max-w-2xl items-center rounded-full border border-violet-300 bg-violet-100/70 px-4 py-2 text-sm font-semibold text-violet-700 dark:border-violet-400/40 dark:bg-violet-500/10 dark:text-violet-300">
-              AI Powered · India-first CRM
-            </div>
-            {/* <h1 className="max-w-3xl font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[4.1rem]"> */}
-            {/* <h1 className="max-w-3xl font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground"> */}
-            {/* <h1 className="max-w-none font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground"> */}
-            {/* <h1 className="w-full max-w-none whitespace-normal font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground">
-              Lead CRM + Call Recording +{" "}
-              <span className="bg-gradient-to-r from-violet-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
-                WhatsApp Automation + AI
-              </span>
-            </h1> */}
-            <h1 className="w-full max-w-none whitespace-normal font-heading text-[48px] font-extrabold leading-[1.08] tracking-tight text-foreground">
-            Lead CRM + Call Recording +{" "}
-            <span className="bg-gradient-to-r from-violet-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
-              WhatsApp{" "}
-              <span className="whitespace-nowrap">Automation + AI</span>
-            </span>
-          </h1>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-base">
-              From lead capture to invoice — bring lead sources, call activity, WhatsApp workflows,
-              team operations and sales reporting into one mobile and web workspace.
+      
+      {/* New SECTION CODE */}
+      {/* Replace the existing hero section with this Salesmax-style opening section. */}
+      <section className="relative isolate overflow-hidden border-b border-white/10 bg-[hsl(236,53%,6%)] text-white">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.16),transparent_55%)]" />
+
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-violet-300">
+              Features
             </p>
-            <div className="grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
-              {heroTiles.map((tile, index) => (
-                <button
-                  key={tile.label}
-                  type="button"
-                  onClick={() => setActiveHeroTile(index)}
-                  aria-pressed={activeHeroTile === index}
-                  className={`hero-feature-tile ${activeHeroTile === index ? "is-active" : ""} flex min-h-[112px] flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-card px-3 py-4 text-center shadow-sm`}
-                  style={{ animationDelay: `${index * 70}ms` }}
+
+            <h1 className="text-balance font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-7xl">
+              {/* Everything your sales team needs — from first lead to final payment */}
+              Every Lead Captured. Every Conversation Tracked. Every Sale Monitored.
+            </h1>
+
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+              Six stages. One connected workflow. Less manual updating.
+            </p>
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Button asChild size="lg" className="rounded-full bg-violet-600 px-8 text-white hover:bg-violet-500">
+                <Link href="/sign-up">Start Free Trial <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
+  
+              <Button asChild size="lg" variant="outline" className="rounded-full border-white/20 bg-white/[0.03] text-white hover:bg-white/10 hover:text-white">
+                <Link href="/contact">Book a Demo</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* <nav aria-label="Sales workflow stages" className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+            {[
+              "Lead Capture",
+              "First Contact",
+              "Follow-ups",
+              "Deals",
+              "Payments",
+              "Visibility",
+            ].map((stage, index) => (
+              <a
+                key={stage}
+                href={index === 0 ? "#lead-capture" : `#workflow-${index + 1}`}
+                className={`rounded-xl border px-3 py-3 text-center text-sm font-semibold transition-colors ${
+                  index === 0
+                    ? "border-violet-400/60 bg-violet-500/10 text-violet-700 dark:text-violet-200"
+                    : "border-slate-200 bg-white/70 text-slate-600 hover:border-violet-400/50 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 dark:hover:border-violet-400/50"
+                }`}
+              >
+                <span className="mb-1 block text-xs opacity-60">{String(index + 1).padStart(2, "0")}</span>
+                {stage}
+              </a>
+            ))}
+          </nav> */}
+          
+            <nav
+              aria-label="Sales workflow stages"
+              className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6"
+            >
+              {[
+                "Lead Capture",
+                "AI Automation (Filter)",
+                "Follow-ups",
+                "Deals",
+                "Payments",
+                "Visibility",
+              ].map((stage, index) => (
+                <a
+                  key={stage}
+                  href={index === 0 ? "#lead-capture" : `#workflow-${index + 1}`}
+                  onClick={() => setActiveStage(index)}
+                  className={`rounded-2xl border px-3 py-4 text-center text-sm font-semibold transition-all duration-500 ease-in-out ${
+                    activeStage === index
+                    // "border-violet-400 bg-violet-500/20 text-violet-200 shadow-md shadow-violet-500/10"
+                      ? "border-violet-400 bg-violet-500/20 text-violet-200 shadow-md shadow-violet-500/10"
+                      : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-violet-400/50 hover:bg-white/[0.06]"
+                  }`}
                 >
-                  <span className={`flex h-12 w-12 items-center justify-center rounded-xl border border-violet-200 bg-gradient-to-br from-violet-100 to-cyan-50 text-2xl transition-transform ${activeHeroTile === index ? "scale-110" : ""}`}>
-                    {tile.icon}
+                  <span className="mb-1 block text-xs opacity-60">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="max-w-[100px] text-xs font-semibold leading-4 text-foreground">{tile.label}</span>
-                </button>
+                  {stage}
+                </a>
               ))}
-            </div>
-          </div>
+            </nav>
 
-          <div className="hero-phone mx-auto w-full max-w-[390px] rounded-[2.7rem] border-[9px] border-slate-950 bg-slate-950 p-[5px] shadow-2xl shadow-slate-900/20">
-            <div key={activeHeroTile} className={`hero-preview-screen ${activeHeroTile === 0 || activeHeroTile === 3 || (activeHeroTile >= 4 && activeHeroTile <= 9) ? "min-h-[500px] rounded-[2rem] bg-white dark:bg-card p-4" : "min-h-[500px] rounded-[2rem] bg-slate-100 dark:bg-muted p-3"}`}>
-              <div className="mb-3 flex items-center justify-between border-b border-slate-100 dark:border-border pb-3 text-[11px] font-semibold text-slate-500 dark:text-muted-foreground">
-                <span className="flex items-center gap-1.5"><i className="h-2.5 w-2.5 rounded-full bg-red-400" /><i className="h-2.5 w-2.5 rounded-full bg-amber-400" /><i className="h-2.5 w-2.5 rounded-full bg-green-500" /> crm · {[
-                  "auto lead capture", "auto-dial", "whatsapp bot", "bulk whatsapp",
-                  "live team", "call recording", "ai audit", "funnel",
-                  "attendance", "gst invoice", "caller-id", "ask crm"
-                ][activeHeroTile]}</span>
-                {(activeHeroTile === 0 || (activeHeroTile >= 3 && activeHeroTile <= 9)) && <span className="text-emerald-600">● LIVE</span>}
-              </div>
-
-              {activeHeroTile === 0 && (
-                <div className="space-y-3 pt-2">
-                  <div className="grid grid-cols-[1fr_1fr] gap-3">
-                    <div className="space-y-2">
-                      {[
-                        ["f", "Meta Ads", "bg-blue-500"],
-                        ["G", "Google Ads", "bg-emerald-500"],
-                        ["IM", "IndiaMART", "bg-orange-500"],
-                        ["JD", "JustDial", "bg-red-400"],
-                      ].map(([mark, name, color]) => <div key={name} className="flex items-center gap-2 rounded-xl bg-slate-50 dark:bg-muted p-2 text-[10px] font-semibold text-slate-800 dark:text-foreground"><span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${color} text-white`}>{mark}</span>{name}</div>)}
-                    </div>
-                    <div className="space-y-2">
-                      {[
-                        ["AK", "Anjali", "Meta · 2s", "bg-emerald-500"],
-                        ["RV", "Rohit", "Google · 9s", "bg-blue-500"],
-                        ["PJ", "Pranav", "IM · 14s", "bg-orange-500"],
-                        ["SD", "Sneha", "JD · 22s", "bg-violet-400"],
-                      ].map(([initials, name, detail, color]) => <div key={name} className="flex items-center gap-2 rounded-xl border-l-2 border-emerald-500 bg-slate-50 dark:bg-muted p-2"><span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${color} text-[10px] font-bold text-white`}>{initials}</span><span className="min-w-0"><b className="block text-[11px] text-slate-900 dark:text-foreground">{name}</b><small className="text-[9px] text-slate-500 dark:text-muted-foreground">{detail}</small></span></div>)}
-                    </div>
-                  </div>
-                  <div className="flex gap-2 border-t border-slate-100 dark:border-border pt-3 text-[10px] font-bold">
-                    <span className="rounded-lg bg-emerald-100 px-3 py-2 text-emerald-700">☑ WA</span><span className="rounded-lg bg-blue-100 px-3 py-2 text-blue-700">☑ Email</span><span className="rounded-lg bg-amber-100 px-3 py-2 text-amber-800">📞 Dial</span>
-                  </div>
-                </div>
-              )}
-
-              {activeHeroTile === 1 && (
-                <div className="rounded-2xl bg-gradient-to-b from-blue-100 to-indigo-100 p-3 text-slate-800 dark:text-foreground">
-                  <div className="mb-5 flex justify-between text-xs font-semibold"><span>09:24</span><span>▥ 69%</span></div>
-                  <p className="mb-3 text-sm font-extrabold">Auto-dial · 2 queued</p>
-                  {[
-                    ["📞", "Tap to call · Anjali", "Meta · 9s ago"],
-                    ["📞", "Tap to call · Sandeep", "Google Ad · 12s"],
-                    ["☑", "Welcome sent", "WA + Email"],
-                  ].map(([emoji, title, detail]) => <div key={title} className="mb-2 flex items-center gap-3 rounded-xl border-l-[3px] border-violet-500 bg-white dark:bg-card p-3"><span className="text-xl">{emoji}</span><span><b className="block text-xs">{title}</b><small className="text-[10px] text-slate-500 dark:text-muted-foreground">{detail}</small></span></div>)}
-                </div>
-              )}
-
-              {activeHeroTile === 2 && (
-                <div className="overflow-hidden rounded-2xl bg-[#e5ddd5] pb-4">
-                  <div className="mx-2 mt-2 flex items-center gap-3 bg-[#08665a] px-3 py-3 text-white"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-white dark:bg-card text-lg">🤖</span><span><b className="block text-xs">AI Bot</b><small className="text-[10px] text-white/80">typing...</small></span></div>
-                  <div className="space-y-2 px-3 pt-5 text-[10px] leading-4 text-slate-700 dark:text-muted-foreground">
-                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-2">Hi Rohit 👋 1, 5 or 10-user plan?</p>
-                    <p className="ml-8 rounded-xl rounded-tr-sm bg-[#d9f8c5] px-3 py-2">5-user plan</p>
-                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-2">Demo today 3–6 PM?</p>
-                    <p className="ml-8 rounded-xl rounded-tr-sm bg-[#d9f8c5] px-3 py-2">Today 4 PM</p>
-                    <p className="mr-8 rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-2">Booked ✅</p>
-                  </div>
-                </div>
-              )}
-
-              {activeHeroTile === 3 && (
-                <div className="rounded-2xl bg-gradient-to-br from-emerald-800 to-teal-600 p-4 text-white">
-                  <div className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-card text-xl">📣</span><span><b className="block text-sm">May Offer · 50% Off</b><small className="text-[10px] text-white/80">Image + PDF + button</small></span></div>
-                  <div className="mt-4 grid grid-cols-3 gap-2 text-center">{[["1,247","Delivered"],["983","Read"],["142","Replied"]].map(([value,label])=><div key={label} className="rounded-lg bg-white/15 p-2"><b className="block text-lg">{value}</b><small className="text-[9px]">{label}</small></div>)}</div>
-                </div>
-              )}
-
-              {activeHeroTile === 4 && (
-                <div className="space-y-2 pt-1">
-                  <div className="flex gap-2 text-[10px] font-bold"><span className="rounded-lg bg-emerald-100 px-2 py-2 text-emerald-700">🎧 On Call · 1</span><span className="rounded-lg bg-blue-100 px-2 py-2 text-blue-700">💤 Idle · 1</span><span className="rounded-lg bg-slate-800 px-2 py-2 text-white">● Offline · 2</span></div>
-                  {[
-                    ["G", "Gopal · admin", "On Call · 25m", "bg-orange-500", "text-emerald-600"],
-                    ["H", "Harsh · sales", "Idle · 9h 13m", "bg-blue-500", "text-blue-600"],
-                    ["N", "Neetu · sales", "Offline · 15h", "bg-emerald-500", "text-red-500"],
-                  ].map(([initials,name,status,color,statusColor])=><div key={name} className="flex items-center gap-3 rounded-xl bg-slate-50 dark:bg-muted p-3"><span className={`flex h-9 w-9 items-center justify-center rounded-full ${color} text-xs font-bold text-white`}>{initials}</span><span><b className="block text-xs text-slate-900 dark:text-foreground">{name}</b><small className={`text-[10px] ${statusColor}`}>● {status}</small></span></div>)}
-                </div>
-              )}
-
-              {activeHeroTile === 5 && (
-                <div className="rounded-2xl bg-slate-800 p-4 text-white">
-                  <b className="text-sm">Devendra Pandey · 5m 34s</b><p className="mt-1 text-[10px] text-slate-300">Negotiation · Hindi-English</p>
-                  <div className="mt-5 flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 text-xl">▶</span>
-                  {/* <div className="flex h-12 flex-1 items-center justify-center gap-1">{[10,18,8,26,36,14,22,42,12,24,16,37,18,10,22,33].map((height,i)=><span key={i} className="w-1 rounded-full bg-gradient-to-t from-cyan-400 to-violet-500" style={{height}} />)}
-                  </div> */}
-                  <div className="flex h-12 flex-1 items-center justify-center gap-1">
-                    {[10, 18, 8, 26, 36, 14, 22, 42, 12, 24, 16, 37, 18, 10, 22, 33].map(
-                      (height, i) => (
-                        <span
-                          key={i}
-                          className="audio-wave-bar w-1 rounded-full bg-gradient-to-t from-cyan-400 to-violet-500"
-                          style={{
-                            height: `${height}px`,
-                            animationDelay: `${i * 80}ms`,
-                          }}
-                        />
-                      )
-                    )}
-                  </div>
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-2 text-[10px] font-bold"><span className="rounded-lg bg-amber-100 px-2 py-1 text-amber-800">⭐ 4/5</span><span className="rounded-lg bg-emerald-100 px-2 py-1 text-emerald-700">😃 Positive</span><span className="rounded-lg bg-blue-100 px-2 py-1 text-blue-700">📝 Transcribed</span></div>
-                </div>
-              )}
-
-              {activeHeroTile === 6 && (
-                <div className="space-y-3">
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{[["🎧","23","Analysed","bg-slate-50 dark:bg-muted"],["😃","9","Positive","bg-emerald-50"],["😟","3","Negative","bg-orange-50"],["🧠","~95%","Accuracy","bg-indigo-50"]].map(([icon,value,label,color])=><div key={label} className={`rounded-xl ${color} p-3 text-center`}><span>{icon}</span><b className="block text-base text-slate-900 dark:text-foreground">{value}</b><small className="text-[9px] text-slate-500 dark:text-muted-foreground">{label}</small></div>)}</div>
-                  {[["Devendra","2/5","bg-rose-400"],["Vikram","4/5","bg-emerald-400"]].map(([name,score,color])=><div key={name} className={`flex items-center justify-between rounded-lg border border-slate-100 dark:border-border border-l-4 ${color} p-3 text-xs font-bold text-slate-800 dark:text-foreground`}>{name}<span className="rounded-md bg-slate-100 dark:bg-muted px-2 py-1">{score}</span></div>)}
-                </div>
-              )}
-
-              {activeHeroTile === 7 && (
-                <div className="space-y-2 pt-3 text-center">
-                  {[["New · 1,074","w-full bg-blue-100 text-blue-900"],["Contacted · 155","w-[84%] bg-blue-200 text-blue-900"],["Qualified · 62","w-[66%] bg-blue-400 text-white"],["Negotiation · 21","w-[48%] bg-blue-500 text-white"],["Won · 8","w-[30%] bg-blue-700 text-white"]].map(([label,classes])=><div key={label} className={`mx-auto flex h-10 items-center justify-center ${classes} [clip-path:polygon(0_0,100%_0,86%_100%,14%_100%)] text-xs font-extrabold`}>{label}</div>)}
-                </div>
-              )}
-
-              {activeHeroTile === 8 && (
-                <div className="space-y-3 pt-1">
-                  <div className="flex gap-2"><span className="rounded-lg bg-primary px-3 py-2 text-xs font-bold text-primary-foreground">⏱ Check in</span><span className="rounded-lg bg-slate-100 dark:bg-muted px-3 py-2 text-xs font-bold text-slate-700 dark:text-muted-foreground">◷ Check out</span></div>
-                  <div className="grid grid-cols-[.8fr_1fr_1fr_1.3fr] gap-2 border-b border-slate-200 dark:border-border pb-2 text-[9px] font-bold text-slate-500 dark:text-muted-foreground"><span>DATE</span><span>IN</span><span>OUT</span><span>LOCATION</span></div>
-                  <div className="grid grid-cols-[.8fr_1fr_1fr_1.3fr] gap-2 py-2 text-[9px] text-slate-700 dark:text-muted-foreground"><span>2026-05-29</span><span>06:16 PM</span><span>—</span><span className="text-rose-500">📍 Vivek Vihar</span></div>
-                  <div className="rounded-xl bg-emerald-100 p-3 text-center text-xs font-bold text-emerald-700">7 days · GPS-stamped</div>
-                </div>
-              )}
-
-              {activeHeroTile === 9 && (
-                <div className="space-y-4 pt-2 text-slate-800 dark:text-foreground">
-                  <div className="flex items-start justify-between"><span><b className="text-sm text-primary">SmoothSales</b><small className="block text-[9px] text-slate-500 dark:text-muted-foreground">GSTIN 07AABCS1234C1Z5</small></span><span className="text-right"><b className="text-sm">TAX INVOICE</b><small className="block text-[9px] text-slate-500 dark:text-muted-foreground">INV/2026/0142</small></span></div>
-                  <div className="border-y-2 border-primary py-4 text-[10px]"><div className="flex justify-between gap-2"><span>CRM Pro · 5u</span><span>1×60K</span><span>₹60,000</span></div></div>
-                  <div className="flex justify-between text-base font-extrabold"><span>Total</span><span>₹90,860</span></div>
-                  <p className="text-[9px] text-muted-foreground">Illustrative invoice preview only</p>
-                </div>
-              )}
-
-              {activeHeroTile === 10 && (
-                <div className="rounded-2xl bg-indigo-800 p-4 text-white">
-                  <div className="mb-16 flex justify-between text-xs font-semibold"><span>09:14 ☎</span><span>▥ 71%</span></div>
-                  <div className="rounded-2xl bg-white dark:bg-card p-4 text-slate-800 dark:text-foreground">
-                    <p className="text-xs text-slate-500 dark:text-muted-foreground">📞 Incoming call</p><div className="mt-3 flex items-center gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">AR</span><span><b className="block text-sm">Achal Rajput</b><small className="text-[10px] text-slate-500 dark:text-muted-foreground">+91 99904 80965</small></span></div>
-                    <div className="mt-3 flex gap-2 text-[9px] font-bold"><span className="rounded-md bg-orange-500 px-2 py-1 text-white">📍 Negotiation</span><span className="rounded-md bg-emerald-100 px-2 py-1 text-emerald-700">🔥 Hot</span></div>
-                    <div className="mt-2 rounded-lg bg-amber-50 p-2 text-[10px] text-amber-800">Last: 3-user plan · 16h ago</div>
-                  </div>
-                </div>
-              )}
-
-              {activeHeroTile === 11 && (
-                <div className="overflow-hidden rounded-2xl bg-slate-100 dark:bg-muted">
-                  <div className="bg-gradient-to-r from-violet-500 to-pink-500 p-4 text-white"><div className="flex items-center justify-between"><b className="text-sm">✨ Ask CRM</b><span>×</span></div><small className="text-[10px]">Powered by AI · Demo</small></div>
-                  <div className="min-h-[250px] p-3"><div className="rounded-xl bg-white dark:bg-card p-3 text-[11px] leading-5 text-slate-700 dark:text-muted-foreground">Hi Gopal! Ask anything:<br />• How many leads today?<br />• Who needs a follow-up?<br />• Which source converts best?</div><div className="mt-3 flex items-center gap-2 rounded-full border border-slate-200 dark:border-border bg-white dark:bg-card px-3 py-2 text-[10px] text-slate-400"><span>Ask about your CRM...</span><span className="ml-auto text-primary">➤</span></div></div>
-                </div>
-              )}
-            </div>
-          </div>
         </div>
       </section>
 
+      
       {/* Feature-1: Every lead from every channel */}
       {/* Feature-1: Unified Lead Capture */}
-        <section className="relative overflow-hidden bg-violet-50 dark:bg-background px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <section className="relative overflow-hidden bg-gradient-to-b from-violet-50/80 via-slate-50 to-sky-50/60 dark:from-[#0D0D18] dark:via-[hsl(233,53%,9%)] dark:to-[#0D111A] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-7xl">
             {/* Heading */}
             <div className="mx-auto mb-12 max-w-3xl text-center">
@@ -847,7 +805,7 @@ export default function FeaturesPage() {
             </div>
 
             {/* Unified dashboard */}
-            <div className="relative overflow-hidden rounded-[28px] border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-[0_24px_80px_rgba(76,29,149,0.12)] sm:p-7 lg:p-9">
+            <div className="relative overflow-hidden rounded-[28px] border border-slate-200 dark:border-border bg-white dark:bg-[hsl(233,53%,9%)] p-4 shadow-[0_24px_80px_rgba(76,29,149,0.12)] sm:p-7 lg:p-9">
               {/* <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12"> */}
               {/* <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr]"> */}
               {/* <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12"> */}
@@ -933,15 +891,17 @@ export default function FeaturesPage() {
                           opacity="0.75"
                         />
 
+                        {/* <circle >
+                          <animateMotion
+                            dur="3.5s"
+                            begin={route.delay}
+                            repeatCount="indefinite"
+                            path={`M 430 ${route.end} H 760`}
+                          />
+                        </circle> */}
                         <circle 
                         // r="4" fill="#22d3ee" filter="url(#route-glow)"
                         >
-                          {/* <animateMotion
-                            dur="2.4s"
-                            begin={route.delay}
-                            repeatCount="indefinite"
-                            path={route.path}
-                          /> */}
                           <animateMotion
                             dur="3.5s"
                             begin={route.delay}
@@ -950,33 +910,6 @@ export default function FeaturesPage() {
                           />
                         </circle>
 
-                        {/* <g>
-                          <rect
-                            x={route.start}
-                            y={route.end - 12}
-                            width="104"
-                            height="24"
-                            rx="12"
-                            fill="url(#label-gradient)"
-                          />
-                          <text
-                            x={route.start + 52}
-                            y={route.end + 4}
-                            textAnchor="middle"
-                            fontSize="11"
-                            fontWeight="600"
-                            fill="white"
-                          >
-                            {route.name}
-                          </text>
-                          <animateMotion
-                            dur="3.5s"
-                            begin={route.delay}
-                            repeatCount="indefinite"
-                            path={route.path}
-                          />
-                        </g> */}
-                        
                           {/* Lead label moves horizontally, independently of the curve */}
                           <g>
                             <rect
@@ -1039,7 +972,7 @@ export default function FeaturesPage() {
                     ].map((source) => (
                       <div
                         key={source.name}
-                        className="flex items-center gap-3 rounded-2xl border border-slate-100 dark:border-border bg-white dark:bg-card p-3 shadow-[0_3px_12px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-md"
+                        className="flex items-center gap-3 rounded-2xl border border-slate-100 dark:border-border bg-white dark:bg-white/[0.04] p-3 shadow-[0_3px_12px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-md"
                       >
                         <span
                           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${source.color} text-xs font-extrabold text-white`}
@@ -1088,7 +1021,7 @@ export default function FeaturesPage() {
                     </span>
                   </div>
 
-                  <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card shadow-sm">
+                  <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-white/[0.04] shadow-sm">
                     <div className="flex items-center justify-between border-b border-slate-100 dark:border-border px-4 py-4">
                       <div>
                         <p className="text-sm font-bold text-slate-900 dark:text-foreground">
@@ -1158,7 +1091,7 @@ export default function FeaturesPage() {
 
       
       {/* Feature-2: Lead Source Integrations */}
-      <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
+      {/* <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 text-center">
             <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-violet-400">
@@ -1171,8 +1104,8 @@ export default function FeaturesPage() {
               { name: "Meta Ads", mark: "f", color: "bg-blue-500", detail: "FB & IG" },
               { name: "Google Ads", mark: "G", color: "bg-gradient-to-br from-blue-500 to-emerald-500", detail: "Lead Form" },
               { name: "IndiaMART", mark: "IM", color: "bg-orange-500" },
-              { name: "JustDial", mark: "JD", color: "text-orange-800" },
-              { name: "TradeIndia", mark: "Ti", color: "text-pink-500" },
+              { name: "JustDial", mark: "JD", color: "bg-orange-800" },
+              { name: "TradeIndia", mark: "Ti", color: "bg-pink-500" },
               { name: "ExportersIndia", mark: "E", color: "bg-blue-600" },
               { name: "Sulekha", mark: "Sk", color: "bg-slate-900" },
               { name: "99acres", mark: "99", color: "bg-gradient-to-br from-purple-600 to-pink-600" },
@@ -1182,7 +1115,7 @@ export default function FeaturesPage() {
               { name: "WordPress", mark: "W", color: "bg-sky-700" },
               { name: "Google Forms", mark: "GF", color: "bg-violet-700" },
               { name: "Google Sheets", mark: "GS", color: "bg-emerald-600" },
-              { name: "Gmail", mark: "@", color: "text-orange-800" },
+              { name: "Gmail", mark: "@", color: "bg-orange-800" },
               { name: "Pabbly", mark: "Pb", color: "bg-pink-500" },
               { name: "Website API", mark: "W", color: "bg-gradient-to-br from-cyan-400 to-blue-500" },
             ].map((item) => (
@@ -1209,12 +1142,12 @@ export default function FeaturesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Ending Feature-2 */}
 
       
         {/* Feature-3: Smart Routing */}
-        <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="mb-8 text-center">
               <p className="mb-2 text-[12px] font-bold uppercase tracking-[0.25em] text-violet-400">
@@ -1234,7 +1167,7 @@ export default function FeaturesPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 rounded-2xl border border-white bg-white dark:bg-card p-3 shadow-[0_16px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1fr_1fr_1.15fr] lg:gap-3 lg:p-4">
+            <div className="grid grid-cols-1 gap-4 rounded-2xl border border-white bg-white dark:bg-white/[0.04] p-3 shadow-[0_16px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1fr_1fr_1.15fr] lg:gap-3 lg:p-4">
               {/* Source column */}
               <div className="min-w-0">
                 <p className="mb-3 text-[12px] font-bold uppercase tracking-wider text-violet-400">
@@ -1250,7 +1183,7 @@ export default function FeaturesPage() {
                   ].map((source) => (
                     <div
                       key={source.name}
-                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card px-2.5 shadow-sm"
+                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-white/[0.04] px-2.5 shadow-sm"
                     >
                       <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-[10px] font-extrabold ${source.color} ${source.color.includes("text-") ? "" : "text-white"}`}>
                         {source.mark}
@@ -1314,7 +1247,7 @@ export default function FeaturesPage() {
                   ].map((caller) => (
                     <div
                       key={caller.name}
-                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card px-2.5 shadow-sm"
+                      className="flex h-[52px] items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-white/[0.04] px-2.5 shadow-sm"
                     >
                       <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md ${caller.color} text-[9px] font-extrabold text-white`}>
                         {caller.initials}
@@ -1331,11 +1264,10 @@ export default function FeaturesPage() {
           </div>
          </section>
           {/* Ending Feature-3  */}
-
-                    
+         
                   
           {/* Feature: WhatsApp AI Bot */}
-          <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+          <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
               <div className="mb-10 text-center">
                 <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -1368,7 +1300,7 @@ export default function FeaturesPage() {
                         </div>
                       </div>
 
-                      <div className="space-y-2 py-8 text-[11px] text-slate-700 dark:text-muted-foreground">
+                      <div className="space-y-2 py-8 text-[11px] text-slate-700 dark:text-foreground">
                         <div className="max-w-[88%] rounded-xl rounded-tl-sm bg-white dark:bg-card px-3 py-3">
                           Hi Rohit 👋 1, 5 or 10-user plan?
                         </div>
@@ -1405,7 +1337,7 @@ export default function FeaturesPage() {
                       "English + Hindi + Hinglish",
                       "Pings human caller when intent is high",
                     ].map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base">
+                      <li key={feature} className="flex items-start gap-3 text-sm text-slate-700 dark:text-foreground sm:text-base">
                         <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-teal-400 text-lg font-bold text-white">
                           ✓
                         </span>
@@ -1419,10 +1351,9 @@ export default function FeaturesPage() {
           </section>
           {/*Ending WhatsApp AI Bot  */}
 
-
                     
           {/* Feature: Cold Calling Engine */}
-          <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
+          <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-14 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
               <div className="mb-9 text-center">
                 <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -1436,54 +1367,51 @@ export default function FeaturesPage() {
                   </span>
                 </h2>
               </div>
-
+               
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {[
                   {
-                    icon: "📞",
+                    image: "/images/features/phone-call.png",
                     title: "Auto-Dial 60 sec",
                     description: "Tap-to-call push the moment lead lands.",
-                    gradient: "from-violet-500 to-cyan-400",
                   },
                   {
-                    icon: "📲",
+                    image: "/images/features/language-learning-app.png",
                     title: "Smart Caller-ID",
                     description: "Old client name, stage, last remark on lock-screen.",
-                    gradient: "from-rose-400 to-amber-400",
                   },
                   {
-                    icon: "➕",
+                    image: "/images/features/add-basket.png",
                     title: "Fresh Caller Auto-add",
                     description: "Unknown number → auto-create NEW lead on ring.",
-                    gradient: "from-teal-400 to-cyan-400",
                   },
                   {
-                    icon: "📋",
+                    image: "/images/features/entrance.png",
                     title: "Full Phone Log",
                     description: "Incoming · Outgoing · Missed in CRM.",
-                    gradient: "from-violet-400 to-pink-500",
                   },
                   {
-                    icon: "⚠️",
+                    image: "/images/features/exclamation.png",
                     title: "TAT Violation Alerts",
                     description: "No call in 10 min? Rep pinged. Admin escalation.",
-                    gradient: "from-violet-500 to-cyan-400",
                   },
                   {
-                    icon: "🔁",
+                    image: "/images/features/call-missed.png",
                     title: "Missed Call Insight",
                     description: "Auto-add lead + auto-WA callback + smart retry.",
-                    gradient: "from-rose-400 to-amber-400",
                   },
                 ].map((feature) => (
                   <div
                     key={feature.title}
-                    className="rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-6 shadow-[0_8px_24px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_8px_24px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/[0.04]"
                   >
-                    <div
-                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-xl`}
-                    >
-                      {feature.icon}
+                    <div className="mb-4 flex h-8 w-8 items-center justify-center overflow-hidden">
+                      <img
+                        src={feature.image}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-full w-full object-contain"
+                      />
                     </div>
 
                     <h3 className="mb-2 text-base font-bold text-slate-900 dark:text-foreground">
@@ -1496,14 +1424,14 @@ export default function FeaturesPage() {
                   </div>
                 ))}
               </div>
+
             </div>
           </section>
            {/* Ending Feature Cold Calling Engine */}
 
-
            
             {/* Feature: Auto-Dial Engine */}
-            <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-12 text-center">
                   <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -1608,7 +1536,7 @@ export default function FeaturesPage() {
                       ].map((feature) => (
                         <li
                           key={feature}
-                          className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base"
+                          className="flex items-start gap-3 text-sm text-slate-700 dark:text-foreground sm:text-base"
                         >
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-base font-bold text-white">
                             ✓
@@ -1623,10 +1551,9 @@ export default function FeaturesPage() {
             </section>
             {/* Ending Feature Auto-Dial Engine */}
 
-
             
             {/* Feature: SLA & Compliance */}
-            <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-12 text-center">
                   <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -1658,7 +1585,7 @@ export default function FeaturesPage() {
                         "Stage-stuck alerts (Negotiation 3+ days)",
                         "Daily violation digest emailed to leadership",
                       ].map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base">
+                        <li key={item} className="flex items-start gap-3 text-sm text-slate-700 dark:text-foreground sm:text-base">
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-base font-bold text-white">
                             ✓
                           </span>
@@ -1739,10 +1666,9 @@ export default function FeaturesPage() {
             </section>
             {/* Ending Feature SLA & Compliance */}
 
-
                         
             {/* Feature: Live Caller Tracking & Team Monitoring */}
-            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-8 text-center">
                   <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -1758,7 +1684,7 @@ export default function FeaturesPage() {
                 </div>
 
                 {/* Browser dashboard */}
-                <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card shadow-[0_12px_36px_rgba(15,23,42,0.06)]">
+                <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-white/[0.04] shadow-[0_12px_36px_rgba(15,23,42,0.06)]">
                   {/* Browser header */}
                   <div className="border-b border-slate-100 dark:border-border px-4 py-3">
                     <div className="mb-1 inline-flex rounded-lg bg-gradient-to-r from-violet-500 to-cyan-400 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm">
@@ -1836,7 +1762,7 @@ export default function FeaturesPage() {
                         ].map((member) => (
                           <div
                             key={member.name}
-                            className="flex min-w-0 items-center gap-3 rounded-xl bg-slate-50 dark:bg-muted px-3 py-3"
+                            className="flex min-w-0 items-center gap-3 rounded-xl bg-slate-50 dark:bg-white/[0.04] px-3 py-3"
                           >
                             <span
                               className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-white ${member.color}`}
@@ -1863,10 +1789,9 @@ export default function FeaturesPage() {
             </section>
             {/* Ending Feature Live Caller Tracking & Team Monitoring */}
 
-
                         
             {/* Feature: Call Recording & AI Audit */}
-            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-10 text-center">
                   <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -1883,7 +1808,7 @@ export default function FeaturesPage() {
                 </div>
 
                 {/* Audio player card */}
-                <div className="rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-sm">
+                <div className="rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-[hsl(233,53%,9%)] p-4 shadow-sm">
                   <div className="relative flex min-h-[132px] items-center rounded-2xl bg-[#10172b] px-5 py-5 text-white sm:px-8">
                     {/* Play button */}
                     <button
@@ -1941,10 +1866,9 @@ export default function FeaturesPage() {
             </section>
             {/* Ending Feature Call Recording & AI Audit */}
 
-
                         
             {/* Feature: AI Quality Control */}
-            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-8 text-center">
                   <p className="mb-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -1959,7 +1883,7 @@ export default function FeaturesPage() {
                   </h2>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-5">
+                <div className="rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-white/[0.04] p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-5">
                   {/* Listening player */}
                   <div className="rounded-xl bg-gradient-to-r from-[#11182b] to-[#202b40] p-4 text-white sm:p-5">
                     <div className="flex items-center justify-between gap-3">
@@ -2052,10 +1976,9 @@ export default function FeaturesPage() {
             </section>
             {/* Ending Feature AI Quality Control */}
 
-
                         
             {/* Feature: Caller Dashboard */}
-            <section className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-14 sm:px-6 lg:px-8">
               <div className="mx-auto max-w-7xl">
                 <div className="mb-10 text-center">
                   <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -2070,7 +1993,7 @@ export default function FeaturesPage() {
                   </h2>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-6">
+                <div className="rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-white/[0.04] p-4 shadow-[0_12px_36px_rgba(15,23,42,0.05)] sm:p-6">
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
                     {[
                       {
@@ -2133,7 +2056,7 @@ export default function FeaturesPage() {
                       <div
                         key={stat.label}
                         className={`relative min-h-[130px] rounded-2xl p-4 ${
-                          stat.tone === "warning" ? "bg-orange-50" : "bg-slate-50 dark:bg-muted"
+                          stat.tone === "warning" ? "bg-orange-50" : "bg-slate-50 dark:bg-white/[0.04]"
                         }`}
                       >
                         {stat.label !== "TALK" &&
@@ -2173,7 +2096,7 @@ export default function FeaturesPage() {
              
                             
               {/* Feature: HR & Team */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   {/* Section heading */}
                   <div className="mb-10 text-center">
@@ -2192,7 +2115,7 @@ export default function FeaturesPage() {
                   {/* Attendance dashboard + feature list */}
                   <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
                     {/* Attendance dashboard */}
-                    <div className="min-w-0 rounded-2xl border border-slate-200 dark:border-border/70 bg-white dark:bg-card p-4 shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:p-5">
+                    <div className="min-w-0 rounded-2xl border border-slate-200 dark:border-border/70 bg-white dark:bg-white/[0.04] p-4 shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:p-5">
                       {/* Dashboard tabs */}
                       <div className="flex flex-wrap items-center gap-5 border-b border-slate-100 dark:border-border pb-2 text-xs font-semibold">
                         <span className="border-b-2 border-violet-600 pb-3 text-violet-600">
@@ -2228,7 +2151,7 @@ export default function FeaturesPage() {
                         ].map((stat) => (
                           <div
                             key={stat.label}
-                            className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-slate-50 dark:bg-muted p-2"
+                            className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-slate-50 dark:bg-white/[0.04] p-2"
                           >
                             <p className="text-xl font-extrabold text-slate-900 dark:text-foreground">
                               {stat.value}
@@ -2251,7 +2174,7 @@ export default function FeaturesPage() {
                               <th className="pb-3">LOCATION</th>
                             </tr>
                           </thead>
-                          <tbody className="text-slate-700 dark:text-muted-foreground">
+                          <tbody className="text-slate-700 dark:text-foreground">
                             {[
                               ["2026-05-29", "06:16 PM", "—", "Vivek Vihar"],
                               ["2026-05-18", "12:30 PM", "—", "Vivek Vihar"],
@@ -2293,7 +2216,7 @@ export default function FeaturesPage() {
                         ].map((feature) => (
                           <li
                             key={feature}
-                            className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base"
+                            className="flex items-start gap-3 text-sm text-slate-700 dark:text-foreground sm:text-base"
                           >
                             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                               ✓
@@ -2306,7 +2229,7 @@ export default function FeaturesPage() {
                   </div>
 
                   {/* Four HR feature cards — second reference image */}
-                  <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+                  {/* <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
                     {[
                       {
                         icon: "🏝️",
@@ -2352,15 +2275,14 @@ export default function FeaturesPage() {
                         </p>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </section>
               {/* Ending Feature HR & Team */}
 
-
                             
               {/* Feature: AI Copilot — Ask CRM */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   <div className="mb-12 text-center">
                     <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-violet-400">
@@ -2405,7 +2327,7 @@ export default function FeaturesPage() {
 
                           {/* Messages */}
                           <div className="space-y-2 px-3 py-3 text-[11px] leading-[1.6]">
-                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white dark:bg-card px-3 py-3 text-slate-700 dark:text-muted-foreground shadow-sm">
+                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white dark:bg-card px-3 py-3 text-slate-700 dark:text-foreground shadow-sm">
                               Hi Gopal! Ask me anything:
                               <br />• How many new leads today?
                               <br />• Top performer?
@@ -2419,7 +2341,7 @@ export default function FeaturesPage() {
                               • • •
                             </div>
 
-                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white dark:bg-card px-3 py-3 text-slate-700 dark:text-muted-foreground shadow-sm">
+                            <div className="max-w-[88%] rounded-xl rounded-bl-sm bg-white dark:bg-card px-3 py-3 text-slate-700 dark:text-foreground shadow-sm">
                               📊 <strong>Harsh</strong> leads with{" "}
                               <strong>184 calls · 4h 12m.</strong> Demos:{" "}
                               <strong>23.</strong>
@@ -2472,7 +2394,7 @@ export default function FeaturesPage() {
                         ].map((feature) => (
                           <li
                             key={feature}
-                            className="flex items-start gap-3 text-sm text-slate-700 dark:text-muted-foreground sm:text-base"
+                            className="flex items-start gap-3 text-sm text-slate-700 dark:text-foreground sm:text-base"
                           >
                             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                               ✓
@@ -2489,7 +2411,7 @@ export default function FeaturesPage() {
 
         
               {/* Feature: Pipeline Builder */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   {/* Heading */}
                   <div className="mb-12 text-center">
@@ -2727,9 +2649,8 @@ export default function FeaturesPage() {
                {/* Ending Feature Pipeline Builder */}
 
 
-                            
               {/* Feature: Smart Caller-ID */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1.5fr] lg:gap-20">
                   {/* Incoming-call phone preview */}
                   <div className="relative mx-auto w-full max-w-[400px]">
@@ -2822,12 +2743,12 @@ export default function FeaturesPage() {
                       ].map((feature) => (
                         <div
                           key={feature}
-                          className="flex items-start gap-3 rounded-2xl bg-white/60 px-4 py-4 sm:px-6"
+                          className="flex items-start gap-3 rounded-2xl bg-grey/60 px-4 py-4 sm:px-6"
                         >
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                             ✓
                           </span>
-                          <p className="pt-0.5 text-sm font-semibold leading-6 text-slate-700 dark:text-muted-foreground sm:text-base">
+                          <p className="pt-0.5 text-sm font-semibold leading-6 text-slate-700 dark:text-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -2838,10 +2759,9 @@ export default function FeaturesPage() {
               </section>
                {/* Ending Feature Smart Caller-ID */}
 
-
                             
               {/* Feature: Lead Management */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
                   {/* Left: Feature description */}
                   <div>
@@ -2871,12 +2791,12 @@ export default function FeaturesPage() {
                       ].map((feature) => (
                         <div
                           key={feature}
-                          className="flex items-center gap-3 rounded-2xl bg-white/60 px-5 py-4"
+                          className="flex items-center gap-3 rounded-2xl bg-grey/60 px-5 py-4"
                         >
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-sm font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -3013,16 +2933,15 @@ export default function FeaturesPage() {
               </section>
               {/* Ending Feature Lead Management */}
 
-
                             
               {/* Feature: Smart Follow-Up Reminders */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1.5fr] lg:gap-20">
                   {/* Mobile notification preview */}
                   <div className="relative mx-auto w-full max-w-[360px]">
                     <div className="relative min-h-[650px] overflow-hidden rounded-[20px] bg-gradient-to-b from-[#cdd9f4] via-[#dbe8fb] to-[#a9d0f2] p-3 shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
                       {/* Status bar */}
-                      <div className="flex items-center justify-between px-1 pt-2 text-[10px] font-semibold text-slate-700 dark:text-muted-foreground">
+                      <div className="flex items-center justify-between px-1 pt-2 text-[10px] font-semibold text-slate-700 dark:text-foreground">
                         <span>09:21</span>
                         <span>⌁ Wi-Fi · 70% ▰</span>
                       </div>
@@ -3057,23 +2976,23 @@ export default function FeaturesPage() {
                       </div>
 
                       <div className="mt-5 grid grid-cols-2 gap-2">
-                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700 dark:text-muted-foreground">
+                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700 dark:text-foreground">
                           Device control
                         </div>
-                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700 dark:text-muted-foreground">
+                        <div className="rounded-full bg-slate-400/20 px-2 py-3 text-center text-[9px] font-semibold text-slate-700 dark:text-foreground">
                           Media output
                         </div>
                       </div>
 
                       {/* Notification cards */}
                       <div className="mt-5 space-y-1.5">
-                        <div className="overflow-hidden rounded-xl bg-white/95 shadow-sm">
+                        <div className="overflow-hidden rounded-xl bg-white/95 dark:bg-card shadow-sm">
                           <div className="flex items-center gap-3 border-b border-slate-100 dark:border-border p-3">
                             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 dark:border-border text-xs text-slate-500 dark:text-muted-foreground">
                               ✳
                             </span>
                             <div className="min-w-0 flex-1">
-                              <p className="text-[10px] font-semibold text-slate-700 dark:text-muted-foreground">
+                              <p className="text-[10px] font-semibold text-slate-700 dark:text-foreground">
                                 Lead CRM
                               </p>
                               <p className="mt-1 truncate text-[9px] text-slate-600 dark:text-muted-foreground">
@@ -3087,13 +3006,13 @@ export default function FeaturesPage() {
                           </div>
                         </div>
 
-                        <div className="rounded-xl bg-white/95 p-3 shadow-sm">
+                        <div className="rounded-xl bg-white/95 dark:bg-card p-3 shadow-sm">
                           <div className="flex items-start gap-2">
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-50 dark:bg-muted0 text-[10px] text-white">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-50 dark:bg-muted text-[10px] text-white">
                               M
                             </span>
                             <div className="min-w-0 flex-1">
-                              <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
+                              <p className="text-[10px] font-bold text-slate-700 dark:text-foreground">
                                 gopalserve
                                 <span className="ml-1 font-normal text-slate-400">
                                   sales@smartcrmsolution.com · 09:07
@@ -3106,13 +3025,13 @@ export default function FeaturesPage() {
                           </div>
                         </div>
 
-                        <div className="rounded-xl bg-white/95 p-3 shadow-sm">
+                        <div className="rounded-xl bg-white/95 dark:bg-card p-3 shadow-sm">
                           <div className="flex items-center gap-2">
                             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 dark:border-border text-xs text-slate-500 dark:text-muted-foreground">
                               ✳
                             </span>
                             <div>
-                              <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
+                              <p className="text-[10px] font-bold text-slate-700 dark:text-foreground">
                                 SmartCRM
                               </p>
                               <p className="mt-1 text-[9px] text-slate-600 dark:text-muted-foreground">
@@ -3122,13 +3041,13 @@ export default function FeaturesPage() {
                           </div>
                         </div>
 
-                        <div className="rounded-xl bg-white/95 p-3 shadow-sm">
+                        <div className="rounded-xl bg-white/95 dark:bg-card p-3 shadow-sm">
                           <div className="flex items-center gap-2">
-                            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 dark:bg-muted0 text-xs text-white">
+                            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 dark:bg-muted text-xs text-white">
                               ⠿
                             </span>
                             <div>
-                              <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
+                              <p className="text-[10px] font-bold text-slate-700 dark:text-foreground">
                                 System configuration update
                               </p>
                               <p className="mt-1 text-[9px] text-slate-600 dark:text-muted-foreground">
@@ -3186,12 +3105,12 @@ export default function FeaturesPage() {
                       ].map((feature) => (
                         <div
                           key={feature}
-                          className="flex items-center gap-3 rounded-2xl bg-white/60 px-5 py-4"
+                          className="flex items-center gap-3 rounded-2xl bg-grey/60 px-5 py-4"
                         >
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-sm font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -3202,10 +3121,9 @@ export default function FeaturesPage() {
               </section>
               {/* Ending Feature Smart Follow-Up Reminders */}
 
-
                             
               {/* Feature: Daily Calling Reports */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
                   {/* Left: Description */}
                   <div>
@@ -3235,12 +3153,12 @@ export default function FeaturesPage() {
                       ].map((feature) => (
                         <div
                           key={feature}
-                          className="flex items-center gap-3 rounded-2xl bg-white/60 px-5 py-4"
+                          className="flex items-center gap-3 rounded-2xl bg-grey/60 px-5 py-4"
                         >
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -3249,7 +3167,7 @@ export default function FeaturesPage() {
                   </div>
 
                   {/* Right: Calling reports dashboard preview */}
-                  <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card p-3 shadow-[0_20px_60px_rgba(15,23,42,0.10)] sm:p-4">
+                  <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-white/[0.04] p-3 shadow-[0_20px_60px_rgba(15,23,42,0.10)] sm:p-4">
                     {/* Dashboard navigation */}
                     <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-border pb-3">
                       <div className="flex items-center gap-3">
@@ -3282,7 +3200,7 @@ export default function FeaturesPage() {
                           className={`rounded-full border px-2 py-1 text-[9px] font-semibold ${
                             period === "Last 7 days"
                               ? "border-violet-600 bg-violet-600 text-white"
-                              : "border-slate-200 dark:border-border bg-white dark:bg-card text-slate-600 dark:text-muted-foreground"
+                              : "border-slate-200 dark:border-border bg-white dark:bg-white/[0.04] text-slate-600 dark:text-muted-foreground"
                           }`}
                         >
                           {period}
@@ -3290,7 +3208,7 @@ export default function FeaturesPage() {
                       ))}
                     </div>
 
-                    <div className="mt-3 flex flex-wrap items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card p-2.5 text-[9px] text-slate-500 dark:text-muted-foreground">
+                    <div className="mt-3 flex flex-wrap items-center gap-2 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-white/[0.04] p-2.5 text-[9px] text-slate-500 dark:text-muted-foreground">
                       <span>📅 05/26/2026</span>
                       <span>to</span>
                       <span>06/01/2026</span>
@@ -3304,7 +3222,7 @@ export default function FeaturesPage() {
 
                     <div className="mt-3 flex flex-wrap items-center gap-2 text-[9px] text-slate-500 dark:text-muted-foreground">
                       <span>🤖 Bulk AI Audit</span>
-                      <span className="rounded-md border border-slate-200 dark:border-border bg-white dark:bg-card px-2 py-1.5">
+                      <span className="rounded-md border border-slate-200 dark:border-border bg-white dark:bg-white/[0.04] px-2 py-1.5">
                         All unaudited recordings
                       </span>
                       <span className="rounded-md border border-slate-200 dark:border-border bg-white dark:bg-card px-2 py-1.5">
@@ -3344,7 +3262,7 @@ export default function FeaturesPage() {
 
                     {/* Daily call activity chart */}
                     <div className="mt-3 rounded-lg border border-slate-100 dark:border-border bg-white dark:bg-card p-3">
-                      <p className="text-[10px] font-bold text-slate-700 dark:text-muted-foreground">
+                      <p className="text-[10px] font-bold text-slate-700 dark:text-foreground">
                         Daily call activity
                       </p>
 
@@ -3392,10 +3310,9 @@ export default function FeaturesPage() {
               </section>
                {/* Ending Feature Daily Calling Reports */}
 
-
                             
               {/* Feature: WhatsApp Analytics */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
                   {/* Left: WhatsApp analytics dashboard */}
                   <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 dark:border-border/80 bg-white dark:bg-card shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
@@ -3433,7 +3350,7 @@ export default function FeaturesPage() {
                           { label: "✓ Delivered", value: "88", color: "text-emerald-600" },
                           { label: "◉ Read", value: "281", color: "text-blue-600" },
                           { label: "⚠ Failed", value: "62", color: "text-red-500" },
-                          { label: "👥 Contacts", value: "189", color: "text-slate-700 dark:text-muted-foreground" },
+                          { label: "👥 Contacts", value: "189", color: "text-slate-700 dark:text-foreground" },
                           { label: "Delivered %", value: "20%", color: "text-emerald-600" },
                           { label: "Read %", value: "63%", color: "text-blue-600" },
                         ].map((metric) => (
@@ -3450,7 +3367,7 @@ export default function FeaturesPage() {
 
                       {/* Delivery breakdown chart */}
                       <div className="rounded-xl border border-slate-100 dark:border-border bg-white dark:bg-card p-4">
-                        <p className="text-sm font-bold text-slate-700 dark:text-muted-foreground">
+                        <p className="text-sm font-bold text-slate-700 dark:text-foreground">
                           Delivery breakdown
                         </p>
 
@@ -3517,12 +3434,12 @@ export default function FeaturesPage() {
                       ].map((feature) => (
                         <div
                           key={feature}
-                          className="flex items-center gap-3 rounded-2xl bg-white/60 px-5 py-4"
+                          className="flex items-center gap-3 rounded-2xl bg-grey/60 px-5 py-4"
                         >
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                             ✓
                           </span>
-                          <p className="text-sm font-semibold text-slate-700 dark:text-muted-foreground sm:text-base">
+                          <p className="text-sm font-semibold text-slate-700 dark:text-foreground sm:text-base">
                             {feature}
                           </p>
                         </div>
@@ -3536,7 +3453,7 @@ export default function FeaturesPage() {
 
                             
               {/* Feature: Accounts & GST */}
-              <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
+              <section className="relative overflow-hidden bg-slate-50 dark:bg-[hsl(233,53%,9%)] px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                   <div className="mx-auto mb-12 max-w-4xl text-center">
                     <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.18em] text-violet-400">
@@ -3576,7 +3493,7 @@ export default function FeaturesPage() {
 
                       <div className="mt-4 border-t-2 border-violet-500" />
 
-                      <div className="mt-3 space-y-0 text-sm text-slate-700 dark:text-muted-foreground">
+                      <div className="mt-3 space-y-0 text-sm text-slate-700 dark:text-foreground">
                         {[
                           { name: "SmartCRM Pro · 5 users", qty: "1 × 60,000", amount: "₹60,000" },
                           { name: "WhatsApp AI Bot", qty: "1 × 12,000", amount: "₹12,000" },
@@ -3636,7 +3553,7 @@ export default function FeaturesPage() {
                             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-teal-400 to-cyan-400 text-lg font-bold text-white">
                               ✓
                             </span>
-                            <p className="text-sm leading-6 text-slate-700 dark:text-muted-foreground sm:text-base">
+                            <p className="text-sm leading-6 text-slate-700 dark:text-foreground sm:text-base">
                               {feature}
                             </p>
                           </div>
@@ -3682,7 +3599,7 @@ export default function FeaturesPage() {
               <Button
                 asChild
                 size="lg"
-                className="h-[60px] w-full rounded-2xl bg-white dark:bg-card px-8 text-base font-bold text-violet-600 shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90 hover:text-violet-700 sm:w-auto"
+                className="h-[60px] w-full rounded-2xl bg-white dark:bg-card px-8 text-base font-bold text-white-600 shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90 hover:text-violet-700 sm:w-auto"
               >
                 <a href="tel:+919711298017">
                   <span aria-hidden="true" className="mr-2">📞</span>

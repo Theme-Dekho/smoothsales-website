@@ -1,5 +1,6 @@
 
 "use client";
+import Link from "next/link";
 
 import { useMemo, useState } from "react";
 import {
@@ -117,13 +118,16 @@ export default function IntegrationsPage() {
   }, [search, activeCategory]);
 
   return (
-    // <main className="min-h-screen bg-background text-foreground">
-    <main className="min-h-screen bg-slate-50 dark:bg-[#0A0A0F] text-slate-900 dark:text-white transition-colors duration-300">
+    <main 
+    // className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-[hsl(236,53%,6%)]  dark:text-white"
+    className="min-h-screen bg-background text-foreground transition-colors duration-300"
+    >
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10"
+          // className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-violet-500/5 dark:bg-white/[0.04]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"
         />
 
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
@@ -135,16 +139,16 @@ export default function IntegrationsPage() {
 
 
 {/* Unify all your leads and conversations in one workspace */}
-            <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-5xl">
+            <h1 className="font-heading text-[28px] font-black leading-[1.14] tracking-tight text-slate-900 dark:text-white sm:text-4xl sm:leading-[1.08] lg:text-[42px] xl:text-[48px]">
               Unify all your leads and conversations into{" "}
-              <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-500 via-primary to-cyan-500 dark:from-sky-400 dark:via-cyan-300 dark:to-indigo-300 bg-clip-text text-transparent">
                 one workspace
               </span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-slate-600 dark:text-[#A0A0B0] sm:text-base sm:leading-7 lg:text-lg">
               Connect your lead sources, communication tools, payments and
-              business workflows with SmoothSales.ai.
+              business workflows with SmoothSales.
             </p>
 
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
@@ -158,7 +162,7 @@ export default function IntegrationsPage() {
 
               <a
                 href="mailto:sales@smoothsales.ai?subject=Integration%20enquiry"
-                className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-3 font-semibold text-foreground transition-colors hover:bg-muted"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300/80 bg-white/80 px-6 py-3 font-semibold text-slate-800 transition-colors hover:bg-slate-100/90 dark:border-white/15 dark:bg-white/[0.05] dark:text-white dark:hover:bg-white/10"
               >
                 Talk to our team
               </a>
@@ -172,7 +176,7 @@ export default function IntegrationsPage() {
               ].map((item) => (
                 <div
                   key={item.value}
-                  className="rounded-2xl border border-border bg-card/80 p-5"
+                  className="rounded-2xl border border-border bg-white/90 p-5 dark:bg-white/[0.04]"
                 >
                   <p className="text-xl font-bold">{item.value}</p>
                   <p className="mt-1 text-sm text-muted-foreground">
@@ -248,7 +252,7 @@ export default function IntegrationsPage() {
                 className={`inline-flex shrink-0 items-center justify-center rounded-full border px-[18px] py-3 text-[15px] font-semibold leading-5 transition-all duration-200 ${
                   isActive
                     ? "border-violet-600 bg-violet-600 text-white shadow-sm"
-                    : "border-border bg-background text-foreground hover:border-violet-300 hover:bg-violet-50 dark:hover:bg-violet-950/30"
+                    : "border-slate-200 bg-white/90 text-slate-700 hover:border-sky-300 hover:bg-sky-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200 dark:hover:border-cyan-500/40 dark:hover:bg-cyan-500/10"
                 }`}
               >
                 {category}
@@ -268,14 +272,33 @@ export default function IntegrationsPage() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {filteredIntegrations.map((integration) => {
             // const Icon = integration.icon;
 
             return (
-              <article
+              // <article
+              //   key={integration.name}
+              //   className="cursor-pointer group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              // >
+              // <Link
+              //     key={integration.name}
+              //     href={`/integrations/${integration.name
+              //       .toLowerCase()
+              //       .replace(/\s+/g, "-")}`}
+              //     className="group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              //   >
+              <Link
                 key={integration.name}
-                className="cursor-pointer group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                href={`/integrations/${
+                  integration.name === "Meta Conversion API"
+                    ? "meta-capi"
+                    : integration.name
+                        .toLowerCase()
+                        .replace(/\./g, "-")
+                        .replace(/\s+/g, "-")
+                }`}
+                className="group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-3">
                   {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/15 text-primary">
@@ -321,7 +344,7 @@ export default function IntegrationsPage() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>
@@ -350,7 +373,7 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Guided onboarding */}
-      <section className="border-t border-border bg-muted/30">
+      <section className="border-t border-slate-200 bg-slate-100/70 dark:border-white/10 dark:bg-[#101016]">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">

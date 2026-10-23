@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    /* --font-sans: var(--font-inter), Arial, sans-serif; */
+    --font-sans: var(--font-roboto), Arial, sans-serif;
     --background: 40 20% 96%;        /* #F6F4F0 - paper */
     --foreground: 25 10% 12%;        /* #211D1A - ink */
     --card: 0 0% 100%;               /* #FFFFFF - surface */

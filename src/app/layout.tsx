@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import React from "react";
-import { Manrope, IBM_Plex_Sans } from "next/font/google";
+// import { Manrope, IBM_Plex_Sans } from "next/font/google";
+// import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -11,16 +13,29 @@ import { StickyLeadActionBar } from "@/components/marketing/sticky-lead-action-b
 import { CookieNotice } from "@/components/marketing/cookie-notice";
 import { GoogleAdsTracker } from "@/components/analytics/google-ads-tracker";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-manrope",
-});
+// const manrope = Manrope({
+//   subsets: ["latin"],
+//   weight: ["600", "700", "800"],
+//   variable: "--font-manrope",
+// });
 
-const plexSans = IBM_Plex_Sans({
+// const plexSans = IBM_Plex_Sans({
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600"],
+//   variable: "--font-plex",
+// });
+
+
+// const inter = Inter({
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600"],
+//   variable: "--font-inter",
+// });
+
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-plex",
+  weight: ["400", "500", "700"],
+  variable: "--font-roboto",
 });
 
 const siteUrl = "https://smoothsales.ai";
@@ -172,7 +187,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${plexSans.variable}`} suppressHydrationWarning>
+    // <html lang="en" className={`${manrope.variable} ${plexSans.variable}`} suppressHydrationWarning>
+    // <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={roboto.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

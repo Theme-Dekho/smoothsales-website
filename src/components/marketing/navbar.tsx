@@ -117,9 +117,24 @@ export function MarketingNavbar() {
                     ₹150/user
                   </span>
                 </Link>
-              </div>
-            </div>
-          </div> */}
+                </div>
+                </div>
+                </div> */}
+                <Link
+                  href="/integrations"
+                  className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+                >
+                  Integrations
+                </Link>
+
+
+                <Link
+                  href="/pricing"
+                  className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
+                >
+                  Pricing
+                </Link>
+
                     
           <div
             className="relative"
@@ -136,11 +151,11 @@ export function MarketingNavbar() {
               }}
               className="flex items-center gap-1.5 py-1 transition-colors duration-200 hover:text-slate-900 dark:hover:text-white"
             >
-              <span>Partners</span>
+              <span>Become a Partner</span>
 
-              <span className="rounded-md border border-cyan-500/25 bg-cyan-500/15 px-1.5 py-0.5 font-mono text-[9px] font-bold text-cyan-700 dark:text-cyan-300">
+              {/* <span className="rounded-md border border-cyan-500/25 bg-cyan-500/15 px-1.5 py-0.5 font-mono text-[9px] font-bold text-cyan-700 dark:text-cyan-300">
                 Grow With Us
-              </span>
+              </span> */}
 
               <ChevronDown
                 className={`h-5 w-5 transition-transform duration-200 ${
@@ -185,16 +200,6 @@ export function MarketingNavbar() {
           </div>
 
 
-
-
-
-          <Link
-            href="/pricing"
-            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
-          >
-            Pricing
-          </Link>
-
           {/* <Link
             href="/demo"
             className="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1.5 py-1"
@@ -203,19 +208,13 @@ export function MarketingNavbar() {
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
           </Link> */}
 
-          <Link
-            href="/integrations"
-            className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
-          >
-            Integrations
-          </Link>
 
-          <Link
+          {/* <Link
             href="/contact"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
           >
             Contact
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Action CTAs & Theme Toggle */}
