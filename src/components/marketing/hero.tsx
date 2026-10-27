@@ -51,7 +51,7 @@ export function Hero() {
             transition={{ duration: 0.45, delay: 0.08, ease: "easeOut" }}
             className="space-y-1"
           >
-            <h1 className="text-[28px] sm:text-4xl lg:text-[42px] xl:text-[48px] font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.14] sm:leading-[1.08]">
+            {/* <h1 className="text-[28px] sm:text-4xl lg:text-[42px] xl:text-[48px] font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.14] sm:leading-[1.08]">
               A CRM That
               <span className="block mt-0.5 sm:mt-1">
                 Captures Every Lead. Automates Every Follow-Up.
@@ -75,7 +75,46 @@ export function Hero() {
                   </svg>
                 </span>
               </span>
-            </h1>
+            </h1> */}
+
+                      
+          <h1 className="font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.04]">
+            <span className="block text-[40px] sm:text-5xl lg:text-[68px]">
+              A CRM That
+            </span>
+
+            <span className="mt-1 block text-[28px] sm:text-4xl lg:text-[42px] xl:text-[46px] leading-[1.12]">
+              <span className="block">Captures Every Lead.</span>
+              <span className="block">Automates Every Follow-Up.</span>
+
+              <span className="relative inline-block bg-gradient-to-r from-fuchsia-500 via-purple-500 to-violet-600 bg-clip-text text-transparent">
+                Closes More Deals.
+
+                <svg
+                  className="absolute -bottom-1 sm:-bottom-1.5 left-0 w-full h-2 sm:h-2.5 text-purple-500 overflow-visible"
+                  viewBox="0 0 260 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <motion.path
+                    d="M3 8.5C55 2.5 145 2 257 7.5"
+                    stroke="currentColor"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{
+                      duration: 0.7,
+                      delay: 0.35,
+                      ease: "easeOut",
+                    }}
+                  />
+                </svg>
+              </span>
+            </span>
+          </h1>
+
+
           </motion.div>
 
           {/* Subtext */}

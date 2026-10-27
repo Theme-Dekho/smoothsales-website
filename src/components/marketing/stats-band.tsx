@@ -71,7 +71,7 @@ export function StatsBand() {
                   </span>
                 </div>
 
-                <div className="text-xl sm:text-2xl lg:text-[28px] font-heading font-black tracking-tight text-slate-900 dark:text-white font-mono leading-none py-0.5">
+                <div className="text-xl sm:text-2xl lg:text-[28px] font-heading font-black tracking-tight text-slate-900 dark:text-white leading-none py-0.5">
                   <AnimatedCounter target={stat.target} suffix={stat.suffix} />
                 </div>
 

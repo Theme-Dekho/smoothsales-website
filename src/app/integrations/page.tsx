@@ -7,14 +7,8 @@ import {
   ArrowRight,
   Search,
   Zap,
-  MessageCircle,
-  CreditCard,
-  Phone,
-  Mail,
-  Globe,
-  CalendarDays,
-  Bot,
   CheckCircle2,
+  Plug,
 } from "lucide-react";
 import { RichFooter } from "@/components/marketing/final-cta-section";
 
@@ -122,104 +116,157 @@ export default function IntegrationsPage() {
     // className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-[hsl(236,53%,6%)]  dark:text-white"
     className="min-h-screen bg-background text-foreground transition-colors duration-300"
     >
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border">
+      {/* Integrations page header */}
+      {/* <section className="relative overflow-hidden border-b border-slate-200/70 bg-gradient-to-br from-background via-background to-blue-500/[0.06] dark:border-white/[0.07] dark:from-[#080c15] dark:via-[#090d18] dark:to-[#10152a]">
         <div
           aria-hidden="true"
-          // className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-violet-500/5 dark:bg-white/[0.04]"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.15),transparent_40%),radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.10),transparent_38%)]"
         />
-
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
-              <Zap className="h-4 w-4" />
-              THE INTEGRATION NETWORK
+        <div className="relative mx-auto flex max-w-7xl flex-col gap-7 px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-start gap-4">
+              <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-blue-400/30 bg-blue-500/10 text-blue-500 shadow-[0_0_28px_rgba(59,130,246,0.18)] dark:text-blue-300">
+                <Plug className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+                  SmoothSales Connect
+                </p>
+                <h1 className="mt-1 font-heading text-3xl font-black tracking-tight text-foreground sm:text-4xl">
+                  Integrations
+                </h1>
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
+                  Connect your lead sources and communication tools to automate workflows and keep your sales moving.
+                </p>
+              </div>
             </div>
 
-
-{/* Unify all your leads and conversations in one workspace */}
-            <h1 className="font-heading text-[28px] font-black leading-[1.14] tracking-tight text-slate-900 dark:text-white sm:text-4xl sm:leading-[1.08] lg:text-[42px] xl:text-[48px]">
-              Unify all your leads and conversations into{" "}
-              <span className="bg-gradient-to-r from-sky-500 via-primary to-cyan-500 dark:from-sky-400 dark:via-cyan-300 dark:to-indigo-300 bg-clip-text text-transparent">
-                one workspace
-              </span>
-            </h1>
-
-            <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-slate-600 dark:text-[#A0A0B0] sm:text-base sm:leading-7 lg:text-lg">
-              Connect your lead sources, communication tools, payments and
-              business workflows with SmoothSales.
-            </p>
-
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:shrink-0">
+              <div className="relative min-w-0 flex-1 sm:min-w-[250px] lg:w-[280px]">
+                <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+                <input
+                  value={search}
+                  onChange={(event) => setSearch(event.target.value)}
+                  placeholder="Search integrations..."
+                  aria-label="Search integrations"
+                  className="h-12 w-full rounded-xl border border-slate-200 bg-white/80 pl-12 pr-4 text-sm text-foreground outline-none backdrop-blur transition placeholder:text-muted-foreground/80 focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 dark:border-[#27334b] dark:bg-[#0c1220]/90 dark:focus:border-blue-400/70 dark:focus:ring-blue-400/20"
+                />
+              </div>
               <a
                 href="#integration-directory"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-blue-500/50 bg-gradient-to-r from-blue-600/10 to-indigo-500/10 px-5 text-sm font-semibold text-foreground transition hover:border-blue-400 hover:from-blue-600/15 hover:to-indigo-500/15 dark:border-blue-500/60 dark:shadow-[0_0_24px_rgba(59,130,246,0.08)]"
               >
-                Explore integrations
-                <ArrowRight className="h-4 w-4" />
+                Browse connectors
+                <ArrowRight className="h-4 w-4 text-blue-500 dark:text-blue-300" />
               </a>
-
-              <a
-                href="mailto:sales@smoothsales.ai?subject=Integration%20enquiry"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300/80 bg-white/80 px-6 py-3 font-semibold text-slate-800 transition-colors hover:bg-slate-100/90 dark:border-white/15 dark:bg-white/[0.05] dark:text-white dark:hover:bg-white/10"
-              >
-                Talk to our team
-              </a>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {[
-                { value: "Lead Sources", label: "Bring enquiries together" },
-                { value: "Connected", label: "Keep workflows in sync" },
-                { value: "Extensible", label: "Build custom connections" },
-              ].map((item) => (
-                <div
-                  key={item.value}
-                  className="rounded-2xl border border-border bg-white/90 p-5 dark:bg-white/[0.04]"
-                >
-                  <p className="text-xl font-bold">{item.value}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {[
+              { value: `${integrations.length}`, label: "Integrations in the directory" },
+              { value: "Lead to deal", label: "Connected sales workflows" },
+              { value: "Flexible", label: "Custom API connections" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl border border-slate-200/80 bg-white/60 px-4 py-3 backdrop-blur dark:border-[#202b40] dark:bg-[#0d1320]/70"
+              >
+                <p className="text-lg font-bold text-foreground">{item.value}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">{item.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
+      </section> */}
+
+       {/* Hero */}
+            <section className="relative overflow-hidden border-b border-border">
+              <div
+                aria-hidden="true"
+                // className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-violet-500/5 dark:bg-white/[0.04]"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"
+              />
+      
+              <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+                <div className="mx-auto max-w-4xl text-center">
+                  <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
+                    <Zap className="h-4 w-4" />
+                    THE INTEGRATION NETWORK
+                  </div>
+      
+      
+      {/* Unify all your leads and conversations in one workspace */}
+                  <h1 className="font-heading text-[28px] font-black leading-[1.14] tracking-tight text-slate-900 dark:text-white sm:text-4xl sm:leading-[1.08] lg:text-[42px] xl:text-[48px]">
+                    Unify all your leads and conversations into{" "}
+                    <span className="bg-gradient-to-r from-sky-500 via-primary to-cyan-500 dark:from-sky-400 dark:via-cyan-300 dark:to-indigo-300 bg-clip-text text-transparent">
+                      one workspace
+                    </span>
+                  </h1>
+      
+                  <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-slate-600 dark:text-[#A0A0B0] sm:text-base sm:leading-7 lg:text-lg">
+                    Connect your lead sources, communication tools, payments and
+                    business workflows with SmoothSales.
+                  </p>
+      
+                  <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                    <a
+                      href="#integration-directory"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                    >
+                      Explore integrations
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+      
+                    <a
+                      href="mailto:sales@smoothsales.ai?subject=Integration%20enquiry"
+                      className="inline-flex items-center justify-center rounded-full border border-slate-300/80 bg-white/80 px-6 py-3 font-semibold text-slate-800 transition-colors hover:bg-slate-100/90 dark:border-white/15 dark:bg-white/[0.05] dark:text-white dark:hover:bg-white/10"
+                    >
+                      Talk to our team
+                    </a>
+                  </div>
+      
+                  <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    {[
+                      { value: "Lead Sources", label: "Bring enquiries together" },
+                      { value: "Connected", label: "Keep workflows in sync" },
+                      { value: "Extensible", label: "Build custom connections" },
+                    ].map((item) => (
+                      <div
+                        key={item.value}
+                        className="rounded-2xl border border-border bg-white/90 p-5 dark:bg-white/[0.04]"
+                      >
+                        <p className="text-xl font-bold">{item.value}</p>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          {item.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
 
       {/* Integration directory */}
       <section
         id="integration-directory"
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 sm:py-20"
+        className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8"
       >
-        <div className="mb-8">
-          <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
-            Integration Directory
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-300">
+              Integration directory
+            </p>
+            <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
+              Find your tools
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+              Filter by category or search for a connector to see how it fits into your workflow.
+            </p>
+          </div>
+          <p className="shrink-0 text-sm font-medium text-muted-foreground">
+            <span className="text-foreground">{filteredIntegrations.length}</span> of {integrations.length} integrations
           </p>
-
-          <h2 className="mt-3 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Choose what you want to connect
-          </h2>
-
-          <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-            Find integrations by name or category and explore how they fit
-            into your sales workflow.
-          </p>
-        </div>
-
-        {/* Search */}
-        <div className="relative mb-5 max-w-xl">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
-
-          <input
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            placeholder="Search integrations..."
-            aria-label="Search integrations"
-            className="h-12 w-full rounded-xl border border-border bg-card pl-12 pr-4 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-          />
         </div>
 
         {/* Category filters */}
@@ -249,10 +296,10 @@ export default function IntegrationsPage() {
                 type="button"
                 onClick={() => setActiveCategory(category)}
                 aria-pressed={isActive}
-                className={`inline-flex shrink-0 items-center justify-center rounded-full border px-[18px] py-3 text-[15px] font-semibold leading-5 transition-all duration-200 ${
+                className={`inline-flex shrink-0 items-center justify-center rounded-full border px-4 py-2.5 text-sm font-semibold leading-5 transition-all duration-200 ${
                   isActive
-                    ? "border-violet-600 bg-violet-600 text-white shadow-sm"
-                    : "border-slate-200 bg-white/90 text-slate-700 hover:border-sky-300 hover:bg-sky-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200 dark:hover:border-cyan-500/40 dark:hover:bg-cyan-500/10"
+                    ? "border-blue-500 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_22px_rgba(59,130,246,0.22)]"
+                    : "border-slate-200/80 bg-white/70 text-muted-foreground hover:border-blue-400/50 hover:bg-blue-500/[0.06] hover:text-foreground dark:border-[#202b40] dark:bg-[#0d1320]/80 dark:hover:border-blue-400/40 dark:hover:bg-blue-500/[0.08]"
                 }`}
               >
                 {category}
@@ -261,16 +308,6 @@ export default function IntegrationsPage() {
           })}
         </div>
 
-
-        {/* Results */}
-        <div className="mb-5 flex items-center justify-between gap-3">
-          <p className="text-sm text-muted-foreground">
-            {filteredIntegrations.length} integrations
-          </p>
-          <span className="text-xs text-muted-foreground">
-            Browse available connectors
-          </span>
-        </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {filteredIntegrations.map((integration) => {
@@ -286,7 +323,7 @@ export default function IntegrationsPage() {
               //     href={`/integrations/${integration.name
               //       .toLowerCase()
               //       .replace(/\s+/g, "-")}`}
-              //     className="group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              //     className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-[22px] border border-slate-200/80 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_18px_48px_rgba(37,99,235,0.12)] dark:border-[#202b40] dark:bg-gradient-to-br dark:from-[#0e1728] dark:via-[#0b1220] dark:to-[#0a101c] dark:hover:border-blue-400/50 dark:hover:shadow-[0_18px_48px_rgba(37,99,235,0.14)]"
               //   >
               <Link
                 key={integration.name}
@@ -298,48 +335,57 @@ export default function IntegrationsPage() {
                         .replace(/\./g, "-")
                         .replace(/\s+/g, "-")
                 }`}
-                className="group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-[22px] border border-slate-200/80 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_18px_48px_rgba(37,99,235,0.12)] dark:border-[#202b40] dark:bg-gradient-to-br dark:from-[#0e1728] dark:via-[#0b1220] dark:to-[#0a101c] dark:hover:border-blue-400/50 dark:hover:shadow-[0_18px_48px_rgba(37,99,235,0.14)]"
               >
-                <div className="flex items-start justify-between gap-3">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-blue-500/[0.08] to-transparent opacity-70 transition-opacity group-hover:opacity-100 dark:from-blue-500/[0.12]"
+                />
+                <div className="relative flex items-start justify-between gap-3">
                   {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/15 text-primary">
                     <Icon className="h-6 w-6" />
                   </div> */}
                   
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-card p-2">
+                  <div className="mb-1 flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white p-2.5 shadow-sm transition duration-300 group-hover:border-blue-300 group-hover:shadow-[0_0_24px_rgba(59,130,246,0.12)] dark:border-[#293650] dark:bg-[#f8fafc] dark:group-hover:border-blue-400/60 dark:group-hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]">
                     <img
                       src={`https://www.google.com/s2/favicons?domain=${integration.domain}&sz=128`}
                       alt={`${integration.name} logo`}
-                      className="h-9 w-9 object-fit"
+                      className="h-9 w-9 object-contain"
                       loading="lazy"
                     />
                   </div>
 
 
                   <span
-                    className={`rounded-full px-2.5 py-1 text-[11px] font-bold ${
-                      integration.status === "Available"
+                    className={`inline-flex items-center gap-1.5 rounded-full border border-transparent px-3 py-1.5 text-xs font-semibold ${
+                      integration.status === "Live"
                         ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                        : "bg-amber-500/10 text-amber-700 dark:text-amber-400"
+                        : integration.status === "Available"
+                          ? "bg-sky-500/10 text-sky-600 dark:text-sky-400"
+                          : "bg-amber-500/10 text-amber-700 dark:text-amber-400"
                     }`}
                   >
+                    {integration.status === "Live" && (
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    )}
                     {integration.status}
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-lg font-bold">
+                <h3 className="relative mt-5 text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-300">
                   {integration.name}
                 </h3>
 
-                <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">
+                <p className="relative mt-2 min-h-[76px] text-sm leading-6 text-muted-foreground">
                   {integration.description}
                 </p>
 
-                <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
-                  <span className="text-xs font-medium text-muted-foreground">
+                <div className="relative mt-auto flex items-center justify-between gap-3 border-t border-slate-200/80 pt-4 dark:border-[#202b40]">
+                  <span className="max-w-[60%] text-xs font-medium text-muted-foreground">
                     {integration.category}
                   </span>
 
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-300">
                     Explore
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
@@ -373,7 +419,7 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Guided onboarding */}
-      <section className="border-t border-slate-200 bg-slate-100/70 dark:border-white/10 dark:bg-[#101016]">
+      <section className="border-t border-slate-200/70 bg-slate-50/70 dark:border-white/[0.07] dark:bg-[#090e18]">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
