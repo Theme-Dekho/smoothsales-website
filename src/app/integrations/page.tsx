@@ -9,6 +9,7 @@ import {
   Zap,
   CheckCircle2,
   Plug,
+  Database
 } from "lucide-react";
 import { RichFooter } from "@/components/marketing/final-cta-section";
 
@@ -269,23 +270,7 @@ export default function IntegrationsPage() {
           </p>
         </div>
 
-        {/* Category filters */}
-        {/* <div className="mb-8 flex gap-2 overflow-x-auto pb-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              type="button"
-              onClick={() => setActiveCategory(category)}
-              className={`shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                activeCategory === category
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-card text-muted-foreground hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div> */}
+
         <div className="mb-8 flex flex-wrap items-center gap-2.5">
           {categories.map((category) => {
             const isActive = activeCategory === category;
@@ -310,87 +295,118 @@ export default function IntegrationsPage() {
 
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {/* <div className="grid grid-cols-1 gap-5"> */}
           {filteredIntegrations.map((integration) => {
             // const Icon = integration.icon;
 
-            return (
-              // <article
-              //   key={integration.name}
-              //   className="cursor-pointer group rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
-              // >
-              // <Link
-              //     key={integration.name}
-              //     href={`/integrations/${integration.name
-              //       .toLowerCase()
-              //       .replace(/\s+/g, "-")}`}
-              //     className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-[22px] border border-slate-200/80 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_18px_48px_rgba(37,99,235,0.12)] dark:border-[#202b40] dark:bg-gradient-to-br dark:from-[#0e1728] dark:via-[#0b1220] dark:to-[#0a101c] dark:hover:border-blue-400/50 dark:hover:shadow-[0_18px_48px_rgba(37,99,235,0.14)]"
-              //   >
-              <Link
-                key={integration.name}
-                href={`/integrations/${
-                  integration.name === "Meta Conversion API"
-                    ? "meta-capi"
-                    : integration.name
-                        .toLowerCase()
-                        .replace(/\./g, "-")
-                        .replace(/\s+/g, "-")
-                }`}
-                className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-[22px] border border-slate-200/80 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-[0_18px_48px_rgba(37,99,235,0.12)] dark:border-[#202b40] dark:bg-gradient-to-br dark:from-[#0e1728] dark:via-[#0b1220] dark:to-[#0a101c] dark:hover:border-blue-400/50 dark:hover:shadow-[0_18px_48px_rgba(37,99,235,0.14)]"
-              >
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-blue-500/[0.08] to-transparent opacity-70 transition-opacity group-hover:opacity-100 dark:from-blue-500/[0.12]"
-                />
-                <div className="relative flex items-start justify-between gap-3">
-                  {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/15 text-primary">
-                    <Icon className="h-6 w-6" />
-                  </div> */}
-                  
-                  <div className="mb-1 flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white p-2.5 shadow-sm transition duration-300 group-hover:border-blue-300 group-hover:shadow-[0_0_24px_rgba(59,130,246,0.12)] dark:border-[#293650] dark:bg-[#f8fafc] dark:group-hover:border-blue-400/60 dark:group-hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]">
-                    <img
-                      src={`https://www.google.com/s2/favicons?domain=${integration.domain}&sz=128`}
-                      alt={`${integration.name} logo`}
-                      className="h-9 w-9 object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-
-
-                  <span
-                    className={`inline-flex items-center gap-1.5 rounded-full border border-transparent px-3 py-1.5 text-xs font-semibold ${
-                      integration.status === "Live"
-                        ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                        : integration.status === "Available"
-                          ? "bg-sky-500/10 text-sky-600 dark:text-sky-400"
-                          : "bg-amber-500/10 text-amber-700 dark:text-amber-400"
+            return (  
+                  <Link
+                    key={integration.name}
+                    href={`/integrations/${
+                      integration.name === "Meta Conversion API"
+                        ? "meta-capi"
+                        : integration.name.toLowerCase().replace(/\./g, "-").replace(/\s+/g, "-")
                     }`}
+                    // className="group relative flex min-h-[340px] flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-xl hover:shadow-blue-500/10 dark:border-[#34415b] dark:bg-gradient-to-br dark:from-[#111d30] dark:to-[#0c1525]"
+                    // className="group relative flex min-h-[360px] flex-col overflow-hidden rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-xl hover:shadow-blue-500/10 dark:border-[#344563] dark:bg-gradient-to-br dark:from-[#192438] dark:to-[#111a2b]"
+                    className="group relative isolate flex min-h-[280px] flex-col overflow-hidden rounded-[28px] border border-slate-300/80 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60 hover:shadow-xl hover:shadow-blue-500/10 dark:border-[#344563] dark:bg-gradient-to-br dark:from-[#192438] dark:to-[#111a2b] sm:p-5"
                   >
-                    {integration.status === "Live" && (
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    )}
-                    {integration.status}
-                  </span>
-                </div>
+                    <div className="relative flex items-start justify-between gap-3">
+                      {/* <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-white/10">
+                        <img
+                          src={`https://www.google.com/s2/favicons?domain=${integration.domain}&sz=128`}
+                          alt={`${integration.name} logo`}
+                          className="h-11 w-11 object-contain"
+                          loading="lazy"
+                        />
+                      </div> */}
+                      
+                      {/* <div className="relative flex items-start gap-6 pt-8">
+                        <div className="flex h-28 w-28 shrink-0 items-center justify-center border-r border-slate-200 pr-6 dark:border-[#344563]">
+                          <img
+                            src={`https://www.google.com/s2/favicons?domain=${integration.domain}&sz=256`}
+                            alt={`${integration.name} logo`}
+                            className="h-20 w-20 rounded-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
 
-                <h3 className="relative mt-5 text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-300">
-                  {integration.name}
-                </h3>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                            {integration.name}
+                          </h3>
 
-                <p className="relative mt-2 min-h-[76px] text-sm leading-6 text-muted-foreground">
-                  {integration.description}
-                </p>
+                          <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
+                            {integration.description}
+                          </p>
+                        </div>
 
-                <div className="relative mt-auto flex items-center justify-between gap-3 border-t border-slate-200/80 pt-4 dark:border-[#202b40]">
-                  <span className="max-w-[60%] text-xs font-medium text-muted-foreground">
-                    {integration.category}
-                  </span>
+                        <span
+                          className={`absolute right-0 top-[-12px] inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${
+                            integration.status === "Live"
+                              ? "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-300"
+                              : "bg-amber-500/10 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300"
+                          }`}
+                        >
+                          <span
+                            className={`h-2.5 w-2.5 rounded-full ${
+                              integration.status === "Live" ? "bg-emerald-400" : "bg-amber-400"
+                            }`}
+                          />
+                          {integration.status}
+                        </span>
+                      </div> */}
+                      {/* <div className="relative flex flex-1 items-start gap-4 pt-10"> */}
+                      <div className="relative flex items-start gap-4 pt-6">
+                        {/* <div className="flex h-24 w-20 shrink-0 items-center justify-center border-r border-slate-200 pr-4 dark:border-[#344563]"> */}
+                        <div className="flex h-20 w-[68px] shrink-0 items-center justify-center border-r border-slate-200 pr-3 dark:border-[#344563]">
+                          <img
+                            src={`https://www.google.com/s2/favicons?domain=${integration.domain}&sz=256`}
+                            alt={`${integration.name} logo`}
+                            className="h-14 w-14 rounded-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
 
-                  <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-300">
-                    Explore
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </Link>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="break-words text-lg font-bold leading-snug tracking-tight text-slate-900 dark:text-white">
+                            {integration.name}
+                          </h3>
+
+                          <p className="mt-3 break-words text-sm leading-6 text-slate-600 dark:text-slate-300">
+                            {integration.description}
+                          </p>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div 
+                    className="relative mt-auto grid grid-cols-[1fr_auto] items-center gap-3 border-t border-slate-200 pt-5 dark:border-[#344563]"
+                    // className="relative mt-6 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 border-t border-slate-200 pt-5 dark:border-[#344563]"
+                    >
+                      <div className="flex min-w-0 items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
+                        <Database className="h-7 w-7 shrink-0 text-blue-500" />
+                        <span>{integration.category}</span>
+                      </div>
+
+                      {/* <span className="flex items-center gap-2 border-l border-slate-200 pl-4 text-base font-bold text-blue-600 dark:border-[#344563] dark:text-blue-400">
+                        Explore
+                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-white transition-transform group-hover:translate-x-1">
+                          <ArrowRight className="h-5 w-5" />
+                        </span>
+                      </span> */}
+                      <span className="flex items-center gap-1.5 border-l border-slate-200 pl-3 text-sm font-semibold text-blue-600 dark:border-[#344563] dark:text-blue-400">
+                        Explore
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-white transition-transform group-hover:translate-x-1">
+                          <ArrowRight className="h-4 w-4" />
+                        </span>
+                      </span>
+                    </div>
+
+                  </Link>
+
             );
           })}
         </div>

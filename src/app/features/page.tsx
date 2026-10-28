@@ -368,7 +368,7 @@ export default function FeaturesPage() {
                       src={iconImage}
                       alt=""
                       aria-hidden="true"
-                      className="h-6 w-6 object-contain"
+                      className="h-20 w-20 object-contain"
                     />
                   </div>
                   <h3 className="text-base font-extrabold text-slate-900 dark:text-white">{title}</h3>
@@ -386,114 +386,105 @@ export default function FeaturesPage() {
           </div>
         </div>
       </section>
-
+      
+      
       {/* Workflow */}
-      {/* <section className="border-y border-slate-100 dark:border-white/10 bg-slate-50 dark:bg-slate-950/50 px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative overflow-hidden border-y border-slate-200 bg-slate-50 px-5 py-16 sm:px-8 sm:py-20 lg:px-10 dark:border-white/10 dark:bg-[#101018]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_55%)]" />
+
+        <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="How It Works"
             title="Simple Workflow, Powerful Results"
             description="From lead capture to closed customer—manage every step in one smooth process."
           />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {workflow.map(({ number, title, description, icon: Icon, color }, index) => (
-              <div key={number} className="relative">
-                <article className="h-full rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 px-5 pb-6 pt-8 text-center shadow-sm">
-                  <span className={`mx-auto flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white shadow-md ${color === "blue" ? "bg-blue-600" : color === "green" ? "bg-emerald-50 dark:bg-emerald-500/100" : color === "orange" ? "bg-orange-50 dark:bg-orange-500/100" : "bg-violet-600"}`}>
+
+          <div className="grid grid-cols-2 gap-x-4 gap-y-12 md:grid-cols-4 md:gap-x-8">
+            {workflow.map(({ number, title, description, image, color }, index) => (
+              <div
+                key={number}
+                className="group relative flex flex-col items-center"
+              >
+                {/* Circular workflow stage */}
+                <article
+                  // className={`relative flex aspect-square w-full max-w-[185px] flex-col items-center justify-center rounded-full border-2 border-slate-200 bg-white p-5 text-center shadow-md transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/20 motion-safe:animate-[workflowFloat_4s_ease-in-out_infinite] dark:border-[#26344d] dark:bg-gradient-to-br dark:from-[#151e32] dark:to-[#111827] dark:hover:border-blue-400/60 ${
+                  //   index % 2 === 1 ? "motion-safe:[animation-delay:1s]" : ""
+                  // }`}
+                  className={`relative flex aspect-square w-full max-w-[185px] cursor-pointer flex-col items-center justify-center rounded-full bg-transparent p-5 text-center transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 motion-safe:animate-[workflowFloat_4s_ease-in-out_infinite] ${
+                    index % 2 === 1 ? "motion-safe:[animation-delay:1s]" : ""
+                  }`}
+                >
+                  {/* Step number */}
+                  {/* <span
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white shadow-lg transition-transform duration-300 group-hover:scale-110 ${
+                      color === "blue"
+                        ? "bg-blue-600"
+                        : color === "green"
+                          ? "bg-emerald-500"
+                          : color === "orange"
+                            ? "bg-orange-500"
+                            : "bg-violet-600"
+                    }`}
+                  >
                     {number}
-                  </span>
-                  <div className={`mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-xl ring-1 ${colorStyles[color]}`}>
-                    <Icon className="h-6 w-6" />
+                  </span> */}
+
+                  {/* Existing workflow image */}
+                  <div
+                    className={`mt-3 flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110 ${colorStyles[color]}`}
+                  >
+                    <img
+                      src={image}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-8 w-8 object-contain"
+                      loading="lazy"
+                    />
                   </div>
-                  <h3 className="mt-4 text-base font-extrabold text-slate-900 dark:text-white">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{description}</p>
+
+                  {/* Stage title */}
+                  <h3 className="mt-3 text-sm font-bold leading-snug tracking-tight text-slate-900 dark:text-white sm:text-base">
+                    {title}
+                  </h3>
+
+                  {/* Description appears inside the circle on hover/focus */}
+                  <p 
+                  className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-full bg-white/95 p-6 text-sm leading-6 text-slate-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 dark:bg-[#111a2b]/95 dark:text-slate-200"
+                  >
+                    {description}
+                  </p>
                 </article>
+
+                {/* Description below the circle */}
+                {/* <p className="mt-4 max-w-[220px] text-center text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  {description}
+                </p> */}
+
+                {/* Connecting arrow between circles */}
                 {index < workflow.length - 1 && (
-                  <ArrowRight className="absolute -right-4 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-blue-800 lg:block" />
+                  <div className="pointer-events-none absolute -right-4 top-[110px] z-10 hidden -translate-y-1/2 lg:block xl:-right-5">
+                    <ArrowRight className="h-5 w-5 text-blue-500 dark:text-blue-400" />
+                  </div>
                 )}
               </div>
             ))}
           </div>
         </div>
-      </section> */}
+
+        {/* Floating animation */}
+        <style jsx>{`
+          @keyframes workflowFloat {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-5px);
+            }
+          }
+        `}</style>
+      </section>
       
-        <section 
-        // className="relative overflow-hidden border-y border-slate-200 bg-[#101018] px-5 py-16 sm:px-8 sm:py-20 lg:px-10 dark:border-white/10"
-        className="relative overflow-hidden border-y border-slate-200 bg-slate-50 px-5 py-16 sm:px-8 sm:py-20 lg:px-10 dark:border-white/10 dark:bg-[#101018]"
-        >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_55%)]" />
-
-          <div className="relative mx-auto max-w-7xl">
-            <SectionHeading
-              eyebrow="How It Works"
-              title="Simple Workflow, Powerful Results"
-              description="From lead capture to closed customer—manage every step in one smooth process."
-            />
-
-            <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-4">
-              {workflow.map(({ number, title, description, image, color }, index) => (
-                <div key={number} className="relative h-full">
-                  <article 
-                  // className="group flex h-full flex-col items-center rounded-2xl border border-[#26344d] bg-gradient-to-b from-[#151e32] to-[#111827] px-5 pb-7 pt-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-[0_16px_40px_rgba(37,99,235,0.10)] sm:px-6"
-                  className="group flex h-full flex-col items-center rounded-2xl border border-slate-200 bg-white px-5 pb-7 pt-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-900/[0.06] sm:px-6 dark:border-[#26344d] dark:bg-gradient-to-b dark:from-[#151e32] dark:to-[#111827] dark:hover:border-blue-400/40 dark:hover:shadow-[0_16px_40px_rgba(37,99,235,0.10)]"
-                  >
-                    <span
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white shadow-lg ring-4 ring-white/[0.03] ${
-                        color === "blue"
-                          ? "bg-blue-600"
-                          : color === "green"
-                            ? "bg-emerald-500"
-                            : color === "orange"
-                              ? "bg-orange-500"
-                              : "bg-violet-600"
-                      }`}
-                    >
-                      {number}
-                    </span>
-
-                    <div
-                      // className={`mt-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 group-hover:scale-105 group-hover:border-white/20 ${colorStyles[color]}`}
-                      className={`mt-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 transition-all duration-300 group-hover:scale-105 group-hover:border-blue-200 dark:border-white/10 dark:bg-white/[0.03] dark:group-hover:border-white/20 ${colorStyles[color]}`}
-                    >
-                      {/* <Icon className="h-6 w-6" /> */}
-                      <img
-                      src={image}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-110"
-                    />
-                    </div>
-
-                    <h3 
-                    // className="mt-5 text-lg font-bold tracking-tight text-white"
-                    className="mt-5 text-lg font-bold tracking-tight text-slate-900 dark:text-white"
-                    >
-                      {title}
-                    </h3>
-
-                    <p 
-                    // className="mt-3 max-w-xs text-sm leading-6 text-slate-300"
-                    className="mt-3 max-w-xs text-sm leading-6 text-slate-600 dark:text-slate-300"
-                    >
-                      {description}
-                    </p>
-                  </article>
-
-                  {/* {index < workflow.length - 1 && (
-                    <ArrowRight className="absolute -right-4 top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 text-blue-400/80 lg:block" />
-                  )} */}
-                  {index < workflow.length - 1 && (
-                    <div className="pointer-events-none absolute -right-[22px] top-1/2 z-10 hidden -translate-y-1/2 lg:flex lg:w-5 lg:items-center lg:justify-center">
-                      <ArrowRight className="h-5 w-5 text-blue-400/80" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-
+       
       {/* Final CTA */}
       <section className="relative isolate overflow-hidden bg-gradient-to-br from-sky-50 via-background to-blue-100 dark:from-slate-950 dark:via-background dark:to-slate-900 px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
         <div className="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-blue-200/50 blur-3xl" />
