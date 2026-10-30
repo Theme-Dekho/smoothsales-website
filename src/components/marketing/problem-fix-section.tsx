@@ -8,6 +8,14 @@ import { MARKETING_LEAKS, LiveFeedEvent } from "@/lib/mock-data/marketing-leaks"
 export function ProblemFixSection() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const currentLeak = MARKETING_LEAKS[activeIndex] || MARKETING_LEAKS[0];
+  // Automatically rotate through all four tabs every 5 seconds
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % MARKETING_LEAKS.length);
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }, []);
 
   const [feedEvents, setFeedEvents] = useState<LiveFeedEvent[]>(() => currentLeak.liveFeedEvents);
 
@@ -80,7 +88,7 @@ export function ProblemFixSection() {
             <span>From Lead to Close</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold tracking-tight leading-[1.15]">
+          {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold tracking-tight leading-[1.15]">
             Your sales process is{" "}
             <span className="bg-gradient-to-r from-[#FF9A7D] via-[#F0604A] to-[#E24A34] bg-clip-text text-transparent">
               leaking money.
@@ -88,11 +96,21 @@ export function ProblemFixSection() {
             <span className="bg-gradient-to-r from-[#C7D2FE] via-[#BAE6FD] to-[#A5F3FC] bg-clip-text text-transparent">
               Here&apos;s where.
             </span>
+          </h2> */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold tracking-tight leading-[1.15]">
+            From the first lead to the{" "}
+            <span className="bg-gradient-to-r from-[#FF9A7D] via-[#F0604A] to-[#E24A34] bg-clip-text text-transparent">
+              final deal.
+            </span>
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#9A9CAE] max-w-xl mx-auto leading-relaxed px-2 sm:px-0">
+          {/* <p className="text-xs sm:text-sm text-[#9A9CAE] max-w-xl mx-auto leading-relaxed px-2 sm:px-0">
             Four quiet leaks drain revenue between a new inbound lead and a closed deal.
             Pick one — see the SmoothSales fix in action.
+          </p> */}
+          <p className="text-xs sm:text-sm text-[#9A9CAE] max-w-xl mx-auto leading-relaxed px-2 sm:px-0">
+            Capture every enquiry, automate the busywork, stay on top of follow-ups and
+            see the full picture — all in one place.
           </p>
         </div>
 
@@ -154,7 +172,8 @@ export function ProblemFixSection() {
                       {currentLeak.leakLabel}
                     </span>
                     <span className="text-[10.5px] text-white/40 font-mono">
-                      · Critical Pipeline Leak
+                      {/* · Critical Pipeline Leak */}
+                      · {currentLeak.category}
                     </span>
                   </div>
 
@@ -165,6 +184,51 @@ export function ProblemFixSection() {
                   <p className="text-xs text-[#B0B2C2] leading-relaxed">
                     {currentLeak.description}
                   </p>
+                  
+                    {/* Metrics Cards */}
+                    <div
+                      className="grid gap-3 my-6"
+                      style={{
+                        gridTemplateColumns: `repeat(${currentLeak.metrics.length}, minmax(0, 1fr))`,
+                      }}
+                    >
+                      {currentLeak.metrics.map((metric, index) => (
+                        <div
+                          key={metric.label}
+                          className={`flex items-center gap-2.5 min-h-[76px] p-3 rounded-[12px] border ${
+                            index === 1 && currentLeak.metrics.length === 2
+                              ? "border-[#8c38ff] bg-gradient-to-r from-[#21103d] to-[#111020]"
+                              : "border-[#008fda] bg-gradient-to-r from-[#08253c] to-[#091526]"
+                          }`}
+                        >
+                          <div
+                            className={`w-9 h-9 shrink-0 flex items-center justify-center rounded-[9px] text-xl ${
+                              index === 1 && currentLeak.metrics.length === 2
+                                ? "bg-[#7826b955] text-[#d7a7ff]"
+                                : "bg-[#0877bd55] text-[#7ce2ff]"
+                            }`}
+                          >
+                            {metric.icon}
+                          </div>
+
+                          <div className="min-w-0">
+                            <strong className="block text-base sm:text-lg font-extrabold leading-tight tracking-tight">
+                              {metric.value}
+                            </strong>
+                            <small
+                              className={`block mt-0.5 text-[9px] sm:text-[11px] ${
+                                index === 1 && currentLeak.metrics.length === 2
+                                  ? "text-[#d3b8ff]"
+                                  : "text-[#a9e8ff]"
+                              }`}
+                            >
+                              {metric.label}
+                            </small>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
 
                   {/* Divider with The SmoothSales Fix */}
                   <div className="pt-2.5 border-t border-white/10 space-y-2">
@@ -196,11 +260,17 @@ export function ProblemFixSection() {
                     {currentLeak.impactStat}
                   </div>
                   <div className="space-y-0.5">
-                    <div className="text-[9px] uppercase font-mono tracking-widest text-sky-300 font-bold">
+                    {/* <div className="text-[9px] uppercase font-mono tracking-widest text-sky-300 font-bold">
                       Proven Measurable Impact
                     </div>
                     <div className="text-xs font-semibold text-white/90">
                       {currentLeak.impactLabel}
+                    </div> */}
+                    <div className="text-[9px] uppercase font-mono tracking-widest text-sky-300 font-bold">
+                      {currentLeak.impactLabel}
+                    </div>
+                    <div className="text-xs font-semibold text-white/90">
+                      {currentLeak.impactCopy}
                     </div>
                   </div>
                 </div>
@@ -282,9 +352,11 @@ export function ProblemFixSection() {
                 <div className="pt-2.5 mt-1 border-t border-white/10 flex items-center justify-between text-[9.5px] text-white/50 font-mono">
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Meta Webhook &amp; SLA Engine Active
+                    {/* Meta Webhook &amp; SLA Engine Active */}
+                    {currentLeak.feedStatus}
                   </span>
-                  <span>Latency: ~140ms</span>
+                  {/* <span>Latency: ~140ms</span> */}
+                  <span>{currentLeak.latency}</span>
                 </div>
               </div>
             </motion.div>
