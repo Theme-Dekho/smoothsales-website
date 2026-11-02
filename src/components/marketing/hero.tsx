@@ -87,11 +87,12 @@ export function Hero() {
               <span className="block">Captures Every Lead.</span>
               <span className="block">Automates Every Follow-Up.</span>
 
-              <span className="relative inline-block bg-gradient-to-r from-fuchsia-500 via-purple-500 to-violet-600 bg-clip-text text-transparent">
+              {/* <span className="relative inline-block bg-gradient-to-r from-fuchsia-500 via-purple-500 to-violet-600 bg-clip-text text-transparent"> */}
+              <span className="relative inline-block text-[#255C7E]">
                 Closes More Deals.
 
                 <svg
-                  className="absolute -bottom-1 sm:-bottom-1.5 left-0 w-full h-2 sm:h-2.5 text-purple-500 overflow-visible"
+                  className="absolute -bottom-1 sm:-bottom-1.5 left-0 w-full h-2 sm:h-2.5 text-[#255C7E]"
                   viewBox="0 0 260 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +194,7 @@ export function Hero() {
                   <div className="w-2.5 h-2.5 rounded bg-primary flex items-center justify-center text-[7px] font-bold text-white">
                     S
                   </div>
-                  <span>app.smoothsales.ai</span>
+                  <span>app.smoothsales</span>
                 </div>
                 {/* Windows-style Window Controls */}
                 <div className="flex items-center gap-2 text-white/40 text-[10px] font-mono pr-1">

@@ -195,14 +195,20 @@ export function ProblemFixSection() {
                       {currentLeak.metrics.map((metric, index) => (
                         <div
                           key={metric.label}
-                          className={`flex items-center gap-2.5 min-h-[76px] p-3 rounded-[12px] border ${
+                          // className={`flex items-center gap-2.5 min-h-[76px] p-3 rounded-[12px] border ${
+                          //   index === 1 && currentLeak.metrics.length === 2
+                          //     ? "border-[#8c38ff] bg-gradient-to-r from-[#21103d] to-[#111020]"
+                          //     : "border-[#008fda] bg-gradient-to-r from-[#08253c] to-[#091526]"
+                          // }`}
+                          className={`flex min-w-0 flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-2.5 min-h-[76px] p-2 sm:p-3 rounded-[12px] border ${
                             index === 1 && currentLeak.metrics.length === 2
                               ? "border-[#8c38ff] bg-gradient-to-r from-[#21103d] to-[#111020]"
                               : "border-[#008fda] bg-gradient-to-r from-[#08253c] to-[#091526]"
                           }`}
                         >
                           <div
-                            className={`w-9 h-9 shrink-0 flex items-center justify-center rounded-[9px] text-xl ${
+                            // className={`w-9 h-9 shrink-0 flex items-center justify-center rounded-[9px] text-xl ${
+                            className={`w-8 h-8 sm:w-9 sm:h-9 shrink-0 flex items-center justify-center rounded-[9px] text-lg sm:text-xl ${
                               index === 1 && currentLeak.metrics.length === 2
                                 ? "bg-[#7826b955] text-[#d7a7ff]"
                                 : "bg-[#0877bd55] text-[#7ce2ff]"
@@ -211,12 +217,16 @@ export function ProblemFixSection() {
                             {metric.icon}
                           </div>
 
-                          <div className="min-w-0">
-                            <strong className="block text-base sm:text-lg font-extrabold leading-tight tracking-tight">
+                          <div className="min-w-0 w-full">
+                            <strong 
+                            // className="block text-base sm:text-lg font-extrabold leading-tight tracking-tight"
+                            className="block text-sm sm:text-lg font-extrabold leading-tight tracking-tight break-words"
+                            >
                               {metric.value}
                             </strong>
                             <small
-                              className={`block mt-0.5 text-[9px] sm:text-[11px] ${
+                              // className={`block mt-0.5 text-[9px] sm:text-[11px] ${
+                              className={`block mt-0.5 text-[9px] sm:text-[11px] leading-tight break-words ${
                                 index === 1 && currentLeak.metrics.length === 2
                                   ? "text-[#d3b8ff]"
                                   : "text-[#a9e8ff]"
