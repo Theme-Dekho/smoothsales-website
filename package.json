@@ -5,7 +5,8 @@
   "description": "SmoothSales.ai Marketing & Public Website Microservice (smoothsales.ai)",
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "prebuild": "node -e \"const fs = require('fs'); try { fs.rmSync('.next', { recursive: true, force: true }); } catch (e) {}\"",
+    "build": "next build || next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
