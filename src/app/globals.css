@@ -6,25 +6,27 @@
   :root {
     /* --font-sans: var(--font-inter), Arial, sans-serif; */
     --font-sans: var(--font-roboto), Arial, sans-serif;
-    --background: 40 20% 96%;        /* #F6F4F0 - paper */
-    --foreground: 25 10% 12%;        /* #211D1A - ink */
-    --card: 0 0% 100%;               /* #FFFFFF - surface */
-    --card-foreground: 25 10% 12%;
+    --background: 210 40% 98%;         /* #f8fafc - Slate 50 ultra-clean canvas */
+    --foreground: 222.2 47.4% 11.2%;   /* #0f172a - Slate 900 high-definition ink */
+    --card: 0 0% 100%;                 /* #ffffff - pure white elevated card */
+    --card-foreground: 222.2 47.4% 11.2%;
     --popover: 0 0% 100%;
-    --popover-foreground: 25 10% 12%;
-    --primary: 203 55% 32%;          /* #24567E - cobalt */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 15% 92%;         /* slate-soft */
-    --secondary-foreground: 25 10% 12%;
-    --muted: 40 15% 92%;
-    --muted-foreground: 30 8% 45%;   /* #6B655C - ink-soft */
-    --accent: 203 40% 92%;           /* #E8EFF4 - cobalt-soft */
-    --accent-foreground: 203 55% 32%;
-    --destructive: 5 42% 45%;        /* #A8453B - clay */
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    /* Brand Accent: Royal Cobalt Blue (Logo-Matched) */
+    --primary: 221.2 83.2% 53.3%;      /* #2563eb - vibrant royal cobalt blue */
+    --primary-foreground: 210 40% 98%; /* #ffffff */
+    --secondary: 210 40% 96.1%;        /* #f1f5f9 - Slate 100 soft surface */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%; /* #64748b - Slate 500 */
+    --accent: 214 95% 93%;             /* #eff6ff - soft ice-blue active wash */
+    --accent-foreground: 224 76% 48%;  /* #1d4ed8 - bold royal cobalt */
+    --destructive: 0 84.2% 60.2%;      /* #ef4444 */
     --destructive-foreground: 0 0% 100%;
-    --border: 40 15% 87%;            /* #E2DED6 - line */
-    --input: 40 15% 87%;
-    --ring: 203 55% 32%;
+    --border: 214.3 31.8% 91.4%;       /* #e2e8f0 - Slate 200 crisp divider */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
 
     /* Custom extended tokens for lead/deal status semantics — NOT part of default shadcn */
