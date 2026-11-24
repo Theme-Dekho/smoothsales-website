@@ -201,7 +201,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LeadModalProvider>
             <GoogleAdsTracker />
-            <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground flex flex-col antialiased relative">
+            <div className="min-h-screen w-full overflow-x-clip bg-background text-foreground flex flex-col antialiased relative">
               <MarketingNavbar />
               <main 
               // className="flex-1 w-full overflow-x-hidden pb-16 sm:pb-0">
