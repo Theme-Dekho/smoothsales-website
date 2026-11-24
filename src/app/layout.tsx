@@ -196,7 +196,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen w-full overflow-x-hidden bg-background font-sans antialiased text-foreground">
+      <body className="min-h-screen w-full overflow-x-clip bg-background font-sans antialiased text-foreground">
         {/* <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}> */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LeadModalProvider>
