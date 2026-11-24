@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function MarketingLandingPage() {
   return (
-    <div className="flex flex-col min-h-screen w-full overflow-x-hidden bg-slate-50 dark:bg-[#0A0A0F] text-slate-900 dark:text-white transition-colors duration-300">
+    <div className="flex flex-col min-h-screen w-full overflow-x-clip bg-slate-50 dark:bg-[#0A0A0F] text-slate-900 dark:text-white transition-colors duration-300">
       {/* 1 & 2. Above-the-fold First Screen Container: Hero & Stats Band */}
       <section className="min-h-fit lg:h-[100dvh] lg:max-h-[100dvh] flex flex-col justify-between bg-white dark:bg-[#0A0A0F] relative overflow-hidden pt-20 sm:pt-22 lg:pt-14 text-slate-900 dark:text-white transition-colors duration-300 w-full">
         <div className="flex-1 flex items-center justify-center w-full overflow-hidden py-4 sm:py-6 lg:py-0">
